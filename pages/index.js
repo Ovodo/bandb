@@ -25,6 +25,23 @@ import InsightsCard from "@/Components/InsightsCard";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ sheetData }) {
+  const [screenWidth, setScreenWidth] = useState(1000);
+  const { ref, inView } = useInView({ threshold: 0.2 });
+  const animation = useAnimation();
+  const animation2 = useAnimation();
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    setScreenWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   const imageLoader = ({ src, width, quality }) => {
     return `${src}?w=${width}&q=${quality || 75}`;
   };
