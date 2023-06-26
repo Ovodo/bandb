@@ -96,11 +96,26 @@ export default function Home({ sheetData }) {
       </div>
       <section className=' mx-[2vw] flex  flex-col md:grid md:grid-cols-2 lg:grid-cols-3 mt-[4vh]'>
         <InsightsCard text={"Historical Anaysis"}></InsightsCard>
-        <InsightsCard text={"Actionable Insight"}></InsightsCard>
+        <InsightsCard text={"Actionable Insight"}>
+          <div className=' flex flex-col justify-between relative bottom-[2vh] items-center self-center h-[85%]'>
+            <div className=' bg-gray-700  relative top-[10vh] w-[65%] h-[12%]'>
+              <div className='bg-green-600 w-[30%] h-full'></div>
+            </div>
+            <p className='self-center relative top-[5vh] text-[20px] font-[600] text-green-600'>
+              Buy the Dip
+            </p>
+            <div className=' bg-gray-700  relative top-[5vh] w-[65%] h-[12%]'>
+              <div className='bg-red-600 w-[30%] h-full'></div>
+            </div>
+            <p className='self-center  text-[20px] font-[600] text-red-600'>
+              Sell the Pump
+            </p>
+          </div>
+        </InsightsCard>
         <InsightsCard text={"Market Sentiment"}></InsightsCard>
-        <InsightsCard text={"Market Analysis"}></InsightsCard>
-        <InsightsCard text={"Social Analysis Summary"}></InsightsCard>
-        <InsightsCard text={"Relative Strenght Index"}></InsightsCard>
+        <InsightsCard insights text={"Market Analysis"}></InsightsCard>
+        <InsightsCard insights text={"Social Analysis Summary"}></InsightsCard>
+        <InsightsCard insights text={"Relative Strenght Index"}></InsightsCard>
       </section>
     </main>
   );

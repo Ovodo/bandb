@@ -1,12 +1,13 @@
 import React from "react";
 
-const InsightsCard = ({ text, insights = false }) => {
+const InsightsCard = ({ text, children, insights = false }) => {
   return (
-    <div className=' w-[80vw] relative md:w-[35vw] lg:w-[28vw] mx-auto my-[5vh] lg:my-[7vh]  h-[45vh] md:h-[25vh] lg:h-[40vh] bg-slate-200'>
+    <div className=' w-[80vw] relative md:w-[40vw] lg:w-[28vw] mx-auto my-[5vh] lg:my-[7vh]  h-[45vh] md:h-[35vh] lg:h-[40vh] bg-slate-200'>
       <p className='bg-slate-900 py-2 text-center text-white font-medium w-full'>
         {text}
       </p>
-      {!insights ? (
+      {children}
+      {insights ? (
         <div className='absolute bottom-0 flex justify-around w-full border-2'>
           <div className=' flex flex-col justifiy-center items-center'>
             <p className='text-[12px]'>Yesterday</p>
