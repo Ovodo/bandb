@@ -2,7 +2,7 @@
   "name": "bandb",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tricodenetwork.github.io/Tricode/",
+  "homepage": "https://Ovodo.github.io/bandb/",
   "scripts": {
     "deploy": "next build  && npx gh-pages -d out",
     "dev": "next dev",

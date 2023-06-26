@@ -25,46 +25,6 @@ import InsightsCard from "@/Components/InsightsCard";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ sheetData }) {
-  const [screenWidth, setScreenWidth] = useState(0);
-  const { ref, inView } = useInView({ threshold: 0.2 });
-  const animation = useAnimation();
-  const animation2 = useAnimation();
-  useEffect(() => {
-    console.log("inView", inView);
-
-    if (inView) {
-      animation.start({
-        x: 0,
-        transition: { type: "spring", duration: 1.5, bounce: 0.3 },
-      });
-      animation2.start({
-        scale: 1,
-        opacity: 1,
-        transition: { type: "tween", duration: 2.5 },
-      });
-    } else {
-      animation.start({
-        x: `100vw`,
-      });
-      animation2.start({
-        scale: 0,
-        opacity: 0,
-      });
-    }
-  }, [inView, animation, animation2]);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenWidth(window.innerWidth);
-    };
-
-    setScreenWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
   const imageLoader = ({ src, width, quality }) => {
     return `${src}?w=${width}&q=${quality || 75}`;
   };
