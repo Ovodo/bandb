@@ -62,7 +62,7 @@ const Navbar = ({ children }) => {
         <menu>
           <motion.ul
             className='nav-menu md:w-[45vw]'
-            id={showmenu ? "mobile" : "hide"}
+            // id={showmenu ? "mobile" : "hide"}
             whileHover={controls.stop}
           >
             <Link href='/'>
