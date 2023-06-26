@@ -58,41 +58,10 @@ const Navbar = ({ children }) => {
 
   return (
     <div>
-      <motion.nav
-        initial={{ x: 0 }}
-        animate={{ x: [200, 0] }}
-        className='navbar px-[3vw] sticky top-0  '
-      >
-        <div className='logo-menu'>
-          <motion.div
-            initial={{}}
-            animate={{
-              y: [0, -15, 0, -15, 0, -17, 0, -12, 0],
-              // x: [0, 0, 0, 0, 0, 15, 0, 0, 0, 0],
-            }}
-            transition={{
-              delay: 0.1,
-              repeat: 7,
-              duration: 4,
-              // x: { delay: 8, duration: 5, repeat: 2 },
-            }}
-            className='logos text-white'
-          >
-            <Image
-              loader={imageLoader}
-              alt='logo'
-              width={140}
-              height={50}
-              quality={100}
-              className='w-[10vw]'
-              src='https://s3-alpha-sig.figma.com/img/2e73/9077/d05b2e1e064bfe3c08ad9d9c9db5f31f?Expires=1687737600&Signature=gyskcAdMMiWXhuJF1CVGZQEKGuH~-21bWWi52mgPry0dgCblq0Zo8VrA~aA37GraP0i3R1KzJIuC3tiTvk557AjC~eGPyn60wuELAncT-NAfI5eGsLhB4IdjhQrtTEvuJrBiZMLgl~E0oAMYDIVOCBj5nUMIvDzQeXCAIb-LiFVTsgEO3Skh5U4zATOXwMbDISlHlFqD96-QULYgbBFyQpCV4UCCG42NOWavFZNhzPyk5rUYNpzPqpS0P0WnywsZVXa6I4PWJMXNK4lYhCOZ2MdxteqS1zPrk4JEJlczBYHXSQxxxhHrFswLeqQxpDWHD7rhOP7TNl9K0ykLCMPe3w__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
-            />
-          </motion.div>
-        </div>
-
+      <nav className='navbar  sticky top-0  '>
         <menu>
           <motion.ul
-            className='nav-menu'
+            className='nav-menu md:w-[45vw]'
             id={showmenu ? "mobile" : "hide"}
             whileHover={controls.stop}
           >
@@ -111,7 +80,7 @@ const Navbar = ({ children }) => {
                   hideMenu;
                 }}
               >
-                {"< Home / >"}
+                {"Home"}
               </motion.li>
             </Link>
             <Link href='/'>
@@ -128,7 +97,7 @@ const Navbar = ({ children }) => {
                   hideMenu;
                 }}
               >
-                {"< Our Services / >"}
+                {"Cryptocurrencies"}
               </motion.li>
             </Link>
             <Link href='/'>
@@ -145,7 +114,7 @@ const Navbar = ({ children }) => {
                   hideMenu;
                 }}
               >
-                {"< About / >"}
+                {"Learn Crypto"}
               </motion.li>
             </Link>
           </motion.ul>
@@ -156,9 +125,9 @@ const Navbar = ({ children }) => {
           <DrawingComponent />
         </div> */}
         <div className='icon flex border-green-500  items-center'>
-          <MenuIcon color='white' style={{ fontSize: 50, color: "#07F307" }} />
+          {/* <MenuIcon color='white' style={{ fontSize: 50, color: "#07F307" }} /> */}
         </div>
-      </motion.nav>
+      </nav>
       {children}
     </div>
   );
