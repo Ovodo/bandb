@@ -277,32 +277,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _styles_globals_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6764);
 /* harmony import */ var _styles_globals_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_styles_globals_css__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(86);
-/* harmony import */ var _fortawesome_fontawesome_svg_core_styles_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5800);
-/* harmony import */ var _fortawesome_fontawesome_svg_core_styles_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_svg_core_styles_css__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(968);
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _mui_material_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(8442);
-/* harmony import */ var _mui_material_styles__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_mui_material_styles__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _mui_material_CssBaseline__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(4960);
-/* harmony import */ var _mui_material_CssBaseline__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_mui_material_CssBaseline__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _emotion_react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(2805);
-/* harmony import */ var _emotion_react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_emotion_react__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _config_theme__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(1396);
-/* harmony import */ var _config_createEmotionCache__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(8220);
-/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(2796);
-/* harmony import */ var _react_oauth_google__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(6999);
-/* harmony import */ var _react_oauth_google__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_react_oauth_google__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(6022);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var _Components_navbar_components_Navbar__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(1137);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_2__, _Components_navbar_components_Navbar__WEBPACK_IMPORTED_MODULE_13__]);
-([_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_2__, _Components_navbar_components_Navbar__WEBPACK_IMPORTED_MODULE_13__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(968);
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _mui_material_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8442);
+/* harmony import */ var _mui_material_styles__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_mui_material_styles__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _mui_material_CssBaseline__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(4960);
+/* harmony import */ var _mui_material_CssBaseline__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_mui_material_CssBaseline__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _emotion_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(2805);
+/* harmony import */ var _emotion_react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_emotion_react__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _config_theme__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(1396);
+/* harmony import */ var _config_createEmotionCache__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(8220);
+/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(2796);
+/* harmony import */ var _react_oauth_google__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(6999);
+/* harmony import */ var _react_oauth_google__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_react_oauth_google__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(6022);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _Components_navbar_components_Navbar__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(1137);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_Components_navbar_components_Navbar__WEBPACK_IMPORTED_MODULE_11__]);
+_Components_navbar_components_Navbar__WEBPACK_IMPORTED_MODULE_11__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
 
-
-
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_2__.config.autoAddCss = false;
 
 
 
@@ -314,9 +308,9 @@ _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_2__.config.autoAddCss
 
 
 // Client-side cache, shared for the whole session of the user in the browser.
-const clientSideEmotionCache = (0,_config_createEmotionCache__WEBPACK_IMPORTED_MODULE_9__/* ["default"] */ .Z)();
+const clientSideEmotionCache = (0,_config_createEmotionCache__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .Z)();
 function App({ Component , ...rest }) {
-    const { store , props  } = _store_store__WEBPACK_IMPORTED_MODULE_10__/* .wrapper.useWrappedStore */ .Y.useWrappedStore(rest);
+    const { store , props  } = _store_store__WEBPACK_IMPORTED_MODULE_8__/* .wrapper.useWrappedStore */ .Y.useWrappedStore(rest);
     const { emotionCache =clientSideEmotionCache , pageProps  } = props;
     const Layout = ({ Component , pageProps  })=>{
         if (Component.getLayout) {
@@ -329,24 +323,24 @@ function App({ Component , ...rest }) {
             });
         }
     };
-    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_react_oauth_google__WEBPACK_IMPORTED_MODULE_11__.GoogleOAuthProvider, {
+    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_react_oauth_google__WEBPACK_IMPORTED_MODULE_9__.GoogleOAuthProvider, {
         clientId: "704139097438-0r081l07jdsiru0ktse80r813pm6mlm3.apps.googleusercontent.com",
-        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_redux__WEBPACK_IMPORTED_MODULE_12__.Provider, {
+        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_redux__WEBPACK_IMPORTED_MODULE_10__.Provider, {
             store: store,
-            children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_emotion_react__WEBPACK_IMPORTED_MODULE_7__.CacheProvider, {
+            children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_emotion_react__WEBPACK_IMPORTED_MODULE_5__.CacheProvider, {
                 value: emotionCache,
                 children: [
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_head__WEBPACK_IMPORTED_MODULE_4___default()), {
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_head__WEBPACK_IMPORTED_MODULE_2___default()), {
                         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("meta", {
                             name: "viewport",
                             content: "initial-scale=1, width=device-width"
                         })
                     }),
-                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_mui_material_styles__WEBPACK_IMPORTED_MODULE_5__.ThemeProvider, {
-                        theme: _config_theme__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .Z,
+                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_mui_material_styles__WEBPACK_IMPORTED_MODULE_3__.ThemeProvider, {
+                        theme: _config_theme__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z,
                         children: [
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((_mui_material_CssBaseline__WEBPACK_IMPORTED_MODULE_6___default()), {}),
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Components_navbar_components_Navbar__WEBPACK_IMPORTED_MODULE_13__/* ["default"] */ .Z, {
+                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((_mui_material_CssBaseline__WEBPACK_IMPORTED_MODULE_4___default()), {}),
+                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Components_navbar_components_Navbar__WEBPACK_IMPORTED_MODULE_11__/* ["default"] */ .Z, {
                                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Layout, {
                                     Component: Component,
                                     pageProps: pageProps
@@ -442,13 +436,6 @@ const store = (0,toolkit_namespaceObject.configureStore)({
 // export const persistor = persistStore(store);
 const makeStore = ()=>store;
 const wrapper = (0,external_next_redux_wrapper_namespaceObject.createWrapper)(makeStore);
-
-
-/***/ }),
-
-/***/ 5800:
-/***/ (() => {
-
 
 
 /***/ }),
@@ -729,14 +716,6 @@ module.exports = require("react-redux");
 
 "use strict";
 module.exports = require("react/jsx-runtime");
-
-/***/ }),
-
-/***/ 86:
-/***/ ((module) => {
-
-"use strict";
-module.exports = import("@fortawesome/fontawesome-svg-core");;
 
 /***/ }),
 
