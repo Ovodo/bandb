@@ -121,11 +121,11 @@ export default function Home({ sheetData }) {
   );
 }
 
-export async function getServerSideProps({}) {
-  const req = await fetch("http://localhost:3000/api/sheet");
-  const res = await req.json();
+// export async function getServerSideProps({}) {
+//   const req = await fetch("http://localhost:3000/api/sheet");
+//   const res = await req.json();
 
-  return {
-    props: { sheetData: res.data },
-  };
-}
+//   return {
+//     props: { sheetData: res.data },
+//   };
+// }
