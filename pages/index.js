@@ -21,10 +21,12 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import { Typography } from "@mui/material";
 import Link from "next/link";
 import InsightsCard from "@/Components/InsightsCard";
+import SemiCircle from "@/Components/SemiCircle";
+import MeterGauge from "@/Components/MeterGuage";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({ sheetData }) {
+export default function Home({ yesterday, lastweek, lastMonth }) {
   const [screenWidth, setScreenWidth] = useState(1000);
   const { ref, inView } = useInView({ threshold: 0.2 });
   const animation = useAnimation();
@@ -52,7 +54,7 @@ export default function Home({ sheetData }) {
       <div className='flex w-full justify-between   h-[11vh] md:h-[14vh] lg:h-[18vh]'>
         <div className='flex relative bottom-[1vh] lg:bottom-0  h-[70%] my-auto   self-start  items-center '>
           <div className='flex absolute left-[-2vh] md:left-0 top-[-2.5vh] md:top-[-1vh] lg:top-[-7vh]  max-w-max items-center justify-center'>
-            <Tbars size={mobile ? 100 : 160 ?? 160} />
+            <Tbars size={mobile ? 100 : 160} />
           </div>
           <h1 className='absolute top-[2vh] md:top-[1vh] ml-[6vh] md:ml-[9.5vw] lg:ml-[8vw] min-w-max  self-center'>
             Bear & Bull Index
@@ -90,19 +92,48 @@ export default function Home({ sheetData }) {
           </div>
         </InsightsCard>
         <InsightsCard text={"Market Sentiment"}></InsightsCard>
-        <InsightsCard insights text={"Market Analysis"}></InsightsCard>
-        <InsightsCard insights text={"Social Analysis Summary"}></InsightsCard>
-        <InsightsCard insights text={"Relative Strenght Index"}></InsightsCard>
+        <InsightsCard
+          yesterday={yesterday.MSA}
+          lastweek={lastweek.MSA}
+          lastMonth={lastMonth.MSA}
+          insights
+          text={"Market Sentiment Analysis"}
+        >
+          <SemiCircle />
+        </InsightsCard>
+        <InsightsCard
+          yesterday={yesterday.SAS}
+          lastweek={lastweek.SAS}
+          lastMonth={lastMonth.SAS}
+          insights
+          text={"Social Analysis Summary"}
+        >
+          <SemiCircle />
+        </InsightsCard>
+        <InsightsCard
+          yesterday={yesterday.RSI}
+          lastweek={lastweek.RSI}
+          lastMonth={lastMonth.RSI}
+          insights
+          text={"Relative Strenght Index"}
+        >
+          <SemiCircle />
+          {/* <MeterGauge /> */}
+        </InsightsCard>
       </section>
     </main>
   );
 }
 
-// export async function getServerSideProps({}) {
-//   const req = await fetch("http://localhost:3000/api/sheet");
-//   const res = await req.json();
+export async function getServerSideProps({}) {
+  const req = await fetch("http://localhost:3000/api/sheet");
+  const res = await req.json();
 
-//   return {
-//     props: { sheetData: res.data },
-//   };
-// }
+  return {
+    props: {
+      yesterday: res.data.yesterday,
+      lastweek: res.data.lastweek,
+      lastMonth: res.data.lastMonth,
+    },
+  };
+}
