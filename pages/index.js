@@ -49,6 +49,20 @@ export default function Home({ yesterday, lastweek, lastMonth }) {
   };
   const mobile = screenWidth < 798;
 
+  // Define a linear interpolation function
+  function lerp(inputStart, inputEnd, outputStart, outputEnd, input) {
+    return (
+      outputStart +
+      ((outputEnd - outputStart) * (input - inputStart)) /
+        (inputEnd - inputStart)
+    );
+  }
+
+  // Interpolate the value of the yesterday prop
+  const guage = lerp(0, 100, -90, 90, 100);
+
+  console.log(guage);
+
   return (
     <main className='relative flex flex-col'>
       <div className='flex w-full justify-between   h-[11vh] md:h-[14vh] lg:h-[18vh]'>
@@ -99,7 +113,7 @@ export default function Home({ yesterday, lastweek, lastMonth }) {
           insights
           text={"Market Sentiment Analysis"}
         >
-          <SemiCircle />
+          <SemiCircle guage={lerp(0, 100, -90, 90, yesterday.MSA)} />
         </InsightsCard>
         <InsightsCard
           yesterday={yesterday.SAS}
@@ -108,7 +122,7 @@ export default function Home({ yesterday, lastweek, lastMonth }) {
           insights
           text={"Social Analysis Summary"}
         >
-          <SemiCircle />
+          <SemiCircle guage={lerp(0, 100, -90, 90, yesterday.SAS)} />
         </InsightsCard>
         <InsightsCard
           yesterday={yesterday.RSI}
@@ -117,7 +131,7 @@ export default function Home({ yesterday, lastweek, lastMonth }) {
           insights
           text={"Relative Strenght Index"}
         >
-          <SemiCircle />
+          <SemiCircle guage={lerp(0, 100, -90, 90, yesterday.RSI)} />
           {/* <MeterGauge /> */}
         </InsightsCard>
       </section>
@@ -126,7 +140,12 @@ export default function Home({ yesterday, lastweek, lastMonth }) {
 }
 
 export async function getServerSideProps({}) {
-  const req = await fetch("http://localhost:3000/api/sheet");
+  const baseUrl =
+    process.env.NODE_ENV === "production"
+      ? "https://bandb.vercel.app/"
+      : "http://localhost:3000";
+
+  const req = await fetch(`${baseUrl}/api/sheet`);
   const res = await req.json();
 
   return {
