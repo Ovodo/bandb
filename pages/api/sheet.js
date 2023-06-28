@@ -47,23 +47,23 @@ export default function handler(req, res) {
         range: "Data Point!J22",
       };
 
-      let response = await gsapi.spreadsheets.values.get(opt);
-      let response1 = await gsapi.spreadsheets.values.get(lastweekSAS);
-      let response2 = await gsapi.spreadsheets.values.get(lastMonthSAS);
-      let response3 = await gsapi.spreadsheets.values.get(lastweekMSA);
-      let response4 = await gsapi.spreadsheets.values.get(lastMonthMSA);
-      let response5 = await gsapi.spreadsheets.values.get(lastweekRSI);
-      let response6 = await gsapi.spreadsheets.values.get(lastMonthRSI);
+      const responses = await Promise.all([
+        gsapi.spreadsheets.values.get(opt),
+        gsapi.spreadsheets.values.get(lastweekSAS),
+        gsapi.spreadsheets.values.get(lastMonthSAS),
+        gsapi.spreadsheets.values.get(lastweekMSA),
+        gsapi.spreadsheets.values.get(lastMonthMSA),
+        gsapi.spreadsheets.values.get(lastweekRSI),
+        gsapi.spreadsheets.values.get(lastMonthRSI),
+      ]);
 
-      // Get the data from the response
-      const rows = response.data.values;
-      const rows1 = response1.data.values;
-      const rows2 = response2.data.values;
-      const rows3 = response3.data.values;
-      const rows4 = response4.data.values;
-      const rows5 = response5.data.values;
-      const rows6 = response6.data.values;
-      // console.log(rows1[0][0]);
+      const rows = responses[0].data.values;
+      const rows1 = responses[1].data.values;
+      const rows2 = responses[2].data.values;
+      const rows3 = responses[3].data.values;
+      const rows4 = responses[4].data.values;
+      const rows5 = responses[5].data.values;
+      const rows6 = responses[6].data.values;
 
       // Transform the data into an array of objects
       const data = rows.map((row) => {
@@ -97,7 +97,7 @@ export default function handler(req, res) {
         return row.Date == dateString;
       });
 
-      return res.status(400).send(
+      return res.status(200).send(
         JSON.stringify({
           error: false,
           data: {
@@ -114,3 +114,10 @@ export default function handler(req, res) {
       .send(JSON.stringify({ error: true, message: e.message }));
   }
 }
+
+// export this from the api route
+export const config = {
+  api: {
+    externalResolver: true,
+  },
+};

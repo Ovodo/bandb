@@ -18,20 +18,76 @@ const InsightsCard = ({
         <div className='absolute bottom-0 flex justify-around w-full border-2'>
           <div className=' flex flex-col justifiy-center items-center'>
             <p className='text-[12px]'>Yesterday</p>
-            <p className='text-[25px] text-red-800 font-[800]'>{yesterday}</p>
-            <p className='text-[15px] font-[600]'>Bearish</p>
+            <p
+              style={{
+                color:
+                  yesterday < 40
+                    ? "Red"
+                    : yesterday < 60
+                    ? "rgb(202 138 4)"
+                    : "Green",
+              }}
+              className='text-[25px] text-red-800 font-[800]'
+            >
+              {yesterday}
+            </p>
+            <p className='text-[15px] font-[600]'>
+              {yesterday < 40
+                ? "Bearish"
+                : yesterday < 60
+                ? "Neutral"
+                : yesterday > 60
+                ? "Bullish"
+                : ""}
+            </p>
           </div>
           <div className=' flex flex-col justifiy-center items-center'>
             <p className='text-[12px]'>Last Week</p>
-            <p className='text-[25px] text-green-800 font-[800]'>{lastweek}</p>
-            <p className='text-[15px] font-[600]'>Bullish</p>
+            <p
+              style={{
+                color:
+                  lastweek < 40
+                    ? "Red"
+                    : lastweek < 60
+                    ? "rgb(202 138 4)"
+                    : "Green",
+              }}
+              className='text-[25px] text-green-800 font-[800]'
+            >
+              {lastweek}
+            </p>
+            <p className='text-[15px] font-[600]'>
+              {lastweek < 40
+                ? "Bearish"
+                : lastweek < 60
+                ? "Neutral"
+                : lastweek > 60
+                ? "Bullish"
+                : ""}
+            </p>
           </div>
           <div className=' flex flex-col justifiy-center items-center'>
             <p className='text-[12px]'>Last Month</p>
-            <p className='text-[25px] text-yellow-600 font-[800]'>
+            <p
+              style={{
+                color:
+                  lastMonth < 40
+                    ? "Red"
+                    : lastMonth < 60
+                    ? "rgb(202 138 4)"
+                    : "Green",
+              }}
+              className='text-[25px] text-yellow-600 font-[800]'
+            >
               {lastMonth}
             </p>
-            <p className='text-[15px] font-[600]'>Neutral</p>
+            <p className='text-[15px] font-[600]'>
+              {lastMonth < 40
+                ? "Bearish"
+                : lastMonth < 60
+                ? "Neutral"
+                : "Bullish"}
+            </p>
           </div>
         </div>
       ) : null}
