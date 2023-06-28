@@ -10,7 +10,7 @@ const SemiCircle = ({ guage = -30 }) => {
       <path
         d='M 150,210,m -80,0 a 45,45 0 1,1 160,0'
         stroke='#f5900cff'
-        strokeWidth='35'
+        strokeWidth='40'
         fill='none'
       />
       {/* Pointer */}
