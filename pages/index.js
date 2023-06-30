@@ -23,10 +23,17 @@ import Link from "next/link";
 import InsightsCard from "@/Components/InsightsCard";
 import SemiCircle from "@/Components/SemiCircle";
 import MeterGauge from "@/Components/MeterGuage";
+import Charts from "@/Components/Charts";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({ yesterday, lastweek, lastMonth }) {
+export default function Home({
+  chartData,
+  yesterday,
+  lastweek,
+  lastMonth,
+  dip,
+}) {
   const [screenWidth, setScreenWidth] = useState(1000);
   const { ref, inView } = useInView({ threshold: 0.2 });
   const animation = useAnimation();
@@ -88,7 +95,9 @@ export default function Home({ yesterday, lastweek, lastMonth }) {
         </div>
       </div>
       <section className=' mx-[2vw] flex  flex-col md:grid md:grid-cols-2 lg:grid-cols-3 mt-[4vh]'>
-        <InsightsCard text={"Historical Anaysis"}></InsightsCard>
+        <InsightsCard text={"Historical Anaysis"}>
+          <Charts chartData={chartData} />
+        </InsightsCard>
         <InsightsCard text={"Actionable Insight"}>
           <div className=' flex flex-col justify-between relative bottom-[2vh] items-center self-center h-[85%]'>
             <div className=' bg-gray-700  relative top-[10vh] w-[65%] h-[12%]'>
@@ -97,6 +106,7 @@ export default function Home({ yesterday, lastweek, lastMonth }) {
             <p className='self-center relative top-[5vh] text-[20px] font-[600] text-green-600'>
               Buy the Dip
             </p>
+            <p>{dip}</p>
             <div className=' bg-gray-700  relative top-[5vh] w-[65%] h-[12%]'>
               <div className='bg-red-600 w-[30%] h-full'></div>
             </div>
@@ -139,20 +149,51 @@ export default function Home({ yesterday, lastweek, lastMonth }) {
   );
 }
 
+// export async function getServerSideProps({}) {
+//   const baseUrl =
+//     process.env.NODE_ENV === "production"
+//       ? "https://bandb.vercel.app/"
+//       : "http://localhost:3000";
+
+//   const req = await fetch(`${baseUrl}/api/sheet`);
+//   const res = await req.json();
+
+//   return {
+//     props: {
+//       yesterday: res.data.yesterday,
+//       lastweek: res.data.lastweek,
+//       lastMonth: res.data.lastMonth,
+//     },
+//   };
+// }
+
 export async function getServerSideProps({}) {
   const baseUrl =
     process.env.NODE_ENV === "production"
       ? "https://bandb.vercel.app/"
       : "http://localhost:3000";
 
-  const req = await fetch(`${baseUrl}/api/sheet`);
-  const res = await req.json();
+  const chartDataReq = fetch(`${baseUrl}/api/chart`);
+  const sheetDataReq = fetch(`${baseUrl}/api/sheet`);
+  // const dipDataReq = fetch(`${baseUrl}/api/dip`);
+
+  const [chartDataRes, sheetDataRes, dipDataRes] = await Promise.all([
+    chartDataReq,
+    sheetDataReq,
+    // dipDataReq,
+  ]);
+
+  const chartData = await chartDataRes.json();
+  const sheetData = await sheetDataRes.json();
+  // const dipData = await dipDataRes.json();
 
   return {
     props: {
-      yesterday: res.data.yesterday,
-      lastweek: res.data.lastweek,
-      lastMonth: res.data.lastMonth,
+      // dip: dipData.data,
+      chartData: chartData.data,
+      yesterday: sheetData.data.yesterday,
+      lastweek: sheetData.data.lastweek,
+      lastMonth: sheetData.data.lastMonth,
     },
   };
 }
