@@ -24,8 +24,15 @@ import InsightsCard from "@/Components/InsightsCard";
 import SemiCircle from "@/Components/SemiCircle";
 import MeterGauge from "@/Components/MeterGuage";
 import Charts from "@/Components/Charts";
+import MarketSentiment from "@/Components/MarketSentiment";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const date = new Date();
+const day = date.getDate();
+const month = date.toLocaleString("default", { month: "short" }).toUpperCase();
+const year = date.getFullYear();
+const todaysDate = `${day} ${month} ${year}`;
 
 export default function Home({
   chartData,
@@ -83,7 +90,7 @@ export default function Home({
         </div>
         <h4 className='self-end  mx-auto'>Market Overview</h4>
         <div className='w-[20vw] self-center   absolute items-center right-[2vw]  flex flex-col justify-center'>
-          <h4 className='hidden  font-[800]  lg:flex'>24 JUN 2023</h4>
+          <h4 className='hidden  font-[800]  lg:flex'>{todaysDate}</h4>
           <Link href={"/"}>
             <p
               style={{ lineHeight: 1 }}
@@ -96,26 +103,30 @@ export default function Home({
       </div>
       <section className=' mx-[2vw] flex  flex-col md:grid md:grid-cols-2 lg:grid-cols-3 mt-[4vh]'>
         <InsightsCard text={"Historical Anaysis"}>
-          <Charts chartData={chartData} />
+          <div className='flex w-[80vw] h-full  justify-center items-center'>
+            <Charts height={mobile ? 430 : 280} chartData={chartData} />
+          </div>
         </InsightsCard>
         <InsightsCard text={"Actionable Insight"}>
           <div className=' flex flex-col justify-between relative bottom-[2vh] items-center self-center h-[85%]'>
             <div className=' bg-gray-700  relative top-[10vh] w-[65%] h-[12%]'>
-              <div className='bg-green-600 w-[30%] h-full'></div>
+              <div className='bg-[#04bd64ff] w-[30%] h-full'></div>
             </div>
-            <p className='self-center relative top-[5vh] text-[20px] font-[600] text-green-600'>
+            <p className='self-center relative top-[5vh] text-[20px] font-[800] text-[#04bd64ff]'>
               Buy the Dip
             </p>
-            <p>{dip}</p>
             <div className=' bg-gray-700  relative top-[5vh] w-[65%] h-[12%]'>
-              <div className='bg-red-600 w-[30%] h-full'></div>
+              <div className='bg-[#c0041dff] w-[30%] h-full'></div>
             </div>
-            <p className='self-center  text-[20px] font-[600] text-red-600'>
+            <p className='self-center  text-[20px] font-[800] text-[#c0041dff]'>
               Sell the Pump
             </p>
           </div>
         </InsightsCard>
-        <InsightsCard text={"Market Sentiment"}></InsightsCard>
+        <InsightsCard text={"Market Sentiment"}>
+          <MarketSentiment sentiment={dip} />
+          {/* <p>{dip}</p> */}
+        </InsightsCard>
         <InsightsCard
           yesterday={yesterday.MSA}
           lastweek={lastweek.MSA}
@@ -123,7 +134,9 @@ export default function Home({
           insights
           text={"Market Sentiment Analysis"}
         >
-          <SemiCircle guage={lerp(0, 100, -90, 90, yesterday.MSA)} />
+          <div className='relative bottom-7'>
+            <SemiCircle guage={lerp(0, 100, -90, 90, yesterday.MSA)} />
+          </div>
         </InsightsCard>
         <InsightsCard
           yesterday={yesterday.SAS}
@@ -132,7 +145,9 @@ export default function Home({
           insights
           text={"Social Analysis Summary"}
         >
-          <SemiCircle guage={lerp(0, 100, -90, 90, yesterday.SAS)} />
+          <div className='relative bottom-7'>
+            <SemiCircle guage={lerp(0, 100, -90, 90, yesterday.SAS)} />
+          </div>
         </InsightsCard>
         <InsightsCard
           yesterday={yesterday.RSI}
@@ -141,7 +156,9 @@ export default function Home({
           insights
           text={"Relative Strenght Index"}
         >
-          <SemiCircle guage={lerp(0, 100, -90, 90, yesterday.RSI)} />
+          <div className='relative bottom-7'>
+            <SemiCircle guage={lerp(0, 100, -90, 90, yesterday.RSI)} />
+          </div>
           {/* <MeterGauge /> */}
         </InsightsCard>
       </section>
@@ -175,21 +192,21 @@ export async function getServerSideProps({}) {
 
   const chartDataReq = fetch(`${baseUrl}/api/chart`);
   const sheetDataReq = fetch(`${baseUrl}/api/sheet`);
-  // const dipDataReq = fetch(`${baseUrl}/api/dip`);
+  const dipDataReq = fetch(`${baseUrl}/api/dip`);
 
   const [chartDataRes, sheetDataRes, dipDataRes] = await Promise.all([
     chartDataReq,
     sheetDataReq,
-    // dipDataReq,
+    dipDataReq,
   ]);
 
   const chartData = await chartDataRes.json();
   const sheetData = await sheetDataRes.json();
-  // const dipData = await dipDataRes.json();
+  const dipData = await dipDataRes.json();
 
   return {
     props: {
-      // dip: dipData.data,
+      dip: dipData.data,
       chartData: chartData.data,
       yesterday: sheetData.data.yesterday,
       lastweek: sheetData.data.lastweek,

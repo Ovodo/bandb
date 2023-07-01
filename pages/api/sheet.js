@@ -96,6 +96,7 @@ export default function handler(req, res) {
         // Add your filter conditions here
         return row.Date == dateString;
       });
+      // console.log(yesterdayData[0]);
 
       return res.status(200).send(
         JSON.stringify({

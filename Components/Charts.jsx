@@ -32,7 +32,7 @@ const daysOfWeek = [
   "Saturday",
 ];
 
-const Charts = ({ chartData }) => {
+const Charts = ({ chartData, height }) => {
   const limitedChartData2 = chartData.slice(-7); // Limit the chartData array to the desired number of data points
 
   const options = {
@@ -157,7 +157,11 @@ const Charts = ({ chartData }) => {
       }),
   };
 
-  return <Line data={data} width={400} height={250} options={options} />;
+  return (
+    <div className='max-w-full'>
+      <Line data={data} width={400} height={height} options={options} />
+    </div>
+  );
 };
 
 export default Charts;
