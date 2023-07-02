@@ -21,7 +21,7 @@ const InsightsCard = ({
               ? "Bearish"
               : yesterday < 60
               ? "Neutral"
-              : yesterday > 60
+              : yesterday >= 60
               ? "Bullish"
               : ""}
           </p>
@@ -46,7 +46,7 @@ const InsightsCard = ({
                   ? "Bearish"
                   : yesterday < 60
                   ? "Neutral"
-                  : yesterday > 60
+                  : yesterday >= 60
                   ? "Bullish"
                   : ""}
               </p>
@@ -71,7 +71,7 @@ const InsightsCard = ({
                   ? "Bearish"
                   : lastweek < 60
                   ? "Neutral"
-                  : lastweek > 60
+                  : lastweek >= 60
                   ? "Bullish"
                   : ""}
               </p>
