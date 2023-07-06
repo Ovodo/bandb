@@ -91,7 +91,7 @@ export default function Home({
         <h4 className='self-end  mx-auto'>Market Overview</h4>
         <div className='w-[20vw] self-center   absolute items-center right-[2vw]  flex flex-col justify-center'>
           <h4 className='hidden  font-[800]  lg:flex'>{todaysDate}</h4>
-          <Link href={"/"}>
+          <Link href={"/claim"}>
             <p
               style={{ lineHeight: 1 }}
               className='font-[900]  text-center text-green-500 text-lg'
