@@ -9,7 +9,7 @@
 /coverage
 
 # next.js
-/.next
+/.next/
 
 /out/
 
@@ -34,4 +34,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-key.json
+.key.json
+.key2.json

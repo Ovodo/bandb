@@ -26,6 +26,6 @@ const store = configureStore({
 });
 export const persistor = persistStore(store);
 
-const makeStore = () => persistor;
+const makeStore = () => store;
 
 export const wrapper = createWrapper(makeStore);

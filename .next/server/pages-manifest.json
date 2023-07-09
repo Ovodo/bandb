@@ -2,5 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/claim": "pages/claim.js"
+  "/": "pages/index.js",
+  "/api/chart": "pages/api/chart.js",
+  "/api/dip": "pages/api/dip.js",
+  "/api/sheet": "pages/api/sheet.js"
 }

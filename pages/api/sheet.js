@@ -4,9 +4,9 @@ import keys from "../../key";
 export default function handler(req, res) {
   try {
     const client = new google.auth.JWT(
-      keys.client_email,
+      process.env.CLIENT_EMAIL,
       null,
-      keys.private_key,
+      process.env.PRIVATE_KEY,
       ["https://www.googleapis.com/auth/spreadsheets"]
     );
 

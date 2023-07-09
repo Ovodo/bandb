@@ -12,7 +12,7 @@ export const initialState = {
 };
 
 const AppSlice = createSlice({
-  name: "App`",
+  name: "App",
   initialState,
   reducers: {
     clearState(state) {
