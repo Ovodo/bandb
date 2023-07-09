@@ -125,7 +125,7 @@ export default function Home({
         </InsightsCard>
         <InsightsCard text={"Market Sentiment"}>
           <MarketSentiment sentiment={dip} />
-          <p>{dip}</p>
+          {/* <p>{dip}</p> */}
         </InsightsCard>
         <InsightsCard
           yesterday={yesterday.MSA}

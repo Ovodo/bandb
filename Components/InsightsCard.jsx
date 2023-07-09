@@ -9,7 +9,7 @@ const InsightsCard = ({
   insights = false,
 }) => {
   return (
-    <div className='flex  flex-col items-center justify-between w-[80vw] relative md:w-[40vw] lg:w-[28vw] mx-auto my-[5vh] lg:my-[7vh]  h-[40vh] md:h-[35vh] lg:h-[45vh] max-2xl:h-[52vh] bg-slate-200'>
+    <div className='flex  flex-col items-center justify-between w-[80vw] relative md:w-[40vw] lg:w-[28vw] mx-auto my-[5vh] lg:my-[7vh]  h-[40vh] md:h-[35vh] lg:h-[45vh] bg-slate-200'>
       <p className='bg-slate-900 py-2 text-center text-white font-medium w-full'>
         {text}
       </p>
