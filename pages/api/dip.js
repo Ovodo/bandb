@@ -1,5 +1,5 @@
 import { google } from "googleapis";
-import keys from "../../key";
+// import keys from "../../key";
 
 export default function handler(req, res) {
   try {
@@ -12,7 +12,9 @@ export default function handler(req, res) {
 
     client.authorize(async function (err, tokens) {
       if (err) {
-        return res.status(400).send(JSON.stringify({ error: true }));
+        return res
+          .status(400)
+          .send(JSON.stringify({ error: true, message: err }));
       }
 
       const gsapi = google.sheets({ version: "v4", auth: client });

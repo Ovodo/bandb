@@ -104,7 +104,7 @@ export default function Home({
       <section className=' mx-[2vw] flex  flex-col md:grid md:grid-cols-2 lg:grid-cols-3 mt-[4vh]'>
         <InsightsCard text={"Historical Anaysis"}>
           <div className='flex w-[80vw] h-full  justify-center items-center'>
-            <Charts height={mobile ? 430 : 280} chartData={chartData || []} />
+            <Charts height={mobile ? 430 : 280} chartData={chartData} />
           </div>
         </InsightsCard>
         <InsightsCard text={"Actionable Insight"}>
@@ -125,39 +125,34 @@ export default function Home({
         </InsightsCard>
         <InsightsCard text={"Market Sentiment"}>
           <MarketSentiment sentiment={dip} />
-          {/* <p>{dip}</p> */}
+          <p>{dip}</p>
         </InsightsCard>
         <InsightsCard
-          // yesterday={yesterday.MSA}
-          // lastweek={lastweek.MSA}
-          // lastMonth={lastMonth.MSA}
+          yesterday={yesterday.MSA}
+          lastweek={lastweek.MSA}
+          lastMonth={lastMonth.MSA}
           insights
           text={"Market Sentiment Analysis"}
         >
           <div className='relative bottom-7'>
-            <SemiCircle
-            //  guage={lerp(0, 100, -90, 90, yesterday.MSA)}
-            />
+            <SemiCircle guage={lerp(0, 100, -90, 90, yesterday.MSA)} />
           </div>
         </InsightsCard>
         <InsightsCard
-          // yesterday={yesterday.SAS}
-          // lastweek={lastweek.SAS}
-          // lastMonth={lastMonth.SAS}
+          yesterday={yesterday.SAS}
+          lastweek={lastweek.SAS}
+          lastMonth={lastMonth.SAS}
           insights
           text={"Social Analysis Summary"}
         >
           <div className='relative bottom-7'>
-            <SemiCircle
-
-            // guage={lerp(0, 100, -90, 90, yesterday.SAS)}
-            />
+            <SemiCircle guage={lerp(0, 100, -90, 90, yesterday.SAS)} />
           </div>
         </InsightsCard>
         <InsightsCard
-          // yesterday={yesterday.RSI}
-          // lastweek={lastweek.RSI}
-          // lastMonth={lastMonth.RSI}
+          yesterday={yesterday.RSI}
+          lastweek={lastweek.RSI}
+          lastMonth={lastMonth.RSI}
           insights
           text={"Relative Strenght Index"}
         >
