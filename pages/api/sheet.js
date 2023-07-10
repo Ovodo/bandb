@@ -23,12 +23,6 @@ export default function handler(req, res) {
         range: "Data Point!A1:J",
       };
 
-//yesterday SAS
-      const yesterdaySAS = {
-        spreadsheetId: "11sscuZ3Ylgp7qDCnDJYF8qcO5A4ZIxW0xC3e-3f42qs",
-        range: "Data Point!J9",
-      };
-
       const lastweekSAS = {
         spreadsheetId: "11sscuZ3Ylgp7qDCnDJYF8qcO5A4ZIxW0xC3e-3f42qs",
         range: "Data Point!J9",
