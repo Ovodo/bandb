@@ -135,7 +135,7 @@ export default function Home({
           </div>
         </InsightsCard>
         <InsightsCard text={"Market Sentiment"}>
-          <MarketSentiment sentiment=34 />
+          <MarketSentiment sentiment={sentiment} />
           {/* <p>{sentiment}</p> */}
         </InsightsCard>
         <InsightsCard
