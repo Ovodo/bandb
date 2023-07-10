@@ -6,6 +6,7 @@ const InsightsCard = ({
   yesterday,
   lastweek,
   lastMonth,
+  today,
   insights = false,
 }) => {
   return (
@@ -16,15 +17,26 @@ const InsightsCard = ({
       {children}
       {insights ? (
         <>
-          <p className='absolute font-extrabold text-xl top-[8vh] '>
-            {yesterday < 40
-              ? "Bearish"
-              : yesterday < 60
-              ? "Neutral"
-              : yesterday >= 60
-              ? "Bullish"
-              : ""}
-          </p>
+          <div className='absolute flex flex-col items-center top-[7vh]'>
+            <p className=' font-extrabold text-xl'>
+              {today < 40
+                ? "Bearish"
+                : today < 60
+                ? "Neutral"
+                : today >= 60
+                ? "Bullish"
+                : ""}
+            </p>
+            <p
+              style={{
+                color:
+                  today < 40 ? "Red" : today < 60 ? "rgb(202 138 4)" : "Green",
+              }}
+              className='text-[25px] font-[800]'
+            >
+              {today}
+            </p>
+          </div>
           <div className='absolute bottom-2 flex justify-around w-full'>
             <div className=' flex flex-col justifiy-center items-center'>
               <p className='text-[12px]'>Yesterday</p>

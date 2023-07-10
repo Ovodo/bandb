@@ -87,6 +87,9 @@ export default function handler(req, res) {
       const yesterday = new Date();
       yesterday.setDate(yesterday.getDate() - 1);
 
+      // Calculate  today
+      const today = new Date();
+
       // Format the date as a string in the same format as the values in the Date column
       const dateString =
         ("0" + (yesterday.getMonth() + 1)).slice(-2) +
@@ -94,17 +97,28 @@ export default function handler(req, res) {
         ("0" + yesterday.getDate()).slice(-2) +
         "-" +
         yesterday.getFullYear();
+      // Format the date as a string in the same format as the values in the Date column
+      const todaydateString =
+        ("0" + (today.getMonth() + 1)).slice(-2) +
+        "-" +
+        ("0" + today.getDate()).slice(-2) +
+        "-" +
+        today.getFullYear();
 
       const yesterdayData = data.filter((row) => {
-        // Add your filter conditions here
+        // filter yesterdays data out
         return row.Date == dateString;
       });
-      // console.log(yesterdayData[0]);
+      const todayData = data.filter((row) => {
+        // filter yesterdays data out
+        return row.Date == todaydateString;
+      });
 
       return res.status(200).send(
         JSON.stringify({
           error: false,
           data: {
+            today: todayData[0],
             yesterday: yesterdayData[0],
             lastweek: { SAS: rows1[0][0], MSA: rows3[0][0], RSI: rows5[0][0] },
             lastMonth: { SAS: rows2[0][0], MSA: rows4[0][0], RSI: rows6[0][0] },

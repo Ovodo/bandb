@@ -41,6 +41,7 @@ export default function Home({
   lastMonth,
   sentiment,
   dip,
+  today,
 }) {
   const [screenWidth, setScreenWidth] = useState(1000);
   const { ref, inView } = useInView({ threshold: 0.2 });
@@ -139,6 +140,7 @@ export default function Home({
           {/* <p>{sentiment}</p> */}
         </InsightsCard>
         <InsightsCard
+          today={today.MSA}
           yesterday={yesterday.MSA}
           lastweek={lastweek.MSA}
           lastMonth={lastMonth.MSA}
@@ -146,10 +148,11 @@ export default function Home({
           text={"Market Sentiment Analysis"}
         >
           <div className='relative bottom-7'>
-            <SemiCircle guage={lerp(0, 100, -90, 90, yesterday.MSA)} />
+            <SemiCircle guage={lerp(0, 100, -90, 90, today.MSA)} />
           </div>
         </InsightsCard>
         <InsightsCard
+          today={today.SAS}
           yesterday={yesterday.SAS}
           lastweek={lastweek.SAS}
           lastMonth={lastMonth.SAS}
@@ -157,10 +160,11 @@ export default function Home({
           text={"Social Analysis Summary"}
         >
           <div className='relative bottom-7'>
-            <SemiCircle guage={lerp(0, 100, -90, 90, yesterday.SAS)} />
+            <SemiCircle guage={lerp(0, 100, -90, 90, today.SAS)} />
           </div>
         </InsightsCard>
         <InsightsCard
+          today={today.RSI}
           yesterday={yesterday.RSI}
           lastweek={lastweek.RSI}
           lastMonth={lastMonth.RSI}
@@ -168,9 +172,7 @@ export default function Home({
           text={"Relative Strenght Index"}
         >
           <div className='relative bottom-7'>
-            <SemiCircle
-            // guage={lerp(0, 100, -90, 90, yesterday.RSI)}
-            />
+            <SemiCircle guage={lerp(0, 100, -90, 90, today.RSI)} />
           </div>
           {/* <MeterGauge /> */}
         </InsightsCard>
@@ -223,6 +225,7 @@ export async function getServerSideProps({}) {
       dip: dipData.data.dip,
       chartData: chartData.data,
       yesterday: sheetData.data.yesterday,
+      today: sheetData.data.today,
       lastweek: sheetData.data.lastweek,
       lastMonth: sheetData.data.lastMonth,
     },
