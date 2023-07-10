@@ -90,7 +90,7 @@ export default function Home({
             <Tbars size={mobile ? 100 : 160} />
           </div>
           <h1 className='absolute top-[2vh] md:top-[1vh] ml-[6vh] md:ml-[9.5vw] lg:ml-[8vw] min-w-max  self-center'>
-            Bear & Bull Index
+            Bear & Bull In
           </h1>
         </div>
         <h4 className='self-end  mx-auto'>Market Overview</h4>
