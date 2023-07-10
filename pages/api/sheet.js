@@ -118,7 +118,7 @@ export default function handler(req, res) {
         JSON.stringify({
           error: false,
           data: {
-            today: todayData[0],
+            today: todayData[-1],
             yesterday: yesterdayData[0],
             lastweek: { SAS: rows1[0][0], MSA: rows3[0][0], RSI: rows5[0][0] },
             lastMonth: { SAS: rows2[0][0], MSA: rows4[0][0], RSI: rows6[0][0] },
