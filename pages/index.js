@@ -119,7 +119,7 @@ export default function Home({
               <div className='bg-[#c0041dff] w-[30%] h-full'></div>
             </div>
             <p className='self-center  text-[20px] font-[800] text-[#c0041dff]'>
-              S the Pump
+              Sell the Pump
             </p>
           </div>
         </InsightsCard>
