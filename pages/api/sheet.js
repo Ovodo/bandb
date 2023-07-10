@@ -23,14 +23,6 @@ export default function handler(req, res) {
         range: "Data Point!A1:J",
       };
 
-//TODAY SAS
-
-      //const todaySAS = {
-       // spreadsheetId: "11sscuZ3Ylgp7qDCnDJYF8qcO5A4ZIxW0xC3e-3f42qs",
-      //  range: "Data Point!J7",
-    //  };
-
-
       const lastweekSAS = {
         spreadsheetId: "11sscuZ3Ylgp7qDCnDJYF8qcO5A4ZIxW0xC3e-3f42qs",
         range: "Data Point!J9",
@@ -40,16 +32,6 @@ export default function handler(req, res) {
         range: "Data Point!J10",
       };
 
-
-//TODAY MSA
-
-      //const todayMSA = {
-        //spreadsheetId: "11sscuZ3Ylgp7qDCnDJYF8qcO5A4ZIxW0xC3e-3f42qs",
-        //range: "Data Point!J13",
-      //};
-
-
-
       const lastweekMSA = {
         spreadsheetId: "11sscuZ3Ylgp7qDCnDJYF8qcO5A4ZIxW0xC3e-3f42qs",
         range: "Data Point!J15",
@@ -58,15 +40,6 @@ export default function handler(req, res) {
         spreadsheetId: "11sscuZ3Ylgp7qDCnDJYF8qcO5A4ZIxW0xC3e-3f42qs",
         range: "Data Point!J16",
       };
-
-
-//TODAY RSI
-
-      //const todayRSI = {
-        //spreadsheetId: "11sscuZ3Ylgp7qDCnDJYF8qcO5A4ZIxW0xC3e-3f42qs",
-        //range: "Data Point!J19",
-      //};
-
 
       const lastweekRSI = {
         spreadsheetId: "11sscuZ3Ylgp7qDCnDJYF8qcO5A4ZIxW0xC3e-3f42qs",
