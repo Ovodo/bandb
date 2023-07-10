@@ -21,21 +21,29 @@ export default function handler(req, res) {
 
       //CUSTOMIZATION FROM HERE
       const opt = {
-        spreadsheetId: "1a82UuOfFTg5-rLCOtGZWC-0TdUwgggljBe5HGdOXaro",
-        range: "Insight!B6",
+        spreadsheetId: "1rNt-prhPIjxg7QWyGfLcljYEURjvH0S-rgNqu3kjpDY",
+        range: "Beta!A31",
+      };
+      const BTD = {
+        spreadsheetId: "1rNt-prhPIjxg7QWyGfLcljYEURjvH0S-rgNqu3kjpDY",
+        range: "Beta!B2",
       };
 
-      const responses = await Promise.all([gsapi.spreadsheets.values.get(opt)]);
+      const responses = await Promise.all([
+        gsapi.spreadsheets.values.get(opt),
+        gsapi.spreadsheets.values.get(BTD),
+      ]);
 
       const rows = responses[0].data.values;
-      console.log(rows);
+      const STP = responses[1].data.values;
+      console.log(STP);
 
       // Transform the data into an array of objects
 
       return res.status(200).send(
         JSON.stringify({
           error: false,
-          data: rows,
+          data: { sentiment: rows, dip: STP },
         })
       );
     });

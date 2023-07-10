@@ -22,28 +22,31 @@ ChartJS.register(
   Filler,
   ArcElement
 );
-const data = {
-  //   labels: ["Red", "Green"],
-  datasets: [
-    {
-      data: [200, 100],
-      backgroundColor: ["#ee9220ff", "#474c53ff"],
-      hoverBackgroundColor: ["#FF6384", "#36A2EB"],
-    },
-  ],
-};
 
 const options = {
   cutout: "70%",
 };
 
-export default ({ sentiment }) => (
-  <>
-    <div className='relative bottom-1'>
-      <Doughnut data={data} width={200} height={200} options={options} />
-    </div>
-    <p className='relative bottom-5 font-extrabold text-xl self-center mx-auto'>
-      {sentiment}
-    </p>
-  </>
-);
+export default ({ sentiment }) => {
+  const data = {
+    //   labels: ["Red", "Green"],
+    datasets: [
+      {
+        data: [sentiment, 100 - sentiment],
+        backgroundColor: ["#ee9220ff", "#474c53ff"],
+        hoverBackgroundColor: ["#FF6384", "#36A2EB"],
+      },
+    ],
+  };
+
+  return (
+    <>
+      <div className='relative bottom-1'>
+        <Doughnut data={data} width={200} height={200} options={options} />
+      </div>
+      <p className='relative bottom-5 font-extrabold text-xl self-center mx-auto'>
+        {sentiment <= 39 ? "Fearful" : "Hopeful"}
+      </p>
+    </>
+  );
+};

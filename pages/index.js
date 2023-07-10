@@ -39,6 +39,7 @@ export default function Home({
   yesterday,
   lastweek,
   lastMonth,
+  sentiment,
   dip,
 }) {
   const [screenWidth, setScreenWidth] = useState(1000);
@@ -74,8 +75,12 @@ export default function Home({
 
   // Interpolate the value of the yesterday prop
   const guage = lerp(0, 100, -90, 90, 100);
+  const BTD = lerp(0, 90, 100, 60, dip);
+  const btd = lerp(95, 400, 40, 0, dip);
+  const STP = lerp(95, 400, 60, 100, dip);
+  const stp = lerp(0, 90, 0, 40, dip);
 
-  console.log(guage);
+  console.log(BTD);
 
   return (
     <main className='relative flex flex-col'>
@@ -110,13 +115,19 @@ export default function Home({
         <InsightsCard text={"Actionable Insight"}>
           <div className=' flex flex-col justify-between relative bottom-[2vh] items-center self-center h-[85%]'>
             <div className=' bg-gray-700  relative top-[10vh] w-[65%] h-[12%]'>
-              <div className='bg-[#04bd64ff] w-[30%] h-full'></div>
+              <div
+                style={{ width: dip <= 90 ? `${BTD}%` : `${btd}%` }}
+                className='bg-[#04bd64ff] w-[30%] h-full'
+              ></div>
             </div>
             <p className='self-center relative top-[5vh] text-[20px] font-[800] text-[#04bd64ff]'>
               Buy the Dip
             </p>
             <div className=' bg-gray-700  relative top-[5vh] w-[65%] h-[12%]'>
-              <div className='bg-[#c0041dff] w-[30%] h-full'></div>
+              <div
+                style={{ width: dip >= 95 ? `${STP}%` : `${stp}%` }}
+                className='bg-[#c0041dff] w-[30%] h-full'
+              ></div>
             </div>
             <p className='self-center  text-[20px] font-[800] text-[#c0041dff]'>
               Sell the Pump
@@ -124,8 +135,8 @@ export default function Home({
           </div>
         </InsightsCard>
         <InsightsCard text={"Market Sentiment"}>
-          <MarketSentiment sentiment={dip} />
-          {/* <p>{dip}</p> */}
+          <MarketSentiment sentiment={sentiment} />
+          {/* <p>{sentiment}</p> */}
         </InsightsCard>
         <InsightsCard
           yesterday={yesterday.MSA}
@@ -202,16 +213,14 @@ export async function getServerSideProps({}) {
     dipDataReq,
   ]);
 
-  console.log(chartDataRes);
-  console.log(sheetDataRes);
-  console.log(dipDataRes);
   const chartData = await chartDataRes.json();
   const sheetData = await sheetDataRes.json();
   const dipData = await dipDataRes.json();
 
   return {
     props: {
-      dip: dipData.data,
+      sentiment: dipData.data.sentiment,
+      dip: dipData.data.dip,
       chartData: chartData.data,
       yesterday: sheetData.data.yesterday,
       lastweek: sheetData.data.lastweek,
