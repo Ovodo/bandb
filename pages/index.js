@@ -128,7 +128,7 @@ export default function Home({
           {/* <p>{dip}</p> */}
         </InsightsCard>
         <InsightsCard
-          yesterday={yesterday.MSA}
+          yesterday={today.MSA}
           lastweek={lastweek.MSA}
           lastMonth={lastMonth.MSA}
           insights
