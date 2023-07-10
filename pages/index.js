@@ -88,7 +88,7 @@ export default function Home({
       <div className='flex w-full justify-between   h-[11vh] md:h-[14vh] lg:h-[18vh]'>
         <div className='flex relative bottom-[1vh] lg:bottom-0  h-[70%] my-auto   self-start  items-center '>
          <div className='flex absolute left-[-2vh] md:left-0 top-[-2.5vh] md:top-[-1vh] lg:top-[-7vh]  max-w-max items-center justify-center'>
-           //<Tbars size={mobile ? 100 : 160} />
+           <Tbars size={mobile ? 100 : 160} />
           </div>
           <h1 className='absolute top-[2vh] md:top-[1vh] ml-[6vh] md:ml-[9.5vw] lg:ml-[8vw] min-w-max  self-center'>
             Bear & Bull Index
