@@ -25,10 +25,10 @@ export default function handler(req, res) {
 
 //TODAY SAS
 
-      const todaySAS = {
-        spreadsheetId: "11sscuZ3Ylgp7qDCnDJYF8qcO5A4ZIxW0xC3e-3f42qs",
-        range: "Data Point!J7",
-      };
+      //const todaySAS = {
+       // spreadsheetId: "11sscuZ3Ylgp7qDCnDJYF8qcO5A4ZIxW0xC3e-3f42qs",
+      //  range: "Data Point!J7",
+    //  };
 
 
       const lastweekSAS = {
@@ -43,10 +43,10 @@ export default function handler(req, res) {
 
 //TODAY MSA
 
-      const todayMSA = {
-        spreadsheetId: "11sscuZ3Ylgp7qDCnDJYF8qcO5A4ZIxW0xC3e-3f42qs",
-        range: "Data Point!J13",
-      };
+      //const todayMSA = {
+        //spreadsheetId: "11sscuZ3Ylgp7qDCnDJYF8qcO5A4ZIxW0xC3e-3f42qs",
+        //range: "Data Point!J13",
+      //};
 
 
 
@@ -62,10 +62,10 @@ export default function handler(req, res) {
 
 //TODAY RSI
 
-      const todayRSI = {
-        spreadsheetId: "11sscuZ3Ylgp7qDCnDJYF8qcO5A4ZIxW0xC3e-3f42qs",
-        range: "Data Point!J19",
-      };
+      //const todayRSI = {
+        //spreadsheetId: "11sscuZ3Ylgp7qDCnDJYF8qcO5A4ZIxW0xC3e-3f42qs",
+        //range: "Data Point!J19",
+      //};
 
 
       const lastweekRSI = {
