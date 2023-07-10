@@ -107,7 +107,7 @@ export default function Home({
             <Charts height={mobile ? 430 : 280} chartData={chartData} />
           </div>
         </InsightsCard>
-        <InsightsCard text={"Actionable Insight"}>
+        <InsightsCard text={"Actionable Insight Here"}>
           <div className=' flex flex-col justify-between relative bottom-[2vh] items-center self-center h-[85%]'>
             <div className=' bg-gray-700  relative top-[10vh] w-[65%] h-[12%]'>
               <div className='bg-[#04bd64ff] w-[30%] h-full'></div>
