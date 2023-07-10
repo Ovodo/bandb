@@ -22,6 +22,7 @@ export default function handler(req, res) {
         spreadsheetId: "11sscuZ3Ylgp7qDCnDJYF8qcO5A4ZIxW0xC3e-3f42qs",
         range: "Data Point!A1:J",
       };
+
       const lastweekSAS = {
         spreadsheetId: "11sscuZ3Ylgp7qDCnDJYF8qcO5A4ZIxW0xC3e-3f42qs",
         range: "Data Point!J9",
@@ -30,6 +31,7 @@ export default function handler(req, res) {
         spreadsheetId: "11sscuZ3Ylgp7qDCnDJYF8qcO5A4ZIxW0xC3e-3f42qs",
         range: "Data Point!J10",
       };
+
       const lastweekMSA = {
         spreadsheetId: "11sscuZ3Ylgp7qDCnDJYF8qcO5A4ZIxW0xC3e-3f42qs",
         range: "Data Point!J15",
@@ -38,6 +40,7 @@ export default function handler(req, res) {
         spreadsheetId: "11sscuZ3Ylgp7qDCnDJYF8qcO5A4ZIxW0xC3e-3f42qs",
         range: "Data Point!J16",
       };
+
       const lastweekRSI = {
         spreadsheetId: "11sscuZ3Ylgp7qDCnDJYF8qcO5A4ZIxW0xC3e-3f42qs",
         range: "Data Point!J21",
