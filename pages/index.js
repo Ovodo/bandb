@@ -169,7 +169,7 @@ export default function Home({
           lastweek={lastweek.RSI}
           lastMonth={lastMonth.RSI}
           insights
-          text={"Relative Strenght Index"}
+          text={"Relative Strength Index"}
         >
           <div className='relative bottom-7'>
             <SemiCircle guage={lerp(0, 100, -90, 90, today.RSI)} />
