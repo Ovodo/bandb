@@ -66,7 +66,7 @@ const Claim = (props) => {
           }}
           className='mb-5 text-xl font-bold'
         >
-          Congrats!! You have {Points} Bands
+          Balance: You have {Points} Index
         </motion.h1>
         <div className=' flex flex-col items-start text-[13px] mb-5 rectangular-component'>
           <h2 className='mb-5'>{props.title}</h2>
@@ -77,11 +77,11 @@ const Claim = (props) => {
           </div>
           <p className='mt-4'>
             Nice! You can pick up{" "}
-            <span className='text-teal-600 font-bold'>{dailyClaim}</span> Bands
+            <span className='text-teal-600 font-bold'>{dailyClaim}</span> Index
             🍢🍢 next
           </p>
           <p className='mb-2'>
-            Continue picking up bands on <a href='#'>our mobile app</a>
+            Get more Index on Zealy <a href='#'>Join Daily Competition</a>
           </p>
 
           <button
