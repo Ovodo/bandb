@@ -34,7 +34,7 @@ export default ({ sentiment }) => {
       {
         data: [sentiment, 100 - sentiment],
         backgroundColor: ["#ee9220ff", "#474c53ff"],
-        hoverBackgroundColor: ["#FF6384", "#36A2EB"],
+        hoverBackgroundColor: ["#04bd64ff", "#c0041dff"],
       },
     ],
   };
