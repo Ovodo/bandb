@@ -29,7 +29,7 @@ const options = {
 
 export default ({ sentiment }) => {
   const data = {
-    //   labels: ["Red", "Green"],
+     labels: ["Hope", "Fear"],
     datasets: [
       {
         data: [sentiment, 100 - sentiment],
