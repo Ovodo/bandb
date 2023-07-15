@@ -40,7 +40,8 @@ export default function Home({
   lastweek,
   lastMonth,
   sentiment,
-  dip,
+  BTD,
+  STP,
   today,
 }) {
   const [screenWidth, setScreenWidth] = useState(1000);
@@ -75,11 +76,11 @@ export default function Home({
   }
 
   // Interpolate the value of the yesterday prop
-  const guage = lerp(0, 100, -90, 90, 100);
-  const BTD = lerp(0, 90, 100, 60, dip);
-  const btd = lerp(95, 400, 40, 0, dip);
-  const STP = lerp(95, 400, 60, 100, dip);
-  const stp = lerp(0, 90, 0, 40, dip);
+  // const guage = lerp(0, 100, -90, 90, 100);
+  // const BTD = lerp(0, 90, 100, 60, dip);
+  // const btd = lerp(95, 400, 40, 0, dip);
+  // const STP = lerp(95, 400, 60, 100, dip);
+  // const stp = lerp(0, 90, 0, 40, dip);
 
   console.log(BTD);
 
@@ -117,7 +118,7 @@ export default function Home({
           <div className=' flex flex-col justify-between relative bottom-[2vh] items-center self-center h-[85%]'>
             <div className=' bg-gray-700  relative top-[10vh] w-[65%] h-[12%]'>
               <div
-                style={{ width: dip <= 90 ? `${BTD}%` : `${btd}%` }}
+                style={{ width: `${BTD}%` }}
                 className='bg-[#04bd64ff] w-[30%] h-full'
               ></div>
             </div>
@@ -126,7 +127,7 @@ export default function Home({
             </p>
             <div className=' bg-gray-700  relative top-[5vh] w-[65%] h-[12%]'>
               <div
-                style={{ width: dip >= 95 ? `${STP}%` : `${stp}%` }}
+                style={{ width: `${STP}%` }}
                 className='bg-[#c0041dff] w-[30%] h-full'
               ></div>
             </div>
@@ -222,7 +223,8 @@ export async function getServerSideProps({}) {
   return {
     props: {
       sentiment: dipData.data.sentiment,
-      dip: dipData.data.dip,
+      STP: dipData.data.STP,
+      BTD: dipData.data.BTD,
       chartData: chartData.data,
       yesterday: sheetData.data.yesterday,
       today: sheetData.data.today,

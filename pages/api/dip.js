@@ -24,18 +24,24 @@ export default function handler(req, res) {
         spreadsheetId: "1rNt-prhPIjxg7QWyGfLcljYEURjvH0S-rgNqu3kjpDY",
         range: "Beta!A31",
       };
-      const BTD = {
+      const BTDdata = {
         spreadsheetId: "1rNt-prhPIjxg7QWyGfLcljYEURjvH0S-rgNqu3kjpDY",
-        range: "Beta!B2",
+        range: "Beta!A15",
+      };
+      const STPdata = {
+        spreadsheetId: "1rNt-prhPIjxg7QWyGfLcljYEURjvH0S-rgNqu3kjpDY",
+        range: "Beta!E15",
       };
 
       const responses = await Promise.all([
         gsapi.spreadsheets.values.get(opt),
-        gsapi.spreadsheets.values.get(BTD),
+        gsapi.spreadsheets.values.get(BTDdata),
+        gsapi.spreadsheets.values.get(STPdata),
       ]);
 
       const rows = responses[0].data.values;
-      const STP = responses[1].data.values;
+      const BTD = responses[1].data.values;
+      const STP = responses[2].data.values;
       console.log(STP);
 
       // Transform the data into an array of objects
@@ -43,7 +49,7 @@ export default function handler(req, res) {
       return res.status(200).send(
         JSON.stringify({
           error: false,
-          data: { sentiment: rows, dip: STP },
+          data: { sentiment: rows, BTD: BTD, STP: STP },
         })
       );
     });
