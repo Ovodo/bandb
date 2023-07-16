@@ -74,7 +74,7 @@ const Navbar = ({ children }) => {
                 onHoverStart={(e, i) => {
                   console.log(e, i);
                 }}
-                className='text-[#07F307]'
+                className='text-[#F5900C]'
                 transition={{ type: "spring", stiffness: 500, duration: 0.1 }}
                 onClick={() => {
                   hideMenu;
@@ -114,7 +114,7 @@ const Navbar = ({ children }) => {
                   hideMenu;
                 }}
               >
-                {"Learn Crypto"}
+                {""}
               </motion.li>
             </Link>
           </motion.ul>
@@ -125,7 +125,7 @@ const Navbar = ({ children }) => {
           <DrawingComponent />
         </div> */}
         <div className='icon flex border-green-500  items-center'>
-          {/* <MenuIcon color='white' style={{ fontSize: 50, color: "#07F307" }} /> */}
+          {/* <MenuIcon color='white' style={{ fontSize: 50, color: "#F5900C" }} /> */}
         </div>
       </nav>
       {children}
