@@ -13,10 +13,10 @@ const InsightsCard = ({
     ? "..."
     : today <= 30
     ? "Oversold"
+    : today == 50
+    ? "No Trend"    
     : today < 70
     ? "Neutral"
-    : today == 50
-    ? "No Trend"
     : today >= 70
     ? "Overbought"
     : null;
@@ -44,10 +44,10 @@ const InsightsCard = ({
     ? "..."
     : yesterday <= 30
     ? "Oversold"
+    : yesterday == 50
+    ? "No Trend"    
     : yesterday < 70
     ? "Neutral"
-    : yesterday == 50
-    ? "No Trend"
     : yesterday >= 70
     ? "Overbought"
     : null;
@@ -76,10 +76,10 @@ const InsightsCard = ({
     ? "..."
     : lastweek <= 30
     ? "Oversold"
+    : lastweek == 50
+    ? "No Trend"    
     : lastweek < 70
     ? "Neutral"
-    : lastweek == 50
-    ? "No Trend"
     : lastweek >= 70
     ? "Overbought"
     : null;
@@ -108,10 +108,10 @@ const InsightsCard = ({
     ? "..."
     : lastMonth <= 30
     ? "Oversold"
+    : lastMonth == 50
+    ? "No Trend"  
     : lastMonth < 70
     ? "Neutral"
-    : lastMonth == 50
-    ? "No Trend"
     : lastMonth >= 70
     ? "Overbought"
     : null;
