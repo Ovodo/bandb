@@ -161,7 +161,7 @@ export default function Home({
           text={"Social Analysis Summary"}
         >
           <div className='relative bottom-7'>
-            <SemiCircle guage={lerp(0, 100, -90, 90, today.SAS)} />
+            <SemiCircle1 guage={lerp(0, 100, -90, 90, today.SAS)} />
           </div>
         </InsightsCard>
         <InsightsCard
