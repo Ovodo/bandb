@@ -74,7 +74,7 @@ const Navbar = ({ children }) => {
                 onHoverStart={(e, i) => {
                   console.log(e, i);
                 }}
-                className='text-[#F5900C]'
+                className='text-[#EE9220]'
                 transition={{ type: "spring", stiffness: 500, duration: 0.1 }}
                 onClick={() => {
                   hideMenu;
@@ -100,7 +100,7 @@ const Navbar = ({ children }) => {
                 {"Cryptocurrencies"}
               </motion.li>
             </Link>
-            <Link href='/'>
+            <Link href='/claim'>
               <motion.li
                 whileHover={{ scale: 1.2, y: -5 }}
                 whileTap={{ scale: 0.8 }}
@@ -124,8 +124,8 @@ const Navbar = ({ children }) => {
           <MenuIcon />
           <DrawingComponent />
         </div> */}
-        <div className='icon flex border-green-500  items-center'>
-          { <MenuIcon color='white' style={{ fontSize: 30, color: "#F5900C" }} /> }
+        <div className='icon flex border-green-500  items-center'><Link href='/claim' style={{ fontSize: 25, color: "#F5900C" }} >🎁</Link>
+          {<MenuIcon color='white' style={{ fontSize: 30, color: "#F5900C" }} />}
         </div>
       </nav>
       {children}
