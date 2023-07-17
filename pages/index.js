@@ -27,6 +27,7 @@ import SemiCircle2 from "@/Components/SemiCircle2";
 import MeterGauge from "@/Components/MeterGuage";
 import Charts from "@/Components/Charts";
 import MarketSentiment from "@/Components/MarketSentiment";
+import LongCard from "@/Components/LongCard";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -90,9 +91,8 @@ export default function Home({
     <main className='relative flex flex-col'>
       <div className='flex w-full justify-between   h-[11vh] md:h-[14vh] lg:h-[18vh]'>
         <div className='flex relative bottom-[1vh] lg:bottom-0  h-[70%] my-auto   self-start  items-center '>
-
           <h1 className='absolute top-[2vh] md:top-[1vh] ml-[6vh] md:ml-[9.5vw] lg:ml-[8vw] min-w-max  self-center'>
-                      📉 Bear & Bull Index
+            📉 Bear & Bull Index
           </h1>
         </div>
         <h4 className='self-end  mx-auto'>Market Overview</h4>
@@ -177,6 +177,9 @@ export default function Home({
           </div>
           {/* <MeterGauge /> */}
         </InsightsCard>
+      </section>
+      <section className='flex flex-col mb-[20vh] items-center'>
+        <LongCard title={"Market Sentiment Analysis"} />
       </section>
     </main>
   );
