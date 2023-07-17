@@ -91,26 +91,7 @@ const Charts = ({ chartData, height }) => {
 
   const data = {
     datasets: [
-      {
-        label: "RSI",
-        data: day,
-
-        tension: 0,
-        borderWidth: 1,
-        borderColor: "rgba(47,97,68,.3)",
-        fill: "start",
-        backgroundColor: "rgba(241,178,91,.3)",
-        pointBorderColor: "rgba(75,192,192,1)",
-        pointBackgroundColor: "#fff",
-        pointBorderWidth: 1,
-        pointHoverRadius: 5,
-        pointHoverBackgroundColor: "rgba(75,192,192,1)",
-        pointHoverBorderColor: "rgba(220,220,220,1)",
-        pointHoverBorderWidth: 2,
-        pointRadius: 1,
-        pointHitRadius: 10,
-      },
-      {
+         {
         label: "MSA",
         data: dayMSA,
 
@@ -138,6 +119,25 @@ const Charts = ({ chartData, height }) => {
         borderColor: "rgba(47,97,68,.3)",
         fill: "start",
         backgroundColor: "rgba(29,153,153,.4)",
+        pointBorderColor: "rgba(75,192,192,1)",
+        pointBackgroundColor: "#fff",
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: "rgba(75,192,192,1)",
+        pointHoverBorderColor: "rgba(220,220,220,1)",
+        pointHoverBorderWidth: 2,
+        pointRadius: 1,
+        pointHitRadius: 10,
+      },
+      {
+        label: "RSI",
+        data: day,
+
+        tension: 0,
+        borderWidth: 1,
+        borderColor: "rgba(47,97,68,.3)",
+        fill: "start",
+        backgroundColor: "rgba(241,178,91,.3)",
         pointBorderColor: "rgba(75,192,192,1)",
         pointBackgroundColor: "#fff",
         pointBorderWidth: 1,
