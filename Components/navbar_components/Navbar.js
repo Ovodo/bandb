@@ -125,6 +125,7 @@ const Navbar = ({ children }) => {
           <DrawingComponent />
         </div> */}
         <div className='icon flex border-green-500  items-center'>
+          <button>Login</button> 
           {/* <MenuIcon color='white' style={{ fontSize: 50, color: "#F5900C" }} /> */}
         </div>
       </nav>
