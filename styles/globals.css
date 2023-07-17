@@ -302,7 +302,7 @@ ul a:hover {
   src: local("Axiforma");
 }
 
-/* Custom Button */
+/* Custom Button 
 
 button {
   background-color: #F5900C;
@@ -315,7 +315,7 @@ button {
 
 button:hover {
   opacity: 0.8;
-}
+} */
 
 /* Customize scrollbar */
 
