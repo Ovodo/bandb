@@ -22,6 +22,8 @@ import { Typography } from "@mui/material";
 import Link from "next/link";
 import InsightsCard from "@/Components/InsightsCard";
 import SemiCircle from "@/Components/SemiCircle";
+import SemiCircle1 from "@/Components/SemiCircle1";
+import SemiCircle2 from "@/Components/SemiCircle2";
 import MeterGauge from "@/Components/MeterGuage";
 import Charts from "@/Components/Charts";
 import MarketSentiment from "@/Components/MarketSentiment";
@@ -147,7 +149,7 @@ export default function Home({
           text={"Market Sentiment Analysis"}
         >
           <div className='relative bottom-7'>
-            <SemiCircle guage={lerp(0, 100, -90, 90, today.MSA)} />
+            <SemiCircle1 guage={lerp(0, 100, -90, 90, today.MSA)} />
           </div>
         </InsightsCard>
         <InsightsCard
@@ -171,7 +173,7 @@ export default function Home({
           text={"Relative Strength Index"}
         >
           <div className='relative bottom-7'>
-            <SemiCircle guage={lerp(0, 100, -90, 90, today.RSI)} />
+            <SemiCircle2 guage={lerp(0, 100, -90, 90, today.RSI)} />
           </div>
           {/* <MeterGauge /> */}
         </InsightsCard>
