@@ -149,7 +149,7 @@ export default function Home({
           text={"Market Sentiment Analysis"}
         >
           <div className='relative bottom-7'>
-            <SemiCircle1 guage={lerp(0, 100, -90, 90, today.MSA)} />
+            <SemiCircle guage={lerp(0, 100, -90, 90, today.MSA)} />
           </div>
         </InsightsCard>
         <InsightsCard
