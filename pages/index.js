@@ -99,9 +99,9 @@ export default function Home({
           <Link href={"/claim"}>
             <p
               style={{ lineHeight: 1 }}
-              className='font-[900]  text-center text-green-500 text-lg'
+              className='font-[900]  text-center text-orange-500 text-lg'
             >
-              {mobile ? "Claim $INDEX" : "Claim $INDEX Token"}
+              {mobile ? "🎁 Claim" : "🎁 Claim"}
             </p>
           </Link>
         </div>
