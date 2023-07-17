@@ -79,7 +79,7 @@ const Claim = (props) => {
           <p className='mt-4'>
             Nice! You can pick up{" "}
             <span className='text-teal-600 font-bold'>{dailyClaim}</span> Index
-            🍢🍢 next
+            🍢🍢 next time you log into BandBindex
           </p>
           <p className='mb-2'>
             Get more Index on Zealy <a href='#'>Join Daily Competition</a>
