@@ -24,11 +24,11 @@ const InsightsCard = ({
   const todaySAS = !today
     ? "..."
     : today < 40
-    ? "Sell"
+    ? "Stop Loss"
     : today < 60
     ? "Neutral"
     : today >= 60
-    ? "Buy"
+    ? "Dollar Cost"
     : null;
   const todayMSA = !today
     ? "..."
@@ -55,11 +55,11 @@ const InsightsCard = ({
   const yesterdaySAS = !yesterday
     ? "..."
     : yesterday < 40
-    ? "Sell"
+    ? "Stop Loss"
     : yesterday < 60
     ? "Neutral"
     : yesterday >= 60
-    ? "Buy"
+    ? "Dollar Cost"
     : null;
 
   const yesterdayMSA = !yesterday
@@ -87,11 +87,11 @@ const InsightsCard = ({
   const lastweekSAS = !lastweek
     ? "..."
     : lastweek < 40
-    ? "Sell"
+    ? "Stop Loss"
     : lastweek < 60
     ? "Neutral"
     : lastweek >= 60
-    ? "Buy"
+    ? "Dollar Cost"
     : null;
 
   const lastweekMSA = !lastweek
@@ -119,11 +119,11 @@ const InsightsCard = ({
   const lastMonthSAS = !lastMonth
     ? "..."
     : lastMonth < 40
-    ? "Sell"
+    ? "Stop Loss"
     : lastMonth < 60
     ? "Neutral"
     : lastMonth >= 60
-    ? "Buy"
+    ? "Dollar Cost"
     : null;
 
   const lastMonthMSA = !lastMonth
