@@ -9,7 +9,7 @@ const SemiCircle = ({ guage = -30 }) => {
     <svg height='300' width='300'>
       <path
         d='M 150,210,m -80,0 a 45,45 0 1,1 160,0'
-        stroke='#f5900cff'
+        stroke='#9B9388'
         strokeWidth='40'
         fill='none'
       />
