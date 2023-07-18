@@ -24,7 +24,6 @@ import InsightsCard from "@/components/InsightsCard";
 import SemiCircle from "@/components/SemiCircle";
 import SemiCircle1 from "@/components/SemiCircle1";
 import SemiCircle2 from "@/components/SemiCircle2";
-import MeterGauge from "@/components/MeterGauge";
 import Charts from "@/components/Charts";
 import MarketSentiment from "@/components/MarketSentiment";
 import CountdownTimer from "@/components/CountdownTimer";
