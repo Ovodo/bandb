@@ -27,9 +27,9 @@ import SemiCircle2 from "@/Components/SemiCircle2";
 import MeterGauge from "@/Components/MeterGuage";
 import Charts from "@/Components/Charts";
 import MarketSentiment from "@/Components/MarketSentiment";
+import CountdownTimer from "@/components/CountdownTimer";
 import LongCard from "@/Components/LongCard";
 import BackToTopButton from "@/components/BackToTopButton";
-
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -109,7 +109,7 @@ export default function Home({
               style={{ lineHeight: 1 }}
               className='font-[900]  text-center text-orange-500 text-lg'
             >
-              {mobile ? "" : ""}
+              {mobile ? "" : <CountdownTimer />}
             </p>
           <b><BackToTopButton /></b>
         </div>
