@@ -91,7 +91,7 @@ const Charts = ({ chartData, height }) => {
 
   const data = {
     datasets: [
-         {
+      {
         label: "MSA",
         data: dayMSA,
 
