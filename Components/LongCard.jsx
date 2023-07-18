@@ -4,17 +4,10 @@ export default function LongCard({ title }) {
   const text1 = (
     <>
       <br />
-      The Bear and Bull Index provides an unbiased view of the crypto market, backed by{" "}
-      <a href="https://lunarcrush.com/" target="_blank" rel="noopener noreferrer">
-        LunarCrush’s
-      </a>{" "}
-      AI-driven social insights and metrics. We help the average crypto user to better understand the market through technical analysis and social analysis made easy.
+      The Bear and Bull Index provides an unbiased view of the crypto market, backed by <a href="https://lunarcrush.com/" target="_blank" rel="noopener noreferrer">LunarCrush’s</a> AI-driven social insights and metrics. We help the average crypto user to better understand the market through technical analysis and social analysis made easy.
       <br />
       <br />
-      <b>Learn More:</b> Check out the{" "}
-      <a href="https://docs.google.com/document/d/1dsthZ5d2hSGMdHRsdGo_qVAlc7XmtzT9mtwtiea6Zdk/edit" target="_blank" rel="noopener noreferrer">
-        <b>whitepaper</b>
-      </a>
+      <b>Learn More:</b> Check out the <a href="https://docs.google.com/document/d/1dsthZ5d2hSGMdHRsdGo_qVAlc7XmtzT9mtwtiea6Zdk/edit" target="_blank" rel="noopener noreferrer"><b>whitepaper</b></a>
     </>
   );
 
@@ -106,26 +99,14 @@ export default function LongCard({ title }) {
       <b>3.</b> We do not recommend buying, selling, or holding any cryptocurrency. Please conduct your own due diligence and consult your financial advisor before making any investment decisions.
       <br />
       <br />
-      <b>4.</b> The{" "}
-      <a href="https://docs.google.com/document/d/1dsthZ5d2hSGMdHRsdGo_qVAlc7XmtzT9mtwtiea6Zdk/edit" target="_blank" rel="noopener noreferrer">
-        <b>Bear and Bull $INDEX token</b>
-      </a>{" "}
-      is not a currency or an investment of any form. It is an In-App reward token created to incentivize community participation and unlock features within the BandBindex App and community.
+      <b>4.</b> The <a href="https://docs.google.com/document/d/1dsthZ5d2hSGMdHRsdGo_qVAlc7XmtzT9mtwtiea6Zdk/edit" target="_blank" rel="noopener noreferrer"><b>Bear and Bull $INDEX token</b></a> is not a currency or an investment of any form. It is an In-App reward token created to incentivize community participation and unlock features within the BandBindex App and community.
     </>
   );
 
   return (
     <div className="bg-white shadow-md p-5 w-[80vw] md:w-[87vw] lg:w-[92%] rounded-md">
       <h1 className="text-2xl font-bold mb-4">{title}</h1>
-      <p className="text-lg">
-        {title === "Why Bear & Bull Index?"
-          ? text1
-          : title === "Data Sources"
-          ? text2
-          : title === "Bear and Bull Index indicators"
-          ? text3
-          : text4}
-      </p>
+      <p className="text-lg">{title === "Why Bear & Bull Index?" ? text1 : title === "Data Sources" ? text2 : title === "Bear and Bull Index indicators" ? text3 : text4}</p>
     </div>
   );
 }
