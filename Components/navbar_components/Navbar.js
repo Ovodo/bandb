@@ -179,7 +179,7 @@ const Navbar = ({ children }) => {
         </div> */}
         <div className='icon flex border-green-500  items-center'><Link href='/claim' style={{ fontSize: 25, color: "#F5900C" }} >🎁</Link>
         {/*<NightModeIcon color='white' style={{ fontSize: 30, color: "#F5900C" }}/>*/}
-          {<UserIcon color='white' style={{ fontSize: 30, color: "#F5900C" }} />}
+          {/*<UserIcon color='white' style={{ fontSize: 30, color: "#F5900C" }} />*/}
         </div>
       </nav>
       {children}
