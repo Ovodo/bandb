@@ -27,9 +27,9 @@ import SemiCircle2 from "@/Components/SemiCircle2";
 import MeterGauge from "@/Components/MeterGuage";
 import Charts from "@/Components/Charts";
 import MarketSentiment from "@/Components/MarketSentiment";
-import CountdownTimer from "@/components/CountdownTimer";
 import LongCard from "@/Components/LongCard";
 import BackToTopButton from "@/components/BackToTopButton";
+import CountdownTimer from "@/components/CountdownTimer";
 
 const inter = Inter({ subsets: ["latin"] });
 
