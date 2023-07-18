@@ -1,26 +1,35 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { Inter } from "next/font/google";
+import DrawingComponent from "@/Components/DrawingComponent";
+import Square from "@/Components/Square";
+import { IconWifi } from "@tabler/icons-react";
+import { IconUsersGroup } from "@tabler/icons-react";
+import { IconWand } from "@tabler/icons-react";
+import Lottie from "lottie-react";
+import greenLady from "@/public/assets/lottie/greenlady.json";
+import Tbars from "@/public/assets/icons/Tbars";
+import { useState } from "react";
+import { useEffect } from "react";
+import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useAnimation } from "framer-motion";
-import { motion } from "framer-motion";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import InstagramIcon from "@mui/icons-material/Instagram";
 import { Typography } from "@mui/material";
 import Link from "next/link";
 import InsightsCard from "@/Components/InsightsCard";
 import SemiCircle from "@/Components/SemiCircle";
 import SemiCircle1 from "@/Components/SemiCircle1";
 import SemiCircle2 from "@/Components/SemiCircle2";
-// import MeterGauge from "@/Components/MeterGauge";
+import MeterGauge from "@/Components/MeterGauge";
 import Charts from "@/Components/Charts";
 import MarketSentiment from "@/Components/MarketSentiment";
 import CountdownTimer from "@/components/CountdownTimer";
 import LongCard from "@/Components/LongCard";
 import BackToTopButton from "@/components/BackToTopButton";
-
-import { Inter } from "next/font/google";
-import Tbars from "@/public/assets/icons/Tbars";
-import greenLady from "@/public/assets/lottie/greenlady.json";
-import { IconWifi, IconUsersGroup, IconWand } from "@tabler/icons-react";
-import Lottie from "lottie-react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -62,11 +71,9 @@ export default function Home({
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
   const imageLoader = ({ src, width, quality }) => {
     return `${src}?w=${width}&q=${quality || 75}`;
   };
-
   const mobile = screenWidth < 798;
 
   // Define a linear interpolation function
@@ -77,6 +84,13 @@ export default function Home({
         (inputEnd - inputStart)
     );
   }
+
+  // Interpolate the value of the yesterday prop
+  // const guage = lerp(0, 100, -90, 90, 100);
+  // const BTD = lerp(0, 90, 100, 60, dip);
+  // const btd = lerp(95, 400, 40, 0, dip);
+  // const STP = lerp(95, 400, 60, 100, dip);
+  // const stp = lerp(0, 90, 0, 40, dip);
 
   console.log(BTD);
 
@@ -132,6 +146,7 @@ export default function Home({
         </InsightsCard>
         <InsightsCard text='Market Sentiment'>
           <MarketSentiment sentiment={sentiment} />
+          {/* <p>{sentiment}</p> */}
         </InsightsCard>
         <InsightsCard
           today={today.MSA}
@@ -168,6 +183,7 @@ export default function Home({
           <div className='relative bottom-7'>
             <SemiCircle2 guage={lerp(0, 100, -90, 90, today.RSI)} />
           </div>
+          {/* <MeterGauge /> */}
         </InsightsCard>
       </section>
       <section className='flex flex-col mb-[15vh] items-center'>
@@ -197,6 +213,24 @@ export default function Home({
     </main>
   );
 }
+
+// export async function getServerSideProps({}) {
+//   const baseUrl =
+//     process.env.NODE_ENV === "production"
+//       ? "https://bandb.vercel.app/"
+//       : "http://localhost:3000";
+
+//   const req = await fetch(`${baseUrl}/api/sheet`);
+//   const res = await req.json();
+
+//   return {
+//     props: {
+//       yesterday: res.data.yesterday,
+//       lastweek: res.data.lastweek,
+//       lastMonth: res.data.lastMonth,
+//     },
+//   };
+// }
 
 export async function getServerSideProps({}) {
   const baseUrl =
