@@ -364,3 +364,6 @@ button:hover {
 .back-to-top:hover {
   opacity: 0.8;
 }
+.bg-grey {
+  background-color: #EDEDED;
+}
