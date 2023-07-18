@@ -8,7 +8,7 @@ import createEmotionCache from "../config/createEmotionCache";
 import { wrapper, persistor } from "../store/store";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { Provider } from "react-redux";
-import Navbar from "@/components/navbar_components/Navbar";
+import Navbar from "@/Components/navbar_components/Navbar";
 
 // Redux Persist
 import { PersistGate } from "redux-persist/integration/react";

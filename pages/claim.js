@@ -1,9 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { boxDays } from "../data/Days";
-import Box from "../components/Box";
+import Box from "../Components/Box";
 import { TiTime } from "react-icons/ti";
-import SlideIn from "../components/SlideIn";
+import SlideIn from "../Components/SlideIn";
 import { useSelector, useDispatch } from "react-redux";
 import {
   progressClaim,

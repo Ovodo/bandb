@@ -5,15 +5,15 @@ import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { useAnimation } from "framer-motion";
 import Link from "next/link";
-import InsightsCard from "@/components/InsightsCard";
-import SemiCircle from "@/components/SemiCircle";
-import SemiCircle1 from "@/components/SemiCircle1";
-import SemiCircle2 from "@/components/SemiCircle2";
-import Charts from "@/components/Charts";
-import MarketSentiment from "@/components/MarketSentiment";
-import CountdownTimer from "@/components/CountdownTimer";
-import LongCard from "@/components/LongCard";
-import BackToTopButton from "@/components/BackToTopButton";
+import InsightsCard from "@/Components/InsightsCard";
+import SemiCircle from "@/Components/SemiCircle";
+import SemiCircle1 from "@/Components/SemiCircle1";
+import SemiCircle2 from "@/Components/SemiCircle2";
+import Charts from "@/Components/Charts";
+import MarketSentiment from "@/Components/MarketSentiment";
+import CountdownTimer from "@/Components/CountdownTimer";
+import LongCard from "@/Components/LongCard";
+import BackToTopButton from "@/Components/BackToTopButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
