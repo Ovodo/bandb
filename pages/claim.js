@@ -66,7 +66,7 @@ const Claim = (props) => {
           }}
           className='mb-5 text-xl font-bold'
         >
-            <center><font size='20'>🎁</font></center><br></br>
+          <center><font size='20'>🎁</font></center><br></br>
           Balance: You have {Points} Index
         </motion.h1>
         <div className=' flex flex-col items-start text-[13px] mb-5 rectangular-component'>
