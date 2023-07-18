@@ -11,6 +11,8 @@ import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { motion, useAnimation } from "framer-motion";
 import MenuIcon from "@mui/icons-material/Menu";
+import UserIcon from '@mui/icons-material/SupervisedUserCircle';
+import NightModeIcon from '@mui/icons-material/Nightlight';
 
 // import { ethers } from 'ethers';
 import DrawingComponent from "../DrawingComponent";
@@ -100,7 +102,126 @@ const Navbar = ({ children }) => {
                 {"Cryptocurrencies"}
               </motion.li>
             </Link>
-            <Link href='/claim'>
+            <Link href=''>
+              <motion.li
+                whileHover={{ scale: 1.2, y: -5 }}
+                whileTap={{ scale: 0.8 }}
+                drag
+                dragSnapToOrigin
+                onHoverStart={(e, i) => {
+                  console.log(e, i);
+                }}
+                transition={{ type: "spring", stiffness: 500, duration: 0.1 }}
+                onClick={() => {
+                  hideMenu;
+                }}
+              >
+                {""}
+              </motion.li>
+            </Link>
+            <Link href=''>
+              <motion.li
+                whileHover={{ scale: 1.2, y: -5 }}
+                whileTap={{ scale: 0.8 }}
+                drag
+                dragSnapToOrigin
+                onHoverStart={(e, i) => {
+                  console.log(e, i);
+                }}
+                transition={{ type: "spring", stiffness: 500, duration: 0.1 }}
+                onClick={() => {
+                  hideMenu;
+                }}
+              >
+                {""}
+              </motion.li>
+            </Link>
+            <Link href=''>
+              <motion.li
+                whileHover={{ scale: 1.2, y: -5 }}
+                whileTap={{ scale: 0.8 }}
+                drag
+                dragSnapToOrigin
+                onHoverStart={(e, i) => {
+                  console.log(e, i);
+                }}
+                transition={{ type: "spring", stiffness: 500, duration: 0.1 }}
+                onClick={() => {
+                  hideMenu;
+                }}
+              >
+                {""}
+              </motion.li>
+            </Link>
+            <Link href=''>
+              <motion.li
+                whileHover={{ scale: 1.2, y: -5 }}
+                whileTap={{ scale: 0.8 }}
+                drag
+                dragSnapToOrigin
+                onHoverStart={(e, i) => {
+                  console.log(e, i);
+                }}
+                transition={{ type: "spring", stiffness: 500, duration: 0.1 }}
+                onClick={() => {
+                  hideMenu;
+                }}
+              >
+                {""}
+              </motion.li>
+            </Link>
+            <Link href=''>
+              <motion.li
+                whileHover={{ scale: 1.2, y: -5 }}
+                whileTap={{ scale: 0.8 }}
+                drag
+                dragSnapToOrigin
+                onHoverStart={(e, i) => {
+                  console.log(e, i);
+                }}
+                transition={{ type: "spring", stiffness: 500, duration: 0.1 }}
+                onClick={() => {
+                  hideMenu;
+                }}
+              >
+                {""}
+              </motion.li>
+            </Link>
+            <Link href=''>
+              <motion.li
+                whileHover={{ scale: 1.2, y: -5 }}
+                whileTap={{ scale: 0.8 }}
+                drag
+                dragSnapToOrigin
+                onHoverStart={(e, i) => {
+                  console.log(e, i);
+                }}
+                transition={{ type: "spring", stiffness: 500, duration: 0.1 }}
+                onClick={() => {
+                  hideMenu;
+                }}
+              >
+                {""}
+              </motion.li>
+            </Link>
+            <Link href=''>
+              <motion.li
+                whileHover={{ scale: 1.2, y: -5 }}
+                whileTap={{ scale: 0.8 }}
+                drag
+                dragSnapToOrigin
+                onHoverStart={(e, i) => {
+                  console.log(e, i);
+                }}
+                transition={{ type: "spring", stiffness: 500, duration: 0.1 }}
+                onClick={() => {
+                  hideMenu;
+                }}
+              >
+                {""}
+              </motion.li>
+            </Link>
+            <Link href=''>
               <motion.li
                 whileHover={{ scale: 1.2, y: -5 }}
                 whileTap={{ scale: 0.8 }}
@@ -125,7 +246,8 @@ const Navbar = ({ children }) => {
           <DrawingComponent />
         </div> */}
         <div className='icon flex border-green-500  items-center'><Link href='/claim' style={{ fontSize: 25, color: "#F5900C" }} >🎁</Link>
-          {<MenuIcon color='white' style={{ fontSize: 30, color: "#F5900C" }} />}
+        {/*<NightModeIcon color='white' style={{ fontSize: 30, color: "#F5900C" }}/>*/}
+          {<UserIcon color='white' style={{ fontSize: 30, color: "#F5900C" }} />}
         </div>
       </nav>
       {children}
