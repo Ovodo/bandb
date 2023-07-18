@@ -27,7 +27,9 @@ import SemiCircle2 from "@/Components/SemiCircle2";
 import MeterGauge from "@/Components/MeterGuage";
 import Charts from "@/Components/Charts";
 import MarketSentiment from "@/Components/MarketSentiment";
+import CountdownTimer from "@/components/CountdownTimer";
 import LongCard from "@/Components/LongCard";
+import BackToTopButton from "@/components/BackToTopButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -46,6 +48,10 @@ export default function Home({
   BTD,
   STP,
   today,
+  text1,
+  text2,
+  text3,
+  text4,
 }) {
   const [screenWidth, setScreenWidth] = useState(1000);
   const { ref, inView } = useInView({ threshold: 0.2 });
@@ -92,20 +98,20 @@ export default function Home({
       <div className='flex w-full justify-between   h-[11vh] md:h-[14vh] lg:h-[18vh]'>
         <div className='flex relative bottom-[1vh] lg:bottom-0  h-[70%] my-auto   self-start  items-center '>
           <h1 className='absolute top-[2vh] md:top-[1vh] ml-[6vh] md:ml-[9.5vw] lg:ml-[8vw] min-w-max  self-center'>
-            📉 Bear & Bull Index
+          {mobile ? "" : "📉 Bear & Bull Index"}
           </h1>
         </div>
         <h4 className='self-end  mx-auto'>Market Overview</h4>
         <div className='w-[20vw] self-center   absolute items-center right-[2vw]  flex flex-col justify-center'>
           <h4 className='hidden  font-[800]  lg:flex'>{todaysDate}</h4>
-          <Link href={"/claim"}>
+          
             <p
               style={{ lineHeight: 1 }}
               className='font-[900]  text-center text-orange-500 text-lg'
             >
-              {mobile ? "🎁 Claim" : "🎁 Claim"}
+              {mobile ? "" : <CountdownTimer />}
             </p>
-          </Link>
+          <b><BackToTopButton /></b>
         </div>
       </div>
       <section className=' mx-[2vw] flex  flex-col md:grid md:grid-cols-2 lg:grid-cols-3 mt-[4vh]'>
@@ -178,13 +184,44 @@ export default function Home({
           {/* <MeterGauge /> */}
         </InsightsCard>
       </section>
-      <section className='flex flex-col mb-[20vh] items-center'>
-        <LongCard title={"Market Sentiment Analysis"} />
+      <section className='flex flex-col mb-[15vh] items-center'>
+        <LongCard title={"Why Bear & Bull Index?"} >
+<text1>
+
+
+  </text1>
+        </LongCard>
+        </section>
+      <section className='flex flex-col mb-[15vh] items-center'>
+        <LongCard title={"Data Sources"}>
+        <text2>
+
+        </text2>
+        
+        </LongCard>
       </section>
+
+      <section className='flex flex-col mb-[15vh] items-center'>
+        <LongCard title={"Bear and Bull Index indicators"}>
+        <text3>
+
+        </text3>
+        
+        </LongCard>
+      </section>    
+
+      <section className='flex flex-col mb-[15vh] items-center'>
+        <LongCard title={"Disclaimer"}>
+        <text4>
+
+        </text4>
+        
+        </LongCard>
+      </section>      
     </main>
   );
 }
-
+    
 // export async function getServerSideProps({}) {
 //   const baseUrl =
 //     process.env.NODE_ENV === "production"
