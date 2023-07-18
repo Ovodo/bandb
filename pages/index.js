@@ -29,7 +29,7 @@ import Charts from "@/Components/Charts";
 import MarketSentiment from "@/Components/MarketSentiment";
 import LongCard from "@/Components/LongCard";
 import BackToTopButton from "@/components/BackToTopButton";
-import CountdownTimer from "@/components/CountdownTimer";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -109,7 +109,7 @@ export default function Home({
               style={{ lineHeight: 1 }}
               className='font-[900]  text-center text-orange-500 text-lg'
             >
-              {mobile ? "" : <CountdownTimer />}
+              {mobile ? "" : ""}
             </p>
           <b><BackToTopButton /></b>
         </div>
