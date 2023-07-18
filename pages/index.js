@@ -48,6 +48,7 @@ export default function Home({
   const { ref, inView } = useInView({ threshold: 0.2 });
   const animation = useAnimation();
   const animation2 = useAnimation();
+  // Little to no chabge
 
   useEffect(() => {
     const handleResize = () => {
