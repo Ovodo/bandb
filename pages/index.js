@@ -24,7 +24,7 @@ import InsightsCard from "@/Components/InsightsCard";
 import SemiCircle from "@/Components/SemiCircle";
 import SemiCircle1 from "@/Components/SemiCircle1";
 import SemiCircle2 from "@/Components/SemiCircle2";
-import MeterGauge from "@/Components/MeterGauge";
+// import MeterGauge from "@/Components/MeterGauge";
 import Charts from "@/Components/Charts";
 import MarketSentiment from "@/Components/MarketSentiment";
 import CountdownTimer from "@/components/CountdownTimer";
@@ -100,7 +100,7 @@ export default function Home({
         <div className='flex relative bottom-[1vh] lg:bottom-0 h-[70%] my-auto self-start items-center'>
           <h1 className='absolute top-[2vh] md:top-[1vh] ml-[6vh] md:ml-[9.5vw] lg:ml-[8vw] min-w-max self-center'>
             {mobile ? "" : "📉 Bear & Bull Index"}
-          </h1>
+          </h1>{" "}
         </div>
         <h4 className='self-end mx-auto'>Market Overview</h4>
         <div className='w-[20vw] self-center absolute items-center right-[2vw] flex flex-col justify-center'>
