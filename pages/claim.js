@@ -1,9 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { boxDays } from "../data/Days";
-import Box from "../Components/Box";
+import Box from "../components/Box";
 import { TiTime } from "react-icons/ti";
-import SlideIn from "../Components/SlideIn";
+import SlideIn from "../components/SlideIn";
 import { useSelector, useDispatch } from "react-redux";
 import {
   progressClaim,
@@ -66,7 +66,10 @@ const Claim = (props) => {
           }}
           className='mb-5 text-xl font-bold'
         >
-          <center><font size='20'>🎁</font></center><br></br>
+          <center>
+            <font size='20'>🎁</font>
+          </center>
+          <br></br>
           Balance: You have {Points} Index
         </motion.h1>
         <div className=' flex flex-col items-start text-[13px] mb-5 rectangular-component'>
