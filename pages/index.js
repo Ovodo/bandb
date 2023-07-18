@@ -218,6 +218,11 @@ export default function Home({
         
         </LongCard>
       </section>      
+
+
+<center>Bear and Bull Index is Powered by <a href="https://lunarcrush.com/" target="_blank"><b>LunarCrush</b></a></center>
+<br />
+<br />
     </main>
   );
 }
