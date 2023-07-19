@@ -183,7 +183,7 @@ export default function Home({
         <LongCard title='Disclaimer' text={text4} />
       </section>
       <center>
-        Bear and Bull Index is Powered by{" "}
+      Powered by{" "}
         <a
           href='https://lunarcrush.com/'
           target='_blank'
@@ -195,8 +195,7 @@ export default function Home({
       <br />
       <br />
       <p>
-        Her Name is Joy Imasuen and she is here to learn coding. I hope shes
-        strong enough
+
       </p>
     </main>
   );
