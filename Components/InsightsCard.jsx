@@ -171,7 +171,7 @@ const InsightsCard = ({
       : null;
 
   return (
-    <div className='flex  flex-col items-center justify-between w-[80vw] relative md:w-[40vw] lg:w-[28vw] mx-auto my-[5vh] lg:my-[7vh]  h-[45vh] md:h-[35vh] lg:h-[45vh] bg-slate-200'>
+    <div className='flex  flex-col items-center justify-between w-[80vw] relative md:w-[40vw] lg:w-[28vw] mx-auto my-[5vh] lg:my-[7vh]  h-[45vh] md:h-[35vh] lg:h-[45vh] bg-slate-200 shadow-md rounded-sm'>
       <p className='bg-slate-900 py-2 text-center text-white font-medium w-full'>
         {text}
       </p>
