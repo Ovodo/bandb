@@ -194,6 +194,10 @@ export default function Home({
       </center>
       <br />
       <br />
+      <p>
+        Her Name is Joy Imasuen and she is here to learn coding. I hope shes
+        strong enough
+      </p>
     </main>
   );
 }

@@ -2,8 +2,8 @@ import React from "react";
 import { GiWallet } from "react-icons/gi";
 import { IoMdCart } from "react-icons/io";
 import { FaUserAlt } from "react-icons/fa";
-import { RiCloseLine } from "react-icons/ri";
-import { AiOutlineBars } from "react-icons/ai";
+import { HiOutlineX } from "react-icons/hi";
+import { HiOutlineMenu } from "react-icons/hi";
 import { TiTick } from "react-icons/ti";
 import { useState } from "react";
 import Link from "next/link";
@@ -11,8 +11,8 @@ import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { motion, useAnimation } from "framer-motion";
 import MenuIcon from "@mui/icons-material/Menu";
-import UserIcon from '@mui/icons-material/SupervisedUserCircle';
-import NightModeIcon from '@mui/icons-material/Nightlight';
+import UserIcon from "@mui/icons-material/SupervisedUserCircle";
+import NightModeIcon from "@mui/icons-material/Nightlight";
 
 // import { ethers } from 'ethers';
 import DrawingComponent from "../DrawingComponent";
@@ -61,10 +61,38 @@ const Navbar = ({ children }) => {
   return (
     <div>
       <nav className='navbar  sticky top-0  '>
+        <div
+          // style={{ display: !showmenu ? "flex" : "none" }}
+          className='logo-menu'
+        >
+          <motion.div
+            initial={{}}
+            animate={{
+              y: [0, -15, 0, -15, 0, -17, 0, -12, 0],
+              // x: [0, 0, 0, 0, 0, 15, 0, 0, 0, 0],
+            }}
+            transition={{
+              delay: 0.1,
+              repeat: 7,
+              duration: 4,
+              // x: { delay: 8, duration: 5, repeat: 2 },
+            }}
+            className='logos'
+          >
+            <Link href='/'>{/* <Logo /> */}</Link>
+          </motion.div>
+          <div className='menu-icon' onClick={toggleMenu}>
+            {showmenu ? (
+              <HiOutlineX color={"#F5900C"} size={35} />
+            ) : (
+              <HiOutlineMenu color={"#F5900C"} size={35} />
+            )}
+          </div>
+        </div>
         <menu>
           <motion.ul
             className='nav-menu md:w-[45vw]'
-            // id={showmenu ? "mobile" : "hide"}
+            id={showmenu ? "mobile" : "hide"}
             whileHover={controls.stop}
           >
             <Link href='/'>
@@ -76,7 +104,7 @@ const Navbar = ({ children }) => {
                 onHoverStart={(e, i) => {
                   console.log(e, i);
                 }}
-                className='text-[#EE9220]'
+                // className='text-[#EE9220]'
                 transition={{ type: "spring", stiffness: 500, duration: 0.1 }}
                 onClick={() => {
                   hideMenu;
@@ -245,9 +273,15 @@ const Navbar = ({ children }) => {
           <MenuIcon />
           <DrawingComponent />
         </div> */}
-        <div className='icon flex border-green-500  items-center'><Link href='/claim' style={{ fontSize: 25, color: "#F5900C" }} >🎁</Link>
-        {/*<NightModeIcon color='white' style={{ fontSize: 30, color: "#F5900C" }}/>*/}
-          {/*<UserIcon color='white' style={{ fontSize: 30, color: "#F5900C" }} />*/}
+        <div className='icon flex border-green-500  items-center'>
+          <Link href='/claim' style={{ fontSize: 25, color: "#F5900C" }}>
+            🎁
+          </Link>
+          <NightModeIcon
+            color='white'
+            style={{ fontSize: 30, color: "#F5900C" }}
+          />
+          <UserIcon color='white' style={{ fontSize: 30, color: "#F5900C" }} />
         </div>
       </nav>
       {children}

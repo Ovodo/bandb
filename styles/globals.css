@@ -80,13 +80,13 @@ h4 {
   /* padding: 0 0px; */
 }
 .logo-menu {
-  display: flex;
+  display: none;
   justify-content: center;
   cursor: pointer;
   gap: 10px;
-  /* border: 2px solid; */
+  /* border: 2px solid red; */
 }
-.menu-icons {
+.menu-icon {
   display: none;
 }
 .nav-menu {
@@ -217,15 +217,24 @@ ul a:hover {
   .icon li {
     font-size: 25px;
   }
-  .menu-icons {
-    border: none;
-    /* display: block;
+  .menu-icon {
+    /* border: 2px solid gray; */
+    display: block;
     align-items: center;
-    justify-content: center; */
+    justify-content: center;
+  }
+  .logo-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 10px;
+    /* border: 2px solid red;  */
   }
 
   .nav-menu {
     width: 80vw;
+    background-color: black;
   }
 
   .navbar #mobile,
@@ -250,7 +259,7 @@ ul a:hover {
   }
   ul a {
     border: none;
-    color: white;
+    color: #f5900c;
   }
   .navbar #mobile li:last-child,
   .navbar #hide li:last-child {
@@ -348,7 +357,7 @@ button:hover {
   right: 20px;
   display: none;
   padding: 10px;
-  background-color: #F5900C;
+  background-color: #f5900c;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -365,5 +374,10 @@ button:hover {
   opacity: 0.8;
 }
 .bg-grey {
-  background-color: #EDEDED;
+  background-color: #ededed;
+}
+
+.Heading {
+  color: pink;
+  font-size: 50px;
 }
