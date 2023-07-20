@@ -279,7 +279,7 @@ const Navbar = ({ children }) => {
           </Link>
           <NightModeIcon
             color='white'
-            style={{ fontSize: 30, color: "#F5900C" }}
+            style={{ fontSize: 30, color: "#F5900C", cursor: "pointer" }}
           />
           <UserIcon color='white' style={{ fontSize: 30, color: "#F5900C" }} />
         </div>

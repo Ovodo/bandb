@@ -14,6 +14,7 @@ import MarketSentiment from "@/Components/MarketSentiment";
 import CountdownTimer from "@/Components/CountdownTimer";
 import LongCard from "@/Components/LongCard";
 import BackToTopButton from "@/Components/BackToTopButton";
+import { useSelector } from "react-redux";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,17 +33,16 @@ export default function Home({
   BTD,
   STP,
   today,
-  text1,
-  text2,
-  text3,
-  text4,
+  coin,
 }) {
   const [screenWidth, setScreenWidth] = useState(1000);
   const { ref, inView } = useInView({ threshold: 0.2 });
   const animation = useAnimation();
   const animation2 = useAnimation();
-  // Little to no chabge
 
+  const { theme } = useSelector((state) => state.Theme);
+
+  const colorTheme = theme == "light" ? "bg-white" : "bg-slate-950";
   useEffect(() => {
     const handleResize = () => {
       setScreenWidth(window.innerWidth);
@@ -69,15 +69,24 @@ export default function Home({
     );
   }
 
-  console.log(BTD);
+  console.log(coin);
 
   return (
-    <main className='relative bg-slate-950 flex flex-col'>
+    <main className={` ${colorTheme} relative  flex flex-col`}>
       <div className='flex w-full justify-between h-[11vh] md:h-[14vh] lg:h-[18vh]'>
         <div className='flex relative bottom-[1vh] lg:bottom-0 h-[70%] my-auto self-start items-center'>
-          <h1 className='absolute top-[2vh] md:top-[1vh] ml-[6vh] md:ml-[9.5vw] lg:ml-[8vw] min-w-max self-center'>
-            {mobile ? "" : "🙂 Welcome"}
-          </h1>{" "}
+          <div>
+            <div
+              className='w-5 h-5'
+              style={{ background: "url(/assets/images/logo.png)" }}
+            ></div>
+            <h1 className='absolute top-[2vh] md:top-[1vh] ml-[6vh] md:ml-[9.5vw] lg:ml-[8vw] min-w-max self-center'>
+              {mobile ? "" : `🙂 Welcome`}
+            </h1>
+          </div>
+          <p className='absolute top-[2vh] md:top-[1vh] ml-[6vh] md:ml-[9.5vw] lg:ml-[8vw] min-w-max self-center'>
+            {mobile ? "" : `🔥 Today's Coin: ${coin.symbol}`}
+          </p>
         </div>
         <h4 className='self-end mx-auto'>Market Overview</h4>
         <div className='w-[20vw] self-center absolute items-center right-[2vw] flex flex-col justify-center'>
@@ -164,19 +173,19 @@ export default function Home({
         </InsightsCard>
       </section>
       <section className='flex flex-col mb-[15vh] items-center'>
-        <LongCard title='Why Bear & Bull Index?' text={text1} />
+        <LongCard title='Why Bear & Bull Index?' />
       </section>
       <section className='flex flex-col mb-[15vh] items-center'>
-        <LongCard title='Data Sources' text={text2} />
+        <LongCard title='Data Sources' />
       </section>
       <section className='flex flex-col mb-[15vh] items-center'>
-        <LongCard title='Bear and Bull Index indicators' text={text3} />
+        <LongCard title='Bear and Bull Index indicators' />
       </section>
       <section className='flex flex-col mb-[15vh] items-center'>
-        <LongCard title='Disclaimer' text={text4} />
+        <LongCard title='Disclaimer' />
       </section>
       <center>
-      Powered by{" "}
+        Powered by{" "}
         <a
           href='https://lunarcrush.com/'
           target='_blank'
@@ -187,9 +196,7 @@ export default function Home({
       </center>
       <br />
       <br />
-      <p>
-
-      </p>
+      <p></p>
     </main>
   );
 }
@@ -217,23 +224,31 @@ export async function getServerSideProps({}) {
     process.env.NODE_ENV === "production"
       ? "https://bandb.vercel.app/"
       : "http://localhost:3000";
+  const APIkey = " h569uy3tkd6hfydgfzz8q74fd6lkbkpvjv0m4r85e";
 
   const chartDataReq = fetch(`${baseUrl}/api/chart`);
   const sheetDataReq = fetch(`${baseUrl}/api/sheet`);
   const dipDataReq = fetch(`${baseUrl}/api/dip`);
-
-  const [chartDataRes, sheetDataRes, dipDataRes] = await Promise.all([
+  const lunrReq = fetch("https://lunarcrush.com/api3/coinoftheday", {
+    headers: {
+      Authorization: `Bearer${APIkey}`,
+    },
+  });
+  const [chartDataRes, sheetDataRes, dipDataRes, lunrRes] = await Promise.all([
     chartDataReq,
     sheetDataReq,
     dipDataReq,
+    lunrReq,
   ]);
 
   const chartData = await chartDataRes.json();
   const sheetData = await sheetDataRes.json();
   const dipData = await dipDataRes.json();
+  const lunrData = await lunrRes.json();
 
   return {
     props: {
+      coin: { name: lunrData.name, symbol: lunrData.symbol },
       sentiment: dipData.data.sentiment,
       STP: dipData.data.STP,
       BTD: dipData.data.BTD,
