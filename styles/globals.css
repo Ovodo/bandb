@@ -4,7 +4,7 @@
 
 /* styles/fonts.css */
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap");
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -24,7 +24,7 @@
 body {
   /* height: 100vh; */
   color: rgb(var(--foreground-rgb));
-  font-family: "Inter", sans-serif;
+  font-family: "Roboto", sans-serif;
   /* background: linear-gradient(
       to bottom,
       transparent,
@@ -56,14 +56,14 @@ h1 {
   font-weight: 900;
   /* line-height: 80px; */
   color: black;
-  font-family: "Inter", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 h4 {
   font-size: 35px;
   font-weight: 400;
   /* line-height: 80px; */
   color: black;
-  font-family: "Inter", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 .navbar {
   background-color: rgba(0, 0, 0, 1);
@@ -74,7 +74,7 @@ h4 {
   z-index: 50;
   /* opacity: ; */
   /* border: 2px solid; */
-  font-family: "Inter", sans-serif;
+  font-family: "Roboto", sans-serif;
   justify-content: space-between;
   align-items: center;
   /* padding: 0 0px; */
@@ -82,7 +82,7 @@ h4 {
 .logo-menu {
   display: none;
   justify-content: center;
-  cursor: pointer;
+  cursor: poRoboto;
   gap: 10px;
   /* border: 2px solid red; */
 }
@@ -105,7 +105,7 @@ h4 {
 }
 ul li {
   /* font-family: "DynaPuff", cursive; */
-  font-family: "Inter", sans-serif;
+  font-family: "Roboto", sans-serif;
 
   /* font-weight: 10; */
   margin-left: 1rem;
@@ -150,7 +150,7 @@ ul a:hover {
   /* padding-right: 40px; */
   color: var(--primary);
 
-  cursor: pointer;
+  cursor: poRoboto;
   font-size: 20px;
   transition: 0.15s ease-in;
 }
@@ -189,7 +189,7 @@ ul a:hover {
     /* line-height: 80px; */
     color: black;
     /* border: 2px solid; */
-    font-family: "Inter", sans-serif;
+    font-family: "Roboto", sans-serif;
   }
   h4 {
     font-size: 18px;
@@ -197,12 +197,12 @@ ul a:hover {
     /* line-height: 80px; */
     color: black;
     /* border: 2px solid; */
-    font-family: "Inter", sans-serif;
+    font-family: "Roboto", sans-serif;
   }
   #hero .header {
     font-size: 5px;
     scale: 0.5;
-    font-family: "Inter", sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 600;
     line-height: 42.44px;
     border: 2px solid blu;
@@ -227,7 +227,7 @@ ul a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+    cursor: poRoboto;
     gap: 10px;
     /* border: 2px solid red;  */
   }
@@ -283,7 +283,7 @@ ul a:hover {
 
 #hero .header {
   font-size: 45px;
-  font-family: "Inter", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 600;
   line-height: 42.44px;
 }
@@ -319,7 +319,7 @@ button {
   color: white;
   padding: 3px 20px;
   border: none;
-  cursor: pointer;
+  cursor: poRoboto;
   width: 100%;
 }
 
@@ -361,7 +361,7 @@ button:hover {
   color: #fff;
   border: none;
   border-radius: 4px;
-  cursor: pointer;
+  cursor: poRoboto;
   transition: opacity 0.3s ease-in-out;
   z-index: 9999; /* Set a higher z-index to bring it to the front */
 }
