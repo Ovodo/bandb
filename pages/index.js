@@ -76,7 +76,7 @@ export default function Home({
       <div className='flex w-full justify-between h-[11vh] md:h-[14vh] lg:h-[18vh]'>
         <div className='flex relative bottom-[1vh] lg:bottom-0 h-[70%] my-auto self-start items-center'>
           <h1 className='absolute top-[2vh] md:top-[1vh] ml-[6vh] md:ml-[9.5vw] lg:ml-[8vw] min-w-max self-center'>
-            {mobile ? "" : "📉 Bear & Bull Index"}
+            {mobile ? "" : "🙂 Welcome"}
           </h1>{" "}
         </div>
         <h4 className='self-end mx-auto'>Market Overview</h4>
@@ -176,7 +176,7 @@ export default function Home({
         <LongCard title='Disclaimer' text={text4} />
       </section>
       <center>
-        Bear and Bull Index is Powered by{" "}
+      Powered by{" "}
         <a
           href='https://lunarcrush.com/'
           target='_blank'
@@ -188,8 +188,7 @@ export default function Home({
       <br />
       <br />
       <p>
-        Her Name is Joy Imasuen and she is here to learn coding. I hope shes
-        strong enough
+
       </p>
     </main>
   );

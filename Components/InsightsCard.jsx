@@ -36,7 +36,7 @@ const InsightsCard = ({
     ? "Bearish"
     : today < 60
     ? "Neutral"
-    : today >= 70
+    : today >= 60
     ? "Bullish"
     : null;
 
@@ -68,7 +68,7 @@ const InsightsCard = ({
     ? "Bearish"
     : yesterday < 60
     ? "Neutral"
-    : yesterday >= 70
+    : yesterday >= 60
     ? "Bullish"
     : null;
 
@@ -100,7 +100,7 @@ const InsightsCard = ({
     ? "Bearish"
     : lastweek < 60
     ? "Neutral"
-    : lastweek >= 70
+    : lastweek >= 60
     ? "Bullish"
     : null;
 
@@ -132,7 +132,7 @@ const InsightsCard = ({
     ? "Bearish"
     : lastMonth < 60
     ? "Neutral"
-    : lastMonth >= 70
+    : lastMonth >= 60
     ? "Bullish"
     : null;
 
