@@ -8,7 +8,7 @@ import { TiTick } from "react-icons/ti";
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { motion, useAnimation } from "framer-motion";
 import MenuIcon from "@mui/icons-material/Menu";
 import UserIcon from "@mui/icons-material/SupervisedUserCircle";
@@ -17,6 +17,7 @@ import NightModeIcon from "@mui/icons-material/Nightlight";
 // import { ethers } from 'ethers';
 import DrawingComponent from "../DrawingComponent";
 import Image from "next/image";
+import { setTheme } from "@/store/reducers/Theme";
 
 const Navbar = ({ children }) => {
   let sm = typeof window !== "undefined" && window.innerWidth < 789;
@@ -25,6 +26,7 @@ const Navbar = ({ children }) => {
   const [showmenu, setShowmenu] = useState(false);
   const dispatch = useDispatch();
   const controls = useAnimation();
+  const { theme } = useSelector((state) => state.Theme);
 
   const connectWallet = async () => {
     // console.log('requesting accounts');
@@ -277,11 +279,18 @@ const Navbar = ({ children }) => {
           <Link href='/claim' style={{ fontSize: 25, color: "#F5900C" }}>
             🎁
           </Link>
-          <NightModeIcon
-            color='white'
-            style={{ fontSize: 30, color: "#F5900C", cursor: "pointer" }}
-          />
-          <UserIcon color='white' style={{ fontSize: 30, color: "#F5900C" }} />
+
+          <button
+            onClick={() => {
+              dispatch(setTheme(!theme));
+            }}
+          >
+            <NightModeIcon
+              color='white'
+              style={{ fontSize: 25, color: "#F5900C", cursor: "pointer" }}
+            />
+          </button>
+          <UserIcon color='white' style={{ fontSize: 25, color: "#F5900C" }} />
         </div>
       </nav>
       {children}

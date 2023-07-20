@@ -1,7 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const CountdownTimer = () => {
   const [countdown, setCountdown] = useState(0);
+
+  const { theme } = useSelector((state) => state.Theme);
+  const textTheme = theme ? "text-slate-950" : "text-slate-300";
 
   useEffect(() => {
     const calculateCountdown = () => {
@@ -34,14 +38,17 @@ const CountdownTimer = () => {
     const minutes = Math.floor((time % 3600) / 60);
     const seconds = time % 60;
 
-    return `${hours.toString().padStart(2, '0')}:${minutes
+    return `${hours.toString().padStart(2, "0")}:${minutes
       .toString()
-      .padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
   };
 
   return (
     <div>
-<font color='#000000'><b>Next Update:</b></font> {formatTime(countdown)}
+      <font className={textTheme}>
+        <b>Next Update:</b>
+      </font>{" "}
+      {formatTime(countdown)}
     </div>
   );
 };

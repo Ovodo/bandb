@@ -1,8 +1,13 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 export default function LongCard({ title }) {
+  const { theme } = useSelector((state) => state.Theme);
+  const textTheme = theme ? "text-slate-950" : "text-slate-400";
+  const backgroundTheme = theme ? "bg-slate-50" : "bg-slate-900";
+
   const text1 = (
-    <>
+    <div className={textTheme}>
       <br />
       The Bear and Bull Index provides an unbiased view of the crypto market,
       backed by{" "}
@@ -26,11 +31,11 @@ export default function LongCard({ title }) {
       >
         <b>whitepaper</b>
       </a>
-    </>
+    </div>
   );
 
   const text2 = (
-    <>
+    <div className={textTheme}>
       <br />
       We gather data from the following sources every day to visualize social
       sentiment changes in the crypto market.
@@ -55,11 +60,11 @@ export default function LongCard({ title }) {
         <li>• 24 Trading Volume on CoinGecko</li>
         <li>• Relative Strength Index</li>
       </ol>
-    </>
+    </div>
   );
 
   const text3 = (
-    <>
+    <div className={textTheme}>
       <br />
       The following built-in indicators help visualize social and technical
       analysis sentiment changes in the crypto market.
@@ -119,11 +124,11 @@ export default function LongCard({ title }) {
       fearful or hopeful. However, like the BTD (Buy the Dip) and STP (Sell the
       Pump) indicator, it is time-sensitive and changes quickly with the general
       crypto market sentiment driven by social media.
-    </>
+    </div>
   );
 
   const text4 = (
-    <>
+    <div className={textTheme}>
       <br />
       <b> No Investment Advice Here, Please take note of the following:</b>
       <br />
@@ -154,13 +159,17 @@ export default function LongCard({ title }) {
       is not a currency or an investment of any form. It is an In-App reward
       token created to incentivize community participation and unlock features
       within the BandBindex App and community.
-    </>
+    </div>
   );
 
   return (
-    <div className='bg-white shadow-md p-5 w-[80vw] md:w-[87vw] lg:w-[92%] rounded-md'>
-      <h1 className='text-2xl font-bold mb-4'>{title}</h1>
-      <p className='text-lg'>
+    <div
+      className={`${backgroundTheme} shadow-md ${
+        theme ? "shadow-slate-300" : "shadow-slate-500"
+      } p-5 w-[80vw] md:w-[87vw] lg:w-[92%] rounded-md`}
+    >
+      <h1 className={`${textTheme} text-2xl font-bold mb-4`}>{title}</h1>
+      <p className={`text-lg`}>
         {title === "Why Bear & Bull Index?"
           ? text1
           : title === "Data Sources"

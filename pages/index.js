@@ -41,8 +41,9 @@ export default function Home({
   const animation2 = useAnimation();
 
   const { theme } = useSelector((state) => state.Theme);
+  const textTheme = theme ? "text-slate-950" : "text-slate-300";
 
-  const colorTheme = theme == "light" ? "bg-white" : "bg-slate-950";
+  const colorTheme = theme ? "bg-white" : "bg-slate-950";
   useEffect(() => {
     const handleResize = () => {
       setScreenWidth(window.innerWidth);
@@ -72,25 +73,32 @@ export default function Home({
   console.log(coin);
 
   return (
-    <main className={` ${colorTheme} relative  flex flex-col`}>
+    <main className={` ${colorTheme} relative   flex flex-col`}>
       <div className='flex w-full justify-between h-[11vh] md:h-[14vh] lg:h-[18vh]'>
         <div className='flex relative bottom-[1vh] lg:bottom-0 h-[70%] my-auto self-start items-center'>
-          <div>
-            <div
-              className='w-5 h-5'
-              style={{ background: "url(/assets/images/logo.png)" }}
-            ></div>
-            <h1 className='absolute top-[2vh] md:top-[1vh] ml-[6vh] md:ml-[9.5vw] lg:ml-[8vw] min-w-max self-center'>
-              {mobile ? "" : `🙂 Welcome`}
+          <div className='absolute flex top-[2vh] md:top-[1vh] ml-[6vh] md:ml-[9.5vw] lg:ml-[8vw] min-w-max self-center'>
+            <div className='w-24 relative h-24'>
+              <Image
+                src={"/assets/images/logo.png"}
+                fill
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+            <h1 className={`${textTheme}`}>
+              {mobile ? "" : `Bear & Bull Index`}
             </h1>
           </div>
-          <p className='absolute top-[2vh] md:top-[1vh] ml-[6vh] md:ml-[9.5vw] lg:ml-[8vw] min-w-max self-center'>
+          <p
+            className={`absolute top-[8vh] ${textTheme} md:top-[15vh] ml-[6vh] md:ml-[9.5vw] lg:ml-[8vw] min-w-max self-center`}
+          >
             {mobile ? "" : `🔥 Today's Coin: ${coin.symbol}`}
           </p>
         </div>
-        <h4 className='self-end mx-auto'>Market Overview</h4>
+        <h4 className={` ${textTheme} self-end mx-auto`}>Market Overview</h4>
         <div className='w-[20vw] self-center absolute items-center right-[2vw] flex flex-col justify-center'>
-          <h4 className='hidden font-[800] lg:flex'>{todaysDate}</h4>
+          <h4 className={` ${textTheme} hidden font-[800] lg:flex`}>
+            {todaysDate}
+          </h4>
           <p
             style={{ lineHeight: 1 }}
             className='font-[900] text-center text-orange-500 text-lg'

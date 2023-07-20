@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const InsightsCard = ({
   text,
@@ -9,12 +10,17 @@ const InsightsCard = ({
   today,
   insights = false,
 }) => {
+  const { theme } = useSelector((state) => state.Theme);
+  const textTheme = !theme ? "text-slate-950" : "text-slate-50";
+  const textTheme2 = theme ? "text-slate-950" : "text-slate-300";
+  const backgroundTheme = theme ? "bg-slate-50" : "bg-slate-900";
+  const backgroundTheme2 = !theme ? "bg-slate-50" : "bg-slate-900";
   const todayRSI = !today
     ? "..."
     : today <= 30
     ? "Oversold"
     : today == 50
-    ? "No Trend"    
+    ? "No Trend"
     : today < 70
     ? "Neutral"
     : today >= 70
@@ -45,7 +51,7 @@ const InsightsCard = ({
     : yesterday <= 30
     ? "Oversold"
     : yesterday == 50
-    ? "No Trend"    
+    ? "No Trend"
     : yesterday < 70
     ? "Neutral"
     : yesterday >= 70
@@ -77,7 +83,7 @@ const InsightsCard = ({
     : lastweek <= 30
     ? "Oversold"
     : lastweek == 50
-    ? "No Trend"    
+    ? "No Trend"
     : lastweek < 70
     ? "Neutral"
     : lastweek >= 70
@@ -109,7 +115,7 @@ const InsightsCard = ({
     : lastMonth <= 30
     ? "Oversold"
     : lastMonth == 50
-    ? "No Trend"  
+    ? "No Trend"
     : lastMonth < 70
     ? "Neutral"
     : lastMonth >= 70
@@ -171,15 +177,21 @@ const InsightsCard = ({
       : null;
 
   return (
-    <div className='flex  flex-col items-center justify-between w-[80vw] relative md:w-[40vw] lg:w-[28vw] mx-auto my-[5vh] lg:my-[7vh]  h-[45vh] md:h-[35vh] lg:h-[45vh] bg-slate-200 shadow-md rounded-sm'>
-      <p className='bg-slate-900 py-2 text-center text-white font-medium w-full'>
+    <div
+      className={` ${backgroundTheme} flex   ${
+        theme ? "shadow-slate-300" : "shadow-slate-800"
+      } flex-col items-center justify-between w-[80vw] relative md:w-[40vw] lg:w-[28vw] mx-auto my-[5vh] lg:my-[7vh]  h-[45vh] md:h-[35vh] lg:h-[45vh]  shadow-md rounded-sm`}
+    >
+      <p
+        className={`${backgroundTheme2} ${textTheme} py-2 text-center  font-medium w-full`}
+      >
         {text}
       </p>
       {children}
       {insights ? (
         <>
           <div className='absolute flex flex-col items-center top-[7vh]'>
-            <p className=' font-extrabold text-slate-900  text-xl'>
+            <p className={`font-extrabold ${textTheme2}  text-xl`}>
               {todayTitle}
             </p>
             <p
@@ -194,7 +206,7 @@ const InsightsCard = ({
           </div>
           <div className='absolute bottom-2 flex justify-around w-full'>
             <div className=' flex flex-col justifiy-center items-center'>
-              <p className='text-[12px]'>Yesterday</p>
+              <p className={` ${textTheme2} text-[12px]`}>Yesterday</p>
               <p
                 style={{
                   color:
@@ -208,10 +220,12 @@ const InsightsCard = ({
               >
                 {yesterday}
               </p>
-              <p className='text-[15px] font-[600]'>{yesterdayTitle}</p>
+              <p className={` ${textTheme2} text-[15px] font-[600]`}>
+                {yesterdayTitle}
+              </p>
             </div>
             <div className=' flex flex-col justifiy-center items-center'>
-              <p className='text-[12px]'>Last Week</p>
+              <p className={` ${textTheme2} text-[12px]`}>Last Week</p>
               <p
                 style={{
                   color:
@@ -225,10 +239,12 @@ const InsightsCard = ({
               >
                 {lastweek}
               </p>
-              <p className='text-[15px] font-[600]'>{lastWeekTitle}</p>
+              <p className={` ${textTheme2} text-[15px] font-[600]`}>
+                {lastWeekTitle}
+              </p>
             </div>
             <div className=' flex flex-col justifiy-center items-center'>
-              <p className='text-[12px]'>Last Month</p>
+              <p className={` ${textTheme2} text-[12px]`}>Last Month</p>
               <p
                 style={{
                   color:
@@ -242,7 +258,9 @@ const InsightsCard = ({
               >
                 {lastMonth}
               </p>
-              <p className='text-[15px] font-[600]'>{lastMonthTitle}</p>
+              <p className={` ${textTheme2} text-[15px] font-[600]`}>
+                {lastMonthTitle}
+              </p>
             </div>
           </div>
         </>
