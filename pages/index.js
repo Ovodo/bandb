@@ -81,11 +81,11 @@ export default function Home({
               style={{ background: "url(/assets/images/logo.png)" }}
             ></div>
             <h1 className='absolute top-[2vh] md:top-[1vh] ml-[6vh] md:ml-[9.5vw] lg:ml-[8vw] min-w-max self-center'>
-              {mobile ? "" : `🙂 Welcome`}
+              {mobile ? "" : `🔥 Today's Coin: ${coin.symbol}`}
             </h1>
           </div>
           <p className='absolute top-[2vh] md:top-[1vh] ml-[6vh] md:ml-[9.5vw] lg:ml-[8vw] min-w-max self-center'>
-            {mobile ? "" : `🔥 Today's Coin: ${coin.symbol}`}
+            {mobile ? "" : ""}
           </p>
         </div>
         <h4 className='self-end mx-auto'>Market Overview</h4>
