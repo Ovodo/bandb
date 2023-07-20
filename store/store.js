@@ -5,6 +5,7 @@ import { persistReducer, persistStore } from "redux-persist";
 import thunk from "redux-thunk";
 import { combineReducers } from "@reduxjs/toolkit";
 import { createWrapper } from "next-redux-wrapper";
+import Theme from "./reducers/Theme";
 // import { useDispatch, useSelector } from 'react-redux'
 
 const persistConfig = {
@@ -14,6 +15,7 @@ const persistConfig = {
 
 const allReducers = combineReducers({
   App: AppReducer,
+  Theme: Theme,
 });
 
 const persistedReducer = persistReducer(persistConfig, allReducers);

@@ -69,17 +69,10 @@ export default function Home({
     );
   }
 
-  // Interpolate the value of the yesterday prop
-  // const guage = lerp(0, 100, -90, 90, 100);
-  // const BTD = lerp(0, 90, 100, 60, dip);
-  // const btd = lerp(95, 400, 40, 0, dip);
-  // const STP = lerp(95, 400, 60, 100, dip);
-  // const stp = lerp(0, 90, 0, 40, dip);
-
   console.log(BTD);
 
   return (
-    <main className='relative flex flex-col'>
+    <main className='relative bg-slate-950 flex flex-col'>
       <div className='flex w-full justify-between h-[11vh] md:h-[14vh] lg:h-[18vh]'>
         <div className='flex relative bottom-[1vh] lg:bottom-0 h-[70%] my-auto self-start items-center'>
           <h1 className='absolute top-[2vh] md:top-[1vh] ml-[6vh] md:ml-[9.5vw] lg:ml-[8vw] min-w-max self-center'>
