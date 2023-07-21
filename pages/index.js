@@ -91,7 +91,7 @@ export default function Home({
           <p
             className={`absolute top-[8vh] ${textTheme} md:top-[15vh] ml-[6vh] md:ml-[9.5vw] lg:ml-[8vw] min-w-max self-center`}
           >
-            {mobile ? "" : `🔥 Today's Coin: ${coin.symbol}`}
+            {mobile ? "" : ""}
           </p>
         </div>
         <h4 className={` ${textTheme} self-end mx-auto`}>Market Overview</h4>
