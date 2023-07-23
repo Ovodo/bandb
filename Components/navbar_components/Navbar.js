@@ -3,7 +3,7 @@ import { GiWallet } from "react-icons/gi";
 import { IoMdCart } from "react-icons/io";
 import { FaUserAlt } from "react-icons/fa";
 import { HiOutlineX } from "react-icons/hi";
-import { HiOutlineMenu } from "react-icons/hi";
+import { HiOutlineMenu, HiUser, HiSparkles } from "react-icons/hi";
 import { TiTick } from "react-icons/ti";
 import { useState } from "react";
 import Link from "next/link";
@@ -59,30 +59,45 @@ const Navbar = ({ children }) => {
   const imageLoader = ({ src, width, quality }) => {
     return `${src}?w=${width}&q=${quality || 75}`;
   };
+  const textTheme = !theme ? "text-slate-950" : "text-slate-300";
+
+  const colorTheme = !theme ? "bg-white" : "bg-slate-950";
 
   return (
     <div>
-      <nav className='navbar  sticky top-0  '>
+      <nav
+        style={{ backgroundColor: theme ? "black" : "white" }}
+        className='navbar px-[1vw] sticky top-0  '
+      >
         <div
           // style={{ display: !showmenu ? "flex" : "none" }}
           className='logo-menu'
         >
-          <motion.div
-            initial={{}}
-            animate={{
-              y: [0, -15, 0, -15, 0, -17, 0, -12, 0],
-              // x: [0, 0, 0, 0, 0, 15, 0, 0, 0, 0],
-            }}
-            transition={{
-              delay: 0.1,
-              repeat: 7,
-              duration: 4,
-              // x: { delay: 8, duration: 5, repeat: 2 },
-            }}
-            className='logos'
-          >
-            <Link href='/'>{/* <Logo /> */}</Link>
-          </motion.div>
+          <Link href='/'>
+            <motion.div
+              initial={{}}
+              animate={{
+                y: [0, -15, 0, -15, 0, -17, 0, -12, 0],
+                // x: [0, 0, 0, 0, 0, 15, 0, 0, 0, 0],
+              }}
+              transition={{
+                delay: 0.1,
+                repeat: 7,
+                duration: 4,
+                // x: { delay: 8, duration: 5, repeat: 2 },
+              }}
+              className='logos '
+            >
+              <div className='w-8 flex relative h-8'>
+                <Image
+                  src={"/assets/images/logo.png"}
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+              <h1 className={`${textTheme} `}>{sm ? "฿" : `฿andbIndex`}</h1>
+            </motion.div>
+          </Link>
           <div className='menu-icon' onClick={toggleMenu}>
             {showmenu ? (
               <HiOutlineX color={"#F5900C"} size={35} />
@@ -93,7 +108,7 @@ const Navbar = ({ children }) => {
         </div>
         <menu>
           <motion.ul
-            className='nav-menu md:w-[45vw]'
+            className={` ${colorTheme} nav-menu md:w-[45vw]`}
             id={showmenu ? "mobile" : "hide"}
             whileHover={controls.stop}
           >
@@ -146,7 +161,7 @@ const Navbar = ({ children }) => {
                   hideMenu;
                 }}
               >
-                {""}
+                {"Insights"}
               </motion.li>
             </Link>
             <Link href=''>
@@ -166,108 +181,26 @@ const Navbar = ({ children }) => {
                 {""}
               </motion.li>
             </Link>
-            <Link href=''>
-              <motion.li
-                whileHover={{ scale: 1.2, y: -5 }}
-                whileTap={{ scale: 0.8 }}
-                drag
-                dragSnapToOrigin
-                onHoverStart={(e, i) => {
-                  console.log(e, i);
-                }}
-                transition={{ type: "spring", stiffness: 500, duration: 0.1 }}
+            <div className='icon flex border-green-500  items-center'>
+              <Link href='/claim' style={{ fontSize: 25, color: "#F5900C" }}>
+                🎁
+              </Link>
+
+              <button
                 onClick={() => {
-                  hideMenu;
+                  dispatch(setTheme(!theme));
                 }}
               >
-                {""}
-              </motion.li>
-            </Link>
-            <Link href=''>
-              <motion.li
-                whileHover={{ scale: 1.2, y: -5 }}
-                whileTap={{ scale: 0.8 }}
-                drag
-                dragSnapToOrigin
-                onHoverStart={(e, i) => {
-                  console.log(e, i);
-                }}
-                transition={{ type: "spring", stiffness: 500, duration: 0.1 }}
-                onClick={() => {
-                  hideMenu;
-                }}
-              >
-                {""}
-              </motion.li>
-            </Link>
-            <Link href=''>
-              <motion.li
-                whileHover={{ scale: 1.2, y: -5 }}
-                whileTap={{ scale: 0.8 }}
-                drag
-                dragSnapToOrigin
-                onHoverStart={(e, i) => {
-                  console.log(e, i);
-                }}
-                transition={{ type: "spring", stiffness: 500, duration: 0.1 }}
-                onClick={() => {
-                  hideMenu;
-                }}
-              >
-                {""}
-              </motion.li>
-            </Link>
-            <Link href=''>
-              <motion.li
-                whileHover={{ scale: 1.2, y: -5 }}
-                whileTap={{ scale: 0.8 }}
-                drag
-                dragSnapToOrigin
-                onHoverStart={(e, i) => {
-                  console.log(e, i);
-                }}
-                transition={{ type: "spring", stiffness: 500, duration: 0.1 }}
-                onClick={() => {
-                  hideMenu;
-                }}
-              >
-                {""}
-              </motion.li>
-            </Link>
-            <Link href=''>
-              <motion.li
-                whileHover={{ scale: 1.2, y: -5 }}
-                whileTap={{ scale: 0.8 }}
-                drag
-                dragSnapToOrigin
-                onHoverStart={(e, i) => {
-                  console.log(e, i);
-                }}
-                transition={{ type: "spring", stiffness: 500, duration: 0.1 }}
-                onClick={() => {
-                  hideMenu;
-                }}
-              >
-                {""}
-              </motion.li>
-            </Link>
-            <Link href=''>
-              <motion.li
-                whileHover={{ scale: 1.2, y: -5 }}
-                whileTap={{ scale: 0.8 }}
-                drag
-                dragSnapToOrigin
-                onHoverStart={(e, i) => {
-                  console.log(e, i);
-                }}
-                transition={{ type: "spring", stiffness: 500, duration: 0.1 }}
-                onClick={() => {
-                  hideMenu;
-                }}
-              >
-                {""}
-              </motion.li>
-            </Link>
+                <HiSparkles
+                  color='white'
+                  style={{ fontSize: 25, color: "gold", cursor: "pointer" }}
+                />
+              </button>
+              <HiUser
+                color='white'
+                style={{ fontSize: 25, color: "#F5900C" }}
+              />
+            </div>
           </motion.ul>
         </menu>
 
@@ -275,23 +208,6 @@ const Navbar = ({ children }) => {
           <MenuIcon />
           <DrawingComponent />
         </div> */}
-        <div className='icon flex border-green-500  items-center'>
-          <Link href='/claim' style={{ fontSize: 25, color: "#F5900C" }}>
-            🎁
-          </Link>
-
-          <button
-            onClick={() => {
-              dispatch(setTheme(!theme));
-            }}
-          >
-            <NightModeIcon
-              color='white'
-              style={{ fontSize: 25, color: "#F5900C", cursor: "pointer" }}
-            />
-          </button>
-          <UserIcon color='white' style={{ fontSize: 25, color: "#F5900C" }} />
-        </div>
       </nav>
       {children}
     </div>
