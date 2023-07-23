@@ -365,16 +365,18 @@ export default function Home({
       <section className='flex flex-col mb-[15vh] items-center'>
         <LongCard text={text4} title='Disclaimer' />
       </section>
-      <center>
-        Powered by{" "}
-        <a
-          href='https://lunarcrush.com/'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <b>LunarCrush</b>
-        </a>
-      </center>
+      <div className={textTheme}>
+        <center>
+          Powered by{" "}
+          <a
+            href='https://lunarcrush.com/'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <b>LunarCrush</b>
+          </a>
+        </center>
+      </div>
       <br />
       <br />
       <p></p>
