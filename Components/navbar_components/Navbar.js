@@ -27,6 +27,8 @@ const Navbar = ({ children }) => {
   const dispatch = useDispatch();
   const controls = useAnimation();
   const { theme } = useSelector((state) => state.Theme);
+  const textTheme = theme ? "text-slate-950" : "text-slate-400";
+  const backgroundTheme = theme ? "bg-slate-50" : "bg-slate-900";
 
   const connectWallet = async () => {
     // console.log('requesting accounts');
@@ -61,6 +63,8 @@ const Navbar = ({ children }) => {
   };
 
   return (
+    <div className={backgroundTheme}>
+      <div className={textTheme}>
     <div>
       <nav className='navbar  sticky top-0  '>
         <div
@@ -294,7 +298,7 @@ const Navbar = ({ children }) => {
         </div>
       </nav>
       {children}
-    </div>
+    </div></div></div>
   );
 };
 
