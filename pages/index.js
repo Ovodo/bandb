@@ -181,7 +181,7 @@ export default function Home({
       <br />
       <b>2.</b> The information provided on this website does not constitute
       investment advice, financial advice, trading advice, or any other form of
-      advice. You should not treat any of the website's content as such.
+      advice. You should not treat any of the website&apos;s content as such.
       <br />
       <br />
       <b>3.</b> We do not recommend buying, selling, or holding any

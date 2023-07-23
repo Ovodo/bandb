@@ -48,7 +48,7 @@ const Claim = (props) => {
   useEffect(() => {
     let now = new Date();
     now > lastClaim ? dispatch(setClaimed(false)) : null;
-  }, [timeLeft, lastClaim]);
+  }, [lastClaim]);
   useEffect(() => {
     // Get the current date and set the time to 00:00:00.000
     let now = new Date();
@@ -63,7 +63,7 @@ const Claim = (props) => {
 
     // Now, if 'now' is greater than 'lastClaimDate + 1 day', it means that at least two days have passed since the last claim.
     now.getTime() > lastClaimDate.getTime() ? dispatch(setDailyClaim()) : null;
-  }, [timeLeft, lastClaim]);
+  }, [lastClaim]);
 
   // FUNCTIONS;
 
