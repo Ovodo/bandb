@@ -29,7 +29,7 @@ const Navbar = ({ children }) => {
   const dispatch = useDispatch();
   const controls = useAnimation();
   const { theme } = useSelector((state) => state.Theme);
-  const textTheme = theme ? "text-slate-950" : "text-slate-400";
+  // const textTheme = theme ? "text-slate-950" : "text-slate-400";
   const backgroundTheme = theme ? "bg-slate-50" : "bg-slate-900";
 
   const connectWallet = async () => {
@@ -69,173 +69,117 @@ const Navbar = ({ children }) => {
 
   return (
     <div className={backgroundTheme}>
-      <div className={textTheme}>
-        <div>
-          <nav
-            style={{ backgroundColor: theme ? "black" : "white" }}
-            className='navbar px-[1vw] sticky top-0  '
-          >
-            <div
-              // style={{ display: !showmenu ? "flex" : "none" }}
-              className='logo-menu'
+      <nav
+        // style={{ backgroundColor: theme ? "black" : "white" }}
+        className={`navbar ${
+          theme ? "bg-slate-950" : "bg-slate-300"
+        } px-[1vw] sticky top-0  `}
+      >
+        <div className='logo-menu'>
+          <Link href='/'>
+            <motion.div
+              initial={{}}
+              animate={
+                {
+                  // y: [0, -15, 0, -15, 0, -17, 0, -12, 0],
+                }
+              }
+              transition={{
+                delay: 0.1,
+                repeat: 7,
+                duration: 4,
+              }}
+              className='logos '
             >
-              <Link href='/'>
-                <motion.div
-                  initial={{}}
-                  animate={{
-                    y: [0, -15, 0, -15, 0, -17, 0, -12, 0],
-                    // x: [0, 0, 0, 0, 0, 15, 0, 0, 0, 0],
-                  }}
-                  transition={{
-                    delay: 0.1,
-                    repeat: 7,
-                    duration: 4,
-                    // x: { delay: 8, duration: 5, repeat: 2 },
-                  }}
-                  className='logos '
-                >
-                  <div className='w-8 flex relative h-8'>
-                    <Image
-                      src={"/assets/images/logo.png"}
-                      fill
-                      style={{ objectFit: "cover" }}
-                    />
-                  </div>
-                  <h1 className={`${textTheme} `}>{sm ? "฿" : `฿andbIndex`}</h1>
-                </motion.div>
-              </Link>
-              <div className='menu-icon' onClick={toggleMenu}>
-                {showmenu ? (
-                  <HiOutlineX color={"#F5900C"} size={35} />
-                ) : (
-                  <HiOutlineMenu color={"#F5900C"} size={35} />
-                )}
+              <div className='lg:w-10 w-10 h-10 flex relative lg:h-10'>
+                <Image
+                  src={"/assets/images/logo.png"}
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
               </div>
-            </div>
-            <menu>
-              <motion.ul
-                className={` ${colorTheme} nav-menu md:w-[45vw]`}
-                id={showmenu ? "mobile" : "hide"}
-                whileHover={controls.stop}
-              >
-                <Link href='/'>
-                  <motion.li
-                    whileHover={{ scale: 1.2, y: -5 }}
-                    whileTap={{ scale: 0.8 }}
-                    drag
-                    dragSnapToOrigin
-                    onHoverStart={(e, i) => {
-                      console.log(e, i);
-                    }}
-                    // className='text-[#EE9220]'
-                    transition={{
-                      type: "spring",
-                      stiffness: 500,
-                      duration: 0.1,
-                    }}
-                    onClick={() => {
-                      hideMenu;
-                    }}
-                  >
-                    {"Home"}
-                  </motion.li>
-                </Link>
-                <Link href='/'>
-                  <motion.li
-                    whileHover={{ scale: 1.2, y: -5 }}
-                    whileTap={{ scale: 0.8 }}
-                    drag
-                    dragSnapToOrigin
-                    onHoverStart={(e, i) => {
-                      console.log(e, i);
-                    }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 500,
-                      duration: 0.1,
-                    }}
-                    onClick={() => {
-                      hideMenu;
-                    }}
-                  >
-                    {"Cryptocurrencies"}
-                  </motion.li>
-                </Link>
-                <Link href=''>
-                  <motion.li
-                    whileHover={{ scale: 1.2, y: -5 }}
-                    whileTap={{ scale: 0.8 }}
-                    drag
-                    dragSnapToOrigin
-                    onHoverStart={(e, i) => {
-                      console.log(e, i);
-                    }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 500,
-                      duration: 0.1,
-                    }}
-                    onClick={() => {
-                      hideMenu;
-                    }}
-                  >
-                    {"Insights"}
-                  </motion.li>
-                </Link>
-                <Link href=''>
-                  <motion.li
-                    whileHover={{ scale: 1.2, y: -5 }}
-                    whileTap={{ scale: 0.8 }}
-                    drag
-                    dragSnapToOrigin
-                    onHoverStart={(e, i) => {
-                      console.log(e, i);
-                    }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 500,
-                      duration: 0.1,
-                    }}
-                    onClick={() => {
-                      hideMenu;
-                    }}
-                  >
-                    {""}
-                  </motion.li>
-                </Link>
-                <div className='icon flex border-green-500  items-center'>
-                  <Link
-                    href='/claim'
-                    style={{ fontSize: 25, color: "#F5900C" }}
-                  >
-                    🎁
-                  </Link>
-
-                  <button
-                    onClick={() => {
-                      dispatch(setTheme(!theme));
-                    }}
-                  >
-                    <HiSparkles
-                      color='white'
-                      style={{ fontSize: 25, color: "gold", cursor: "pointer" }}
-                    />
-                  </button>
-                  <HiUser
-                    color='white'
-                    style={{ fontSize: 25, color: "#F5900C" }}
-                  />
-                </div>
-              </motion.ul>
-            </menu>
-
-            {/* <div className='icon flex scale-50 items-center'>
-          <MenuIcon />
-          <DrawingComponent />
-        </div> */}
-            <div className='icon flex border-green-500  items-center'>
+              <h1 className={`${textTheme}  `}>{sm ? "฿" : `฿andbIndex`}</h1>
+            </motion.div>
+          </Link>
+        </div>
+        <div
+          className='menu-icon  relative right-[37vw] md:right-[42vw]'
+          onClick={toggleMenu}
+        >
+          {showmenu ? (
+            <HiOutlineX color={"#F5900C"} size={35} />
+          ) : (
+            <HiOutlineMenu color={"#F5900C"} size={35} />
+          )}
+        </div>
+        <menu>
+          <motion.ul
+            className={`${
+              theme ? "bg-slate-950" : "bg-slate-300"
+            } nav-menu   md:w-[55vw]`}
+            id={showmenu ? "mobile" : "hide"}
+          >
+            <motion.li
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.8 }}
+              className={`${textTheme} relative left-2 border-b-[1px] border-Gold border-opacity-`}
+              transition={{
+                type: "spring",
+                stiffness: 500,
+                duration: 0.1,
+              }}
+              onClick={() => {
+                hideMenu();
+              }}
+            >
+              <a>
+                <Link href='/'>{"Home"}</Link>
+              </a>
+            </motion.li>
+            <motion.li
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.8 }}
+              className={`${textTheme} relative left-2 border-b-[1px] border-Gold border-opacity-`}
+              transition={{
+                type: "spring",
+                stiffness: 500,
+                duration: 0.1,
+              }}
+              onClick={() => {
+                hideMenu();
+              }}
+            >
+              <a>
+                <Link href='/'>{"Cryptocurrencies"}</Link>
+              </a>
+            </motion.li>
+            <motion.li
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.8 }}
+              className={`${textTheme} relative left-2 border-b-[1px] border-Gold border-opacity-`}
+              // style={{ borderBottom: "none" }}
+              transition={{
+                type: "spring",
+                stiffness: 500,
+                duration: 0.1,
+              }}
+              onClick={() => {
+                hideMenu();
+              }}
+            >
+              <a>
+                <Link href=''>{"Insights"}</Link>
+              </a>
+            </motion.li>
+            <div className='icon flex  items-center'>
               <Link href='/claim' style={{ fontSize: 25, color: "#F5900C" }}>
-                🎁
+                <RedeemIcon
+                  style={{
+                    fontSize: 25,
+                    color: "#F5900C",
+                    cursor: "pointer",
+                  }}
+                />
               </Link>
 
               <button
@@ -243,20 +187,36 @@ const Navbar = ({ children }) => {
                   dispatch(setTheme(!theme));
                 }}
               >
-                <NightModeIcon
-                  color='white'
-                  style={{ fontSize: 25, color: "#F5900C", cursor: "pointer" }}
-                />
+                {theme ? (
+                  <NightModeIcon
+                    color='white'
+                    style={{
+                      fontSize: 25,
+                      color: "#F5900C",
+                      cursor: "pointer",
+                    }}
+                  />
+                ) : (
+                  <WbSunnyIcon
+                    color='white'
+                    style={{
+                      fontSize: 25,
+                      color: "#F5900C",
+                      cursor: "pointer",
+                    }}
+                  />
+                )}
               </button>
-              <UserIcon
+
+              <AccountCircleIcon
                 color='white'
                 style={{ fontSize: 25, color: "#F5900C" }}
               />
             </div>
-          </nav>
-          {children}
-        </div>
-      </div>
+          </motion.ul>
+        </menu>
+      </nav>
+      {children}
     </div>
   );
 };

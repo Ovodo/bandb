@@ -30,6 +30,7 @@ module.exports = {
         myYellow: "#e9ec6b",
         myGreen: "#293d04",
         myBrown: "#623412",
+        Gold: "#f5900c",
       },
     },
   },

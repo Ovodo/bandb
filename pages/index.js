@@ -233,16 +233,14 @@ export default function Home({
 
   return (
     <main className={` ${colorTheme} relative   flex flex-col`}>
-      <div className='flex w-full justify-between h-[11vh] md:h-[14vh] lg:h-[18vh]'>
-        <div className='flex relative bottom-[1vh] lg:bottom-0 h-[70%] my-auto self-start items-center'>
-          <p
-            className={`absolute top-[8vh] ${textTheme} md:top-[15vh] ml-[6vh] md:ml-[9.5vw] lg:ml-[8vw] min-w-max self-center`}
-          >
-            {mobile ? "" : ""}
-          </p>
-        </div>
-        <div className='w-[20vw] self-center absolute items-center right-[2vw] flex flex-col justify-center'>
-          <h4 className={` ${textTheme} hidden font-[800] lg:flex`}>
+      <div className='flex w-full justify-between px-[10vw] h-[11vh] md:h-[14vh] lg:h-[18vh]'>
+        <p
+          className={`font-semibold italic  ${textTheme} min-w-max self-center`}
+        >
+          {mobile ? "" : ` 🔥Today's Coin: ${coin.symbol}`}
+        </p>
+        <div className='min-w-max items-center flex flex-col justify-center'>
+          <h4 className={` ${textTheme}  hidden font-[800] md:flex`}>
             {todaysDate}
           </h4>
           <p
@@ -251,9 +249,6 @@ export default function Home({
           >
             {mobile ? "" : <CountdownTimer />}
           </p>
-          <b>
-            <BackToTopButton />
-          </b>
         </div>
       </div>
       <LongCard
@@ -379,28 +374,15 @@ export default function Home({
       </div>
       <br />
       <br />
-      <p></p>
+      <p className='absolute bottom-20 right-10'>
+        {" "}
+        <b>
+          <BackToTopButton />
+        </b>
+      </p>
     </main>
   );
 }
-
-// export async function getServerSideProps({}) {
-//   const baseUrl =
-//     process.env.NODE_ENV === "production"
-//       ? "https://bandb.vercel.app/"
-//       : "http://localhost:3000";
-
-//   const req = await fetch(`${baseUrl}/api/sheet`);
-//   const res = await req.json();
-
-//   return {
-//     props: {
-//       yesterday: res.data.yesterday,
-//       lastweek: res.data.lastweek,
-//       lastMonth: res.data.lastMonth,
-//     },
-//   };
-// }
 
 export async function getServerSideProps({}) {
   const baseUrl =
