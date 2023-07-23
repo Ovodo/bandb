@@ -21,11 +21,13 @@ function Checkmark() {
       >
         <motion.circle
           initial={{ pathLength: 0, pathOffset: 0 }}
-          animate={{ pathLength: 1, pathOffset: 0 }}
+          animate={{ pathLength: 1.2, pathOffset: 0 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
           cx='3.969'
           cy='3.86'
           r='3.107'
+          stroke={"#f5900c"}
+          strokeWidth={0.3}
         ></motion.circle>
         <motion.path
           initial={{ pathLength: 0, pathOffset: 0 }}

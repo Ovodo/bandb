@@ -207,11 +207,12 @@ const Navbar = ({ children }) => {
                   />
                 )}
               </button>
-
-              <AccountCircleIcon
-                color='white'
-                style={{ fontSize: 25, color: "#F5900C" }}
-              />
+              <Link href={"signin"}>
+                <AccountCircleIcon
+                  color='white'
+                  style={{ fontSize: 25, color: "#F5900C" }}
+                />
+              </Link>
             </div>
           </motion.ul>
         </menu>

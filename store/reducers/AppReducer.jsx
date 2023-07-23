@@ -22,6 +22,9 @@ const AppSlice = createSlice({
       state.Points = state.Points + state.dailyClaim;
       state.dailyClaim >= 100 ? (state.dailyClaim = 10) : null;
     },
+    setDailyClaim(state) {
+      state.dailyClaim = 10;
+    },
     progressClaim(state) {
       state.dailyClaim =
         state.dailyClaim < 60
@@ -32,16 +35,21 @@ const AppSlice = createSlice({
           ? 10
           : null;
     },
-    setClaimed(state) {
+    setClaimed(state, action) {
       state.lastClaim = new Date();
-      state.Claimed = !state.Claimed;
+      state.Claimed = action.payload;
       // console.log(state.lastClaim[2]);
     },
   },
 });
 
-export const { progressClaim, claimPoints, setClaimed, clearState } =
-  AppSlice.actions;
+export const {
+  progressClaim,
+  claimPoints,
+  setClaimed,
+  setDailyClaim,
+  clearState,
+} = AppSlice.actions;
 export default AppSlice.reducer;
 
 // initialState.lastClaim === undefined &&
