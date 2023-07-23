@@ -237,7 +237,7 @@ export default function Home({
         <p
           className={`font-semibold italic  ${textTheme} min-w-max self-center`}
         >
-          {mobile ? "" : ` 🔥Today's Coin: ${coin.symbol}`}
+          {mobile ? "" : ` 🔥Today&apos;s Coin: ${coin.symbol}`}
         </p>
         <div className='min-w-max items-center flex flex-col justify-center'>
           <h4 className={` ${textTheme}  hidden font-[800] md:flex`}>
