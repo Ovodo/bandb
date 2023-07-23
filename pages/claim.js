@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { boxDays } from "../data/Days";
 import Box from "../Components/Box";
+import RedeemIcon from '@mui/icons-material/Redeem';
 import { TiTime } from "react-icons/ti";
 import SlideIn from "../Components/SlideIn";
 import { useSelector, useDispatch } from "react-redux";
@@ -70,9 +71,10 @@ const Claim = (props) => {
           className='mb-5 text-xl font-bold'
         >
           <center>
-            <font size='20'>🎁</font>
-          </center>
-          <br></br>
+          <RedeemIcon
+      color='white'
+      style={{ fontSize: 80, color: "#F5900C" }}
+    /></center>
          <div className={textTheme}> Balance: You have {Points} Index</div>
         </motion.h1>
         <div className=' flex flex-col items-start text-[13px] mb-5 rectangular-component'>
