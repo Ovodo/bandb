@@ -107,7 +107,27 @@ export default function LongCard({ title }) {
       </ol>
       <br />
       <br />
-      <b>3. BTD and STP Indicator</b>
+      <b>3. Relative Strength Index (RSI)</b>
+      <br />
+      <br />
+      RSI is an indicator that evaluates overbought or oversold conditions in the price of an asset.
+      The RSI is a line graph that moves between two extremes and has a reading from 0 to 100.
+      Traditional usage of the RSI is that:
+      <br />
+      <br />
+      <ol>
+        <li>
+          • Values of 70 or above indicate that an asset is becoming overbought
+          and may be primed for a trend reversal or experience correction.
+        </li>
+        <li>
+          • An RSI reading of 30 or below indicates an oversold or undervalued
+          condition presenting a possible buying opportunity.
+        </li>
+      </ol>
+      <br />
+      <br />
+      <b>4. BTD and STP Indicator</b>
       <br />
       <br />
       The BTD (Buy the Dip) and STP (Sell the Pump) indicators are simplified
@@ -117,7 +137,7 @@ export default function LongCard({ title }) {
       indicators.
       <br />
       <br />
-      <b>4. Crypto Market Sentiment Indicator</b>
+      <b>5. Crypto Market Sentiment Indicator</b>
       <br />
       <br />
       The crypto market sentiment indicator measures when the crypto market is

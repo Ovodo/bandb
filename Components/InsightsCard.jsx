@@ -18,13 +18,13 @@ const InsightsCard = ({
   const todayRSI = !today
     ? "..."
     : today <= 30
-    ? "Oversold"
+    ? "Sold"
     : today == 50
     ? "No Trend"
     : today < 70
     ? "Neutral"
     : today >= 70
-    ? "Overbought"
+    ? "Bought"
     : null;
 
   const todaySAS = !today
@@ -49,13 +49,13 @@ const InsightsCard = ({
   const yesterdayRSI = !yesterday
     ? "..."
     : yesterday <= 30
-    ? "Oversold"
+    ? "Sold"
     : yesterday == 50
     ? "No Trend"
     : yesterday < 70
     ? "Neutral"
     : yesterday >= 70
-    ? "Overbought"
+    ? "Bought"
     : null;
 
   const yesterdaySAS = !yesterday
@@ -81,13 +81,13 @@ const InsightsCard = ({
   const lastweekRSI = !lastweek
     ? "..."
     : lastweek <= 30
-    ? "Oversold"
+    ? "Sold"
     : lastweek == 50
     ? "No Trend"
     : lastweek < 70
     ? "Neutral"
     : lastweek >= 70
-    ? "Overbought"
+    ? "Bought"
     : null;
 
   const lastweekSAS = !lastweek
@@ -113,13 +113,13 @@ const InsightsCard = ({
   const lastMonthRSI = !lastMonth
     ? "..."
     : lastMonth <= 30
-    ? "Oversold"
+    ? "Sold"
     : lastMonth == 50
     ? "No Trend"
     : lastMonth < 70
     ? "Neutral"
     : lastMonth >= 70
-    ? "Overbought"
+    ? "Bought"
     : null;
 
   const lastMonthSAS = !lastMonth
@@ -192,7 +192,7 @@ const InsightsCard = ({
         <>
           <div className='absolute flex flex-col items-center top-[7vh]'>
             <p className={`font-extrabold ${textTheme2}  text-xl`}>
-              {todayTitle}
+              <b>{todayTitle}</b>
             </p>
             <p
               style={{

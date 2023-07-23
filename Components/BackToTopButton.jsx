@@ -27,7 +27,7 @@ const BackToTopButton = () => {
       className={`back-to-top ${isVisible ? 'visible' : ''}`}
       onClick={scrollToTop}
     >
-      👆
+      Top
     </button>
   );
 };
