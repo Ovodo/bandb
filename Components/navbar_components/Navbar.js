@@ -13,6 +13,7 @@ import { motion, useAnimation } from "framer-motion";
 import MenuIcon from "@mui/icons-material/Menu";
 import UserIcon from "@mui/icons-material/SupervisedUserCircle";
 import NightModeIcon from "@mui/icons-material/Nightlight";
+import WbSunny from "@mui/icons-material/WbSunny";
 
 // import { ethers } from 'ethers';
 import DrawingComponent from "../DrawingComponent";
@@ -285,15 +286,23 @@ const Navbar = ({ children }) => {
           </Link>
 
           <button
-            onClick={() => {
-              dispatch(setTheme(!theme));
-            }}
-          >
-            <NightModeIcon
-              color='white'
-              style={{ fontSize: 25, color: "#F5900C", cursor: "pointer" }}
-            />
-          </button>
+  onClick={() => {
+    dispatch(setTheme(!theme));
+  }}
+>
+  {theme ? (
+    <NightModeIcon
+      color='white'
+      style={{ fontSize: 25, color: "#F5900C", cursor: "pointer" }}
+    />
+  ) : (
+    <WbSunny
+      color='white'
+      style={{ fontSize: 25, color: "#F5900C", cursor: "pointer" }}
+    />
+  )}
+</button>
+
           <UserIcon color='white' style={{ fontSize: 25, color: "#F5900C" }} />
         </div>
       </nav>
