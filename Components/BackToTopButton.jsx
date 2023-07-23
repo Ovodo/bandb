@@ -1,3 +1,4 @@
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import { useState, useEffect } from 'react';
 
 const BackToTopButton = () => {
@@ -27,7 +28,10 @@ const BackToTopButton = () => {
       className={`back-to-top ${isVisible ? 'visible' : ''}`}
       onClick={scrollToTop}
     >
-      Top
+          <ArrowUpwardIcon
+      color='white'
+      style={{ fontSize: 25, color: "#FFFFFF", cursor: "pointer" }}
+    />
     </button>
   );
 };
