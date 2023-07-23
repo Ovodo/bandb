@@ -11,9 +11,10 @@ import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { motion, useAnimation } from "framer-motion";
 import MenuIcon from "@mui/icons-material/Menu";
-import UserIcon from "@mui/icons-material/SupervisedUserCircle";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import NightModeIcon from "@mui/icons-material/Nightlight";
-import WbSunny from "@mui/icons-material/WbSunny";
+import WbSunnyIcon from '@mui/icons-material/WbSunny';
+import RedeemIcon from '@mui/icons-material/Redeem';
 
 // import { ethers } from 'ethers';
 import DrawingComponent from "../DrawingComponent";
@@ -282,7 +283,10 @@ const Navbar = ({ children }) => {
         </div> */}
         <div className='icon flex border-green-500  items-center'>
           <Link href='/claim' style={{ fontSize: 25, color: "#F5900C" }}>
-            🎁
+          <RedeemIcon
+      color='white'
+      style={{ fontSize: 25, color: "#F5900C", cursor: "pointer" }}
+    />
           </Link>
 
           <button
@@ -296,14 +300,14 @@ const Navbar = ({ children }) => {
       style={{ fontSize: 25, color: "#F5900C", cursor: "pointer" }}
     />
   ) : (
-    <WbSunny
+    <WbSunnyIcon
       color='white'
       style={{ fontSize: 25, color: "#F5900C", cursor: "pointer" }}
     />
   )}
 </button>
 
-          <UserIcon color='white' style={{ fontSize: 25, color: "#F5900C" }} />
+          <AccountCircleIcon color='white' style={{ fontSize: 25, color: "#F5900C" }} />
         </div>
       </nav>
       {children}
