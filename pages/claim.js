@@ -20,6 +20,8 @@ const Claim = (props) => {
   );
   const [timeLeft, setTimeLeft] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const { theme } = useSelector((state) => state.Theme);
+  const textTheme = theme ? "text-slate-950" : "text-slate-400";
 
   // UseEffect
   useEffect(() => {
@@ -56,6 +58,7 @@ const Claim = (props) => {
   };
 
   return (
+    <div className={textTheme}>
     <div className='min-h-[100vh] px-5 flex items-center'>
       <div className='max-w-max mx-auto flex flex-col items-center'>
         <motion.h1
@@ -70,7 +73,7 @@ const Claim = (props) => {
             <font size='20'>🎁</font>
           </center>
           <br></br>
-          Balance: You have {Points} Index
+         <div className={textTheme}> <font size='5'>Balance: You have {Points} Index</font></div>
         </motion.h1>
         <div className=' flex flex-col items-start text-[13px] mb-5 rectangular-component'>
           <h2 className='mb-5'>{props.title}</h2>
@@ -110,7 +113,7 @@ const Claim = (props) => {
           />
         </div>
       </div>
-    </div>
+    </div></div>
   );
 };
 

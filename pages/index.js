@@ -78,14 +78,14 @@ export default function Home({
         <div className='flex relative bottom-[1vh] lg:bottom-0 h-[70%] my-auto self-start items-center'>
           <div className='absolute flex top-[2vh] md:top-[1vh] ml-[6vh] md:ml-[9.5vw] lg:ml-[8vw] min-w-max self-center'>
             <div className='w-24 relative h-24'>
-              <Image
+            {mobile ? "" : <Image
                 src={"/assets/images/logo.png"}
                 fill
-                style={{ objectFit: "cover" }}
-              />
+                style={{ objectFit: "" }}
+              />}
             </div>
             <h1 className={`${textTheme}`}>
-              {mobile ? "" : `Bear & Bull Index`}
+              {mobile ? "" : `BandBindex`}
             </h1>
           </div>
           <p
@@ -192,6 +192,7 @@ export default function Home({
       <section className='flex flex-col mb-[15vh] items-center'>
         <LongCard title='Disclaimer' />
       </section>
+      <div className={textTheme}>
       <center>
         Powered by{" "}
         <a
@@ -201,7 +202,7 @@ export default function Home({
         >
           <b>LunarCrush</b>
         </a>
-      </center>
+      </center></div>
       <br />
       <br />
       <p></p>
