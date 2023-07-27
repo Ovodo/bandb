@@ -19,7 +19,12 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import FileOpenIcon from '@mui/icons-material/FileOpen';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import AssessmentIcon from '@mui/icons-material/Assessment';
+import LinkIcon from '@mui/icons-material/Link';
+import ArticleIcon from '@mui/icons-material/Article';
+import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
+import RedeemIcon from "@mui/icons-material/Redeem";
+import VerifiedIcon from '@mui/icons-material/Verified';
+import AnnouncementIcon from '@mui/icons-material/Announcement';
 import ProtonWebSDK from "@proton/web-sdk";
 
 import { useSelector } from "react-redux";
@@ -186,6 +191,7 @@ export default function Home({
           {/* <MeterGauge /> */}
         </InsightsCard>
       </section>
+      <br></br><br></br>
       <section className='flex flex-col mb-[15vh] items-center'>
         <LongCard title='Why Bear & Bull Index?' />
       </section>
@@ -206,38 +212,58 @@ export default function Home({
 
 <div class="footer-left">
 
-<h3><AssessmentIcon style={{ fontSize: 25, color: "#F5900C" }} />BandBindex</h3>
+<div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+  <Image
+    src={"/assets/images/logo.png"}
+    alt="Logo"
+    width={35}
+    height={35}
+    style={{ verticalAlign: 'middle', marginRight: '1px' }}
+  />
+  <h3>BandBindex</h3>
+</div>
 
 <br></br>
-  <p class="footer-company-name">Powered by <a
+  <p class="footer-company-about">The Bear and Bull Index provides an unbiased view of the crypto market,<br></br>backed by <a
           href='https://lunarcrush.com/'
           target='_blank'
           rel='noopener noreferrer'
-        > <b>LunarCrush</b></a></p>
+        > <b>LunarCrush</b></a> AI-driven social insights and metrics we help the <br></br>average crypto user to understand the market better. Technical analysis<br></br> and social analysis are now made easy.</p>
+  <br></br>
+  <p class="footer-company-name">Powered by{" "} <a
+          href='https://lunarcrush.com/'
+          target='_blank'
+          rel='noopener noreferrer'
+        > <b>LunarCrush</b></a> <VerifiedIcon color='white'
+        style={{ fontSize: 25, color: "#F5900C" }} /></p>
 </div>
 
 <div class="footer-center">
 
   <div>
-  <i class="fa fa-envelope"></i>
+  <i class="fa fa-envelope"><LinkIcon color='white'
+                  style={{ fontSize: 25, color: "#F5900C" }} /></i>
     <p><b>Quick Links</b></p>
   </div>
 
 
   <div>
-  <i class="fa fa-envelope"></i>
+  <i class="fa fa-envelope"><ArticleIcon color='white'
+                  style={{ fontSize: 25, color: "#F5900C" }} /></i>
   <p>Project WhitePaper</p>
   </div>
 
  
 
   <div>
-  <i class="fa fa-envelope"></i>
+  <i class="fa fa-envelope"><DriveFileRenameOutlineIcon color='white'
+                  style={{ fontSize: 25, color: "#F5900C" }} /></i>
     <p>Request Form</p>
   </div>
 
   <div>
-    <i class="fa fa-envelope"></i>
+    <i class="fa fa-envelope"><RedeemIcon color='white'
+                  style={{ fontSize: 25, color: "#F5900C" }} /></i>
     <p>Claim Rewards</p>
   </div>
 
@@ -246,7 +272,8 @@ export default function Home({
 <div class="footer-right">
 
   <p class="footer-company-about">
-    <span>Disclaimer</span>
+    <span><AnnouncementIcon color='white'
+                  style={{ fontSize: 25, color: "#F5900C" }} /> Disclaimer</span>
     The information provided on this website does not constitute
               investment advice, financial advice, trading advice, or any other
               sort of advice and you should not treat any of the website&apos;s
