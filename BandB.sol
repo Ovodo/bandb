@@ -1,12 +1,28 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
+contract BandB {
+    string public name = "BandB";
+    string public symbol = "INDEX";
+    uint8 public decimals = 18;
+    uint256 public totalSupply = 21 * 10**6 * 10**uint256(decimals);
 
-contract BandB is ERC20Burnable {
-    uint256 public constant MAX_SUPPLY = 21 * 10**6 * 10**18; // 21 million tokens with 18 decimal places
+    mapping(address => uint256) public balanceOf;
 
-    constructor() ERC20("BandB", "INDEX") {
-        _mint(msg.sender, MAX_SUPPLY);
+    constructor() {
+        balanceOf[msg.sender] = totalSupply;
+    }
+
+    event Transfer(address indexed from, address indexed to, uint256 value);
+
+    function transfer(address to, uint256 value) external returns (bool) {
+        require(to != address(0), "Invalid recipient");
+        require(value > 0, "Invalid value");
+        require(balanceOf[msg.sender] >= value, "Insufficient balance");
+
+        balanceOf[msg.sender] -= value;
+        balanceOf[to] += value;
+        emit Transfer(msg.sender, to, value);
+        return true;
     }
 }
