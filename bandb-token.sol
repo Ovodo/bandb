@@ -3,9 +3,9 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
-import "@openzeppelin/contracts/security/Pausable.sol";
+import "./CustomPausable.sol";
 
-contract BandB is ERC20Burnable, AccessControl, Pausable {
+contract BandB is ERC20Burnable, AccessControl, CustomPausable {
     bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
     uint256 public constant MAX_SUPPLY = 21 * 10**6 * 10**18; // 21 million tokens with 18 decimal places
 
@@ -23,9 +23,5 @@ contract BandB is ERC20Burnable, AccessControl, Pausable {
     function unpause() public {
         require(hasRole(PAUSER_ROLE, msg.sender), "Must have pauser role to unpause");
         _unpause();
-    }
-
-    function _beforeTokenTransfer(address from, address to, uint256 amount) internal override {
-        super._beforeTokenTransfer(from, to, amount);
     }
 }
