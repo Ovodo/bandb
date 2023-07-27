@@ -92,7 +92,7 @@ export default function Home({
         <WhatshotIcon
           color='white'
           style={{ fontSize: 25, color: "#F5900C" }}
-        /><b>{"What's Hot: "}</b>$
+        /><b>{"Whats Hot: "}</b>$
         {coin.symbol}
       </>
     )}
