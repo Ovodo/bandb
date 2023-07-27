@@ -234,21 +234,21 @@ export default function Home({
           href='https://lunarcrush.com/'
           target='_blank'
           rel='noopener noreferrer'
-        > <b>LunarCrush</b></a> <VerifiedIcon color='white'
+        > <b>LunarCrush</b></a> <VerifiedIcon
         style={{ fontSize: 25, color: "#F5900C" }} /></p>
 </div>
 
 <div class="footer-center">
 
   <div>
-  <i class="fa fa-envelope"><LinkIcon color='white'
+  <i class="fa fa-envelope"><LinkIcon
                   style={{ fontSize: 25, color: "#F5900C" }} /></i>
     <p><b>Quick Links</b></p>
   </div>
 
 
   <div>
-  <i class="fa fa-envelope"><ArticleIcon color='white'
+  <i class="fa fa-envelope"><ArticleIcon
                   style={{ fontSize: 25, color: "#F5900C" }} /></i>
   <p>Project WhitePaper</p>
   </div>
@@ -256,13 +256,13 @@ export default function Home({
  
 
   <div>
-  <i class="fa fa-envelope"><DriveFileRenameOutlineIcon color='white'
+  <i class="fa fa-envelope"><DriveFileRenameOutlineIcon
                   style={{ fontSize: 25, color: "#F5900C" }} /></i>
     <p>Request Form</p>
   </div>
 
   <div>
-    <i class="fa fa-envelope"><RedeemIcon color='white'
+    <i class="fa fa-envelope"><RedeemIcon
                   style={{ fontSize: 25, color: "#F5900C" }} /></i>
     <p>Claim Rewards</p>
   </div>
@@ -272,7 +272,7 @@ export default function Home({
 <div class="footer-right">
 
   <p class="footer-company-about">
-    <span><AnnouncementIcon color='white'
+    <span><AnnouncementIcon
                   style={{ fontSize: 25, color: "#F5900C" }} /> Disclaimer</span>
     The information provided on this website does not constitute
               investment advice, financial advice, trading advice, or any other
