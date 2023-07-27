@@ -1,10 +1,6 @@
-/*
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-*/
 
 /* styles/fonts.css */
 
@@ -219,11 +215,9 @@ ul a:hover {
     gap: 2px;
   }
 
- /* 
   .nav-menu {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
   }
-*/
 
   .navbar #mobile,
   .navbar #hide {
@@ -252,13 +246,10 @@ ul a:hover {
     /* border-bottom: 1px solid #f5900c; */
     width: 95vw;
   }
-
-   /* 
   .navbar #mobile li:last-child,
   .navbar #hide li:last-child {
-   border-bottom: none; 
+    /* border-bottom: none; */
   }
-*/
   .navbar #mobile {
     left: 0%;
   }
@@ -267,13 +258,9 @@ ul a:hover {
   }
 }
 
-
-/*
 .button {
-   cursor: pointer;
+  /* cursor: pointer; */
 }
-*/
-
 .button:hover {
   cursor: pointer;
   opacity: 0.85;
