@@ -14,12 +14,12 @@ import MarketSentiment from "@/Components/MarketSentiment";
 import CountdownTimer from "@/Components/CountdownTimer";
 import LongCard from "@/Components/LongCard";
 import BackToTopButton from "@/Components/BackToTopButton";
-import WhatshotIcon from "@mui/icons-material/Whatshot";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import TelegramIcon from "@mui/icons-material/Telegram";
-import FileOpenIcon from "@mui/icons-material/FileOpen";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import AssessmentIcon from "@mui/icons-material/Assessment";
+import WhatshotIcon from '@mui/icons-material/Whatshot';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import TelegramIcon from '@mui/icons-material/Telegram';
+import FileOpenIcon from '@mui/icons-material/FileOpen';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import AssessmentIcon from '@mui/icons-material/Assessment';
 import ProtonWebSDK from "@proton/web-sdk";
 
 import { useSelector } from "react-redux";
@@ -85,24 +85,22 @@ export default function Home({
       <div className='flex w-full justify-between h-[11vh] md:h-[14vh] lg:h-[18vh]'>
         <div className='flex relative bottom-[1vh] lg:bottom-0 h-[70%] my-auto self-start items-center'>
           <div className='absolute flex top-[2vh] md:top-[1vh] ml-[6vh] md:ml-[9.5vw] lg:ml-[8vw] min-w-max self-center'>
-            <h4 className={`${textTheme}`}>
-              {mobile ? (
-                ""
-              ) : (
-                <>
-                  <WhatshotIcon
-                    color='white'
-                    style={{ fontSize: 25, color: "#F5900C" }}
-                  />
-                  <b>{"What's Hot: "}</b>${coin.symbol}
-                </>
-              )}
-            </h4>
+
+<h4 className={`${textTheme}`}>
+    {mobile ? "" : (
+      <>
+        <WhatshotIcon
+          color='white'
+          style={{ fontSize: 25, color: "#F5900C" }}
+        /><b>{"What's Hot: "}</b>$
+        {coin.symbol}
+      </>
+    )}
+  </h4>
           </div>
+
         </div>
-        <h4 className={` ${textTheme} self-end mx-auto`}>
-          <b>Market Overview</b>
-        </h4>
+        <h4 className={` ${textTheme} self-end mx-auto`}><b>Market Overview</b></h4>
         <div className='w-[20vw] self-center absolute items-center right-[2vw] flex flex-col justify-center'>
           <h4 className={` ${textTheme} hidden font-[800] lg:flex`}>
             {todaysDate}
@@ -201,81 +199,96 @@ export default function Home({
         <LongCard title='Disclaimer' />
       </section>
 
+
+      
       <div className={textTheme}>
-        <footer class='footer-distributed'>
-          <div class='footer-left'>
-            <h3>
-              <AssessmentIcon style={{ fontSize: 25, color: "#F5900C" }} />
-              BandBindex
-            </h3>
+      <footer className="footer-distributed">
+  <div className="footer-left">
+    <h3>
+      <AssessmentIcon style={{ fontSize: 25, color: "#F5900C" }} />
+      BandBindex
+    </h3>
+    <br />
+    <p className="footer-company-name">
+      Powered by{" "}
+      <a href="https://lunarcrush.com/" target="_blank" rel="noopener noreferrer">
+        <b>LunarCrush</b>
+      </a>
+    </p>
+  </div>
 
-            <br></br>
-            <p class='footer-company-name'>
-              Powered by{" "}
-              <a
-                href='https://lunarcrush.com/'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                {" "}
-                <b>LunarCrush</b>
-              </a>
-            </p>
-          </div>
+  <div className="footer-center">
+    <div>
+      <i className="fa fa-link"></i>
+      <p>
+        <b>Quick Links</b>
+      </p>
+    </div>
 
-          <div class='footer-center'>
-            <div>
-              <i class='fa fa-envelope'></i>
-              <p>
-                <b>Quick Links</b>
-              </p>
-            </div>
+    <div>
+      <i className="fa fa-file-alt"></i>
+      <p>Project WhitePaper</p>
+    </div>
 
-            <div>
-              <i class='fa fa-envelope'></i>
-              <p>Project WhitePaper</p>
-            </div>
+    <div>
+      <i className="fa fa-file-alt"></i>
+      <p>Request Form</p>
+    </div>
 
-            <div>
-              <i class='fa fa-envelope'></i>
-              <p>Request Form</p>
-            </div>
+    <div>
+      <i className="fa fa-gift"></i>
+      <p>Claim Rewards</p>
+    </div>
+  </div>
 
-            <div>
-              <i class='fa fa-envelope'></i>
-              <p>Claim Rewards</p>
-            </div>
-          </div>
+  <div className="footer-right">
+    <p className="footer-company-about">
+      <span>Disclaimer</span>
+      The information provided on this website does not constitute investment advice, financial advice, trading advice, or any other sort of advice, and you should not treat any of the website's content as such.
+    </p>
 
-          <div class='footer-right'>
-            <p class='footer-company-about'>
-              <span>Disclaimer</span>
-              The information provided on this website does not constitute
-              investment advice, financial advice, trading advice, or any other
-              sort of advice and you should not treat any of the website&apos;s
-              content as such.
-            </p>
+    <div className="footer-icons">
+      <a href="#">
+        <TwitterIcon />
+      </a>
+      <a href="#">
+        <TelegramIcon />
+      </a>
+      <a href="#">
+        <GitHubIcon />
+      </a>
+      <a href="#">
+        <FileOpenIcon />
+      </a>
+    </div>
+  </div>
+</footer>
 
-            <div class='footer-icons'>
-              <a href='#'>
-                <TwitterIcon />
-              </a>
-              <a href='#'>
-                <TelegramIcon />
-              </a>
-              <a href='#'>
-                <GitHubIcon />
-              </a>
-              <a href='#'>
-                <FileOpenIcon />
-              </a>
-            </div>
-          </div>
-        </footer>
+      
+      
+      
       </div>
     </main>
   );
 }
+
+// export async function getServerSideProps({}) {
+//   const baseUrl =
+//     process.env.NODE_ENV === "production"
+//       ? "https://bandb.vercel.app/"
+//       : "http://localhost:3000";
+
+//   const req = await fetch(`${baseUrl}/api/sheet`);
+//   const res = await req.json();
+
+//   return {
+//     props: {
+//       yesterday: res.data.yesterday,
+//       lastweek: res.data.lastweek,
+//       lastMonth: res.data.lastMonth,
+//     },
+//   };
+// }
 
 export async function getServerSideProps({}) {
   const baseUrl =
@@ -303,6 +316,303 @@ export async function getServerSideProps({}) {
   const sheetData = await sheetDataRes.json();
   const dipData = await dipDataRes.json();
   const lunrData = await lunrRes.json();
+
+
+   // You will need to get these details for the specific token you're interested in.
+   const contractABI = [
+    {
+      inputs: [],
+      stateMutability: "nonpayable",
+      type: "constructor",
+    },
+    {
+      anonymous: false,
+      inputs: [
+        {
+          indexed: true,
+          internalType: "address",
+          name: "owner",
+          type: "address",
+        },
+        {
+          indexed: true,
+          internalType: "address",
+          name: "spender",
+          type: "address",
+        },
+        {
+          indexed: false,
+          internalType: "uint256",
+          name: "value",
+          type: "uint256",
+        },
+      ],
+      name: "Approval",
+      type: "event",
+    },
+    {
+      anonymous: false,
+      inputs: [
+        {
+          indexed: true,
+          internalType: "address",
+          name: "from",
+          type: "address",
+        },
+        {
+          indexed: true,
+          internalType: "address",
+          name: "to",
+          type: "address",
+        },
+        {
+          indexed: false,
+          internalType: "uint256",
+          name: "value",
+          type: "uint256",
+        },
+      ],
+      name: "Transfer",
+      type: "event",
+    },
+    {
+      inputs: [
+        {
+          internalType: "address",
+          name: "owner",
+          type: "address",
+        },
+        {
+          internalType: "address",
+          name: "spender",
+          type: "address",
+        },
+      ],
+      name: "allowance",
+      outputs: [
+        {
+          internalType: "uint256",
+          name: "",
+          type: "uint256",
+        },
+      ],
+      stateMutability: "view",
+      type: "function",
+    },
+    {
+      inputs: [
+        {
+          internalType: "address",
+          name: "spender",
+          type: "address",
+        },
+        {
+          internalType: "uint256",
+          name: "amount",
+          type: "uint256",
+        },
+      ],
+      name: "approve",
+      outputs: [
+        {
+          internalType: "bool",
+          name: "",
+          type: "bool",
+        },
+      ],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [
+        {
+          internalType: "address",
+          name: "account",
+          type: "address",
+        },
+      ],
+      name: "balanceOf",
+      outputs: [
+        {
+          internalType: "uint256",
+          name: "",
+          type: "uint256",
+        },
+      ],
+      stateMutability: "view",
+      type: "function",
+    },
+    {
+      inputs: [],
+      name: "decimals",
+      outputs: [
+        {
+          internalType: "uint8",
+          name: "",
+          type: "uint8",
+        },
+      ],
+      stateMutability: "view",
+      type: "function",
+    },
+    {
+      inputs: [
+        {
+          internalType: "address",
+          name: "spender",
+          type: "address",
+        },
+        {
+          internalType: "uint256",
+          name: "subtractedValue",
+          type: "uint256",
+        },
+      ],
+      name: "decreaseAllowance",
+      outputs: [
+        {
+          internalType: "bool",
+          name: "",
+          type: "bool",
+        },
+      ],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [
+        {
+          internalType: "address",
+          name: "spender",
+          type: "address",
+        },
+        {
+          internalType: "uint256",
+          name: "addedValue",
+          type: "uint256",
+        },
+      ],
+      name: "increaseAllowance",
+      outputs: [
+        {
+          internalType: "bool",
+          name: "",
+          type: "bool",
+        },
+      ],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [],
+      name: "name",
+      outputs: [
+        {
+          internalType: "string",
+          name: "",
+          type: "string",
+        },
+      ],
+      stateMutability: "view",
+      type: "function",
+    },
+    {
+      inputs: [],
+      name: "symbol",
+      outputs: [
+        {
+          internalType: "string",
+          name: "",
+          type: "string",
+        },
+      ],
+      stateMutability: "view",
+      type: "function",
+    },
+    {
+      inputs: [],
+      name: "totalSupply",
+      outputs: [
+        {
+          internalType: "uint256",
+          name: "",
+          type: "uint256",
+        },
+      ],
+      stateMutability: "view",
+      type: "function",
+    },
+    {
+      inputs: [
+        {
+          internalType: "address",
+          name: "to",
+          type: "address",
+        },
+        {
+          internalType: "uint256",
+          name: "amount",
+          type: "uint256",
+        },
+      ],
+      name: "transfer",
+      outputs: [
+        {
+          internalType: "bool",
+          name: "",
+          type: "bool",
+        },
+      ],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [
+        {
+          internalType: "address",
+          name: "from",
+          type: "address",
+        },
+        {
+          internalType: "address",
+          name: "to",
+          type: "address",
+        },
+        {
+          internalType: "uint256",
+          name: "amount",
+          type: "uint256",
+        },
+      ],
+      name: "transferFrom",
+      outputs: [
+        {
+          internalType: "bool",
+          name: "",
+          type: "bool",
+        },
+      ],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+  ];
+  const contractAddress = "0x..."; // Replace with the actual contract address
+
+  // This should be the user's public Ethereum address
+  const userAddress = "0x..."; // Replace with the user's address
+
+  async function getBalance() {
+    // Connect to the BSC network
+    const web3 = new Web3("https://bsc-dataseed.binance.org/");
+
+    // Create a new contract instance
+    const contract = new web3.eth.Contract(contractABI, contractAddress);
+
+    // Call the balanceOf function for the user's address
+    const balance = await contract.methods.balanceOf(userAddress).call();
+
+    return balance;
+  }
 
   return {
     props: {
