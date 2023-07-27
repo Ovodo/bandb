@@ -85,13 +85,7 @@ export default function Home({
       <div className='flex w-full justify-between h-[11vh] md:h-[14vh] lg:h-[18vh]'>
         <div className='flex relative bottom-[1vh] lg:bottom-0 h-[70%] my-auto self-start items-center'>
           <div className='absolute flex top-[2vh] md:top-[1vh] ml-[6vh] md:ml-[9.5vw] lg:ml-[8vw] min-w-max self-center'>
-            {/*<div className='w-24 relative h-24'>
-            {mobile ? "" : <Image
-                src={"/assets/images/logo.png"}
-                fill
-                style={{ objectFit: "" }}
-              />}
-            </div>*/}
+
 <h4 className={`${textTheme}`}>
     {mobile ? "" : (
       <>
@@ -104,11 +98,7 @@ export default function Home({
     )}
   </h4>
           </div>
-          <p
-            className={`absolute top-[8vh] ${textTheme} md:top-[15vh] ml-[6vh] md:ml-[9.5vw] lg:ml-[8vw] min-w-max self-center`}
-          >
-            {mobile ? "" : ""}
-          </p>
+
         </div>
         <h4 className={` ${textTheme} self-end mx-auto`}><b>Market Overview</b></h4>
         <div className='w-[20vw] self-center absolute items-center right-[2vw] flex flex-col justify-center'>
@@ -216,16 +206,8 @@ export default function Home({
 
 <div class="footer-left">
 
-<h3><AssessmentIcon color='white'
-                  style={{ fontSize: 25, color: "#F5900C" }} />BandBindex</h3>
+<h3><AssessmentIcon style={{ fontSize: 25, color: "#F5900C" }} />BandBindex</h3>
 
- {/* <p class="footer-links">
-    <a href="#" class="link-1">Home&nbsp;</a>
-    
-    <a href="#">Cryptocurrencies&nbsp;</a>
-  
-    <a href="#">Insights</a>
-    </p> */}
 <br></br>
   <p class="footer-company-name">Powered by <a
           href='https://lunarcrush.com/'
