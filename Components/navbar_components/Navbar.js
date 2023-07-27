@@ -21,6 +21,7 @@ import Web3 from "web3";
 import DrawingComponent from "../DrawingComponent";
 import Image from "next/image";
 import { setTheme } from "@/store/reducers/Theme";
+import { updateAddress } from "@/store/reducers/AppReducer";
 
 const Navbar = ({ children }) => {
   let sm = typeof window !== "undefined" && window.innerWidth < 789;
@@ -30,6 +31,8 @@ const Navbar = ({ children }) => {
   const dispatch = useDispatch();
   const controls = useAnimation();
   const { theme } = useSelector((state) => state.Theme);
+  const { User } = useSelector((state) => state.App);
+
   // const textTheme = theme ? "text-slate-950" : "text-slate-400";
   const backgroundTheme = theme ? "bg-slate-50" : "bg-slate-900";
 
@@ -49,6 +52,7 @@ const Navbar = ({ children }) => {
       console.log("metamask not detected");
     }
   };
+  console.log("UserAdd", User);
 
   let primary = "#25092c";
   // let secondary="#9be8a1"
@@ -69,36 +73,7 @@ const Navbar = ({ children }) => {
 
   // You will need to get these details for the specific token you're interested in.
   const contractABI = [
-    {
-      inputs: [],
-      stateMutability: "nonpayable",
-      type: "constructor",
-    },
-    {
-      anonymous: false,
-      inputs: [
-        {
-          indexed: true,
-          internalType: "address",
-          name: "owner",
-          type: "address",
-        },
-        {
-          indexed: true,
-          internalType: "address",
-          name: "spender",
-          type: "address",
-        },
-        {
-          indexed: false,
-          internalType: "uint256",
-          name: "value",
-          type: "uint256",
-        },
-      ],
-      name: "Approval",
-      type: "event",
-    },
+    { inputs: [], stateMutability: "nonpayable", type: "constructor" },
     {
       anonymous: false,
       inputs: [
@@ -108,12 +83,7 @@ const Navbar = ({ children }) => {
           name: "from",
           type: "address",
         },
-        {
-          indexed: true,
-          internalType: "address",
-          name: "to",
-          type: "address",
-        },
+        { indexed: true, internalType: "address", name: "to", type: "address" },
         {
           indexed: false,
           internalType: "uint256",
@@ -125,241 +95,67 @@ const Navbar = ({ children }) => {
       type: "event",
     },
     {
-      inputs: [
-        {
-          internalType: "address",
-          name: "owner",
-          type: "address",
-        },
-        {
-          internalType: "address",
-          name: "spender",
-          type: "address",
-        },
-      ],
-      name: "allowance",
-      outputs: [
-        {
-          internalType: "uint256",
-          name: "",
-          type: "uint256",
-        },
-      ],
-      stateMutability: "view",
-      type: "function",
-    },
-    {
-      inputs: [
-        {
-          internalType: "address",
-          name: "spender",
-          type: "address",
-        },
-        {
-          internalType: "uint256",
-          name: "amount",
-          type: "uint256",
-        },
-      ],
-      name: "approve",
-      outputs: [
-        {
-          internalType: "bool",
-          name: "",
-          type: "bool",
-        },
-      ],
-      stateMutability: "nonpayable",
-      type: "function",
-    },
-    {
-      inputs: [
-        {
-          internalType: "address",
-          name: "account",
-          type: "address",
-        },
-      ],
+      inputs: [{ internalType: "address", name: "", type: "address" }],
       name: "balanceOf",
-      outputs: [
-        {
-          internalType: "uint256",
-          name: "",
-          type: "uint256",
-        },
-      ],
+      outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
       stateMutability: "view",
       type: "function",
     },
     {
       inputs: [],
       name: "decimals",
-      outputs: [
-        {
-          internalType: "uint8",
-          name: "",
-          type: "uint8",
-        },
-      ],
+      outputs: [{ internalType: "uint8", name: "", type: "uint8" }],
       stateMutability: "view",
-      type: "function",
-    },
-    {
-      inputs: [
-        {
-          internalType: "address",
-          name: "spender",
-          type: "address",
-        },
-        {
-          internalType: "uint256",
-          name: "subtractedValue",
-          type: "uint256",
-        },
-      ],
-      name: "decreaseAllowance",
-      outputs: [
-        {
-          internalType: "bool",
-          name: "",
-          type: "bool",
-        },
-      ],
-      stateMutability: "nonpayable",
-      type: "function",
-    },
-    {
-      inputs: [
-        {
-          internalType: "address",
-          name: "spender",
-          type: "address",
-        },
-        {
-          internalType: "uint256",
-          name: "addedValue",
-          type: "uint256",
-        },
-      ],
-      name: "increaseAllowance",
-      outputs: [
-        {
-          internalType: "bool",
-          name: "",
-          type: "bool",
-        },
-      ],
-      stateMutability: "nonpayable",
       type: "function",
     },
     {
       inputs: [],
       name: "name",
-      outputs: [
-        {
-          internalType: "string",
-          name: "",
-          type: "string",
-        },
-      ],
+      outputs: [{ internalType: "string", name: "", type: "string" }],
       stateMutability: "view",
       type: "function",
     },
     {
       inputs: [],
       name: "symbol",
-      outputs: [
-        {
-          internalType: "string",
-          name: "",
-          type: "string",
-        },
-      ],
+      outputs: [{ internalType: "string", name: "", type: "string" }],
       stateMutability: "view",
       type: "function",
     },
     {
       inputs: [],
       name: "totalSupply",
-      outputs: [
-        {
-          internalType: "uint256",
-          name: "",
-          type: "uint256",
-        },
-      ],
+      outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
       stateMutability: "view",
       type: "function",
     },
     {
       inputs: [
-        {
-          internalType: "address",
-          name: "to",
-          type: "address",
-        },
-        {
-          internalType: "uint256",
-          name: "amount",
-          type: "uint256",
-        },
+        { internalType: "address", name: "to", type: "address" },
+        { internalType: "uint256", name: "value", type: "uint256" },
       ],
       name: "transfer",
-      outputs: [
-        {
-          internalType: "bool",
-          name: "",
-          type: "bool",
-        },
-      ],
-      stateMutability: "nonpayable",
-      type: "function",
-    },
-    {
-      inputs: [
-        {
-          internalType: "address",
-          name: "from",
-          type: "address",
-        },
-        {
-          internalType: "address",
-          name: "to",
-          type: "address",
-        },
-        {
-          internalType: "uint256",
-          name: "amount",
-          type: "uint256",
-        },
-      ],
-      name: "transferFrom",
-      outputs: [
-        {
-          internalType: "bool",
-          name: "",
-          type: "bool",
-        },
-      ],
+      outputs: [{ internalType: "bool", name: "", type: "bool" }],
       stateMutability: "nonpayable",
       type: "function",
     },
   ];
-  const contractAddress = "0x..."; // Replace with the actual contract address
-
+  const contractAddress = "0xFaaBD9b1E4FDE7C42BF10a8165b21D9Eb19141a4"; // Replace with the actual contract address
   // This should be the user's public Ethereum address
-  const userAddress = "0x..."; // Replace with the user's address
-
+  // const userAddress = "0x77112137FEeb3D29F84Cd6a0044B0FE636A5609c"; // Replace with the user's address
+  const userAddress = User; // Replace with the user's address
   async function getBalance() {
+    console.log("geting balance");
     // Connect to the BSC network
-    const web3 = new Web3("https://bsc-dataseed.binance.org/");
+    const web3 = new Web3("https://data-seed-prebsc-1-s1.binance.org:8545");
+    // const web3 = new Web3("https://data-seed-prebsc-1-s1.binance.org/");
 
     // Create a new contract instance
     const contract = new web3.eth.Contract(contractABI, contractAddress);
 
     // Call the balanceOf function for the user's address
     const balance = await contract.methods.balanceOf(userAddress).call();
-
+    console.log(balance);
     return balance;
   }
 
@@ -391,6 +187,8 @@ const Navbar = ({ children }) => {
                 <Image
                   src={"/assets/images/logo.png"}
                   fill
+                  // sizes=
+                  alt='logo'
                   style={{ objectFit: "cover" }}
                 />
               </div>
@@ -468,7 +266,11 @@ const Navbar = ({ children }) => {
               </a>
             </motion.li>
             <div className='icon flex  items-center'>
-              <Link href='/claim' style={{ fontSize: 25, color: "#F5900C" }}>
+              <Link
+                onClick={getBalance}
+                href='/'
+                style={{ fontSize: 25, color: "#F5900C" }}
+              >
                 <RedeemIcon
                   style={{
                     fontSize: 25,

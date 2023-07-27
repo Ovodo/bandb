@@ -40,6 +40,9 @@ const AppSlice = createSlice({
       state.Claimed = action.payload;
       // console.log(state.lastClaim[2]);
     },
+    updateAddress(state, action) {
+      state.User = action.payload;
+    },
   },
 });
 
@@ -49,6 +52,7 @@ export const {
   setClaimed,
   setDailyClaim,
   clearState,
+  updateAddress,
 } = AppSlice.actions;
 export default AppSlice.reducer;
 
