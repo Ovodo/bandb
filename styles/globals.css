@@ -466,7 +466,7 @@ ul a:hover {
     display: block;
     width: 100%;
     margin-bottom: 40px;
-    text-align: center;
+    text-align: left;
   }
 
   .footer-distributed .footer-center i{
