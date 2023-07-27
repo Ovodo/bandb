@@ -26,7 +26,8 @@ contract BandB is ERC20Burnable, ERC20Pausable, AccessControl {
         _unpause();
     }
 
-    function _beforeTokenTransfer(address from, address to, uint256 amount) internal override(ERC20, ERC20Pausable) {
+    function _beforeTokenTransfer(address from, address to, uint256 amount) internal override {
         super._beforeTokenTransfer(from, to, amount);
+        ERC20Pausable._beforeTokenTransfer(from, to, amount);
     }
 }
