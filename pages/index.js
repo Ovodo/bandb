@@ -227,7 +227,7 @@ export default function Home({
     <a href="#">Insights</a>
     </p> */}
 <br></br>
-  <p class="footer-company-name">Powered by{" "} <a
+  <p class="footer-company-name">Powered by <a
           href='https://lunarcrush.com/'
           target='_blank'
           rel='noopener noreferrer'
