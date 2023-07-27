@@ -9,6 +9,8 @@ import { wrapper, persistor } from "../store/store";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { Provider } from "react-redux";
 import Navbar from "@/Components/navbar_components/Navbar";
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 // Redux Persist
 import { PersistGate } from "redux-persist/integration/react";
