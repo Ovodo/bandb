@@ -9,12 +9,4 @@ contract BandB is ERC20Burnable {
     constructor() ERC20("BandB", "INDEX") {
         _mint(msg.sender, MAX_SUPPLY);
     }
-
-    /**
-     * @custom:dev-run-script deployAndMint
-     */
-    function deployAndMint() external {
-        // This function will be executed when you start the development environment
-        // It will deploy the contract and mint the initial supply
-    }
 }
