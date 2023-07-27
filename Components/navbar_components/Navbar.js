@@ -3,7 +3,7 @@ import { GiWallet } from "react-icons/gi";
 import { IoMdCart } from "react-icons/io";
 import { FaUserAlt } from "react-icons/fa";
 import { HiOutlineX } from "react-icons/hi";
-import { HiOutlineMenu, HiUser, HiSparkles } from "react-icons/hi";
+import { HiOutlineMenu } from "react-icons/hi";
 import { TiTick } from "react-icons/ti";
 import { useState } from "react";
 import Link from "next/link";
@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { motion, useAnimation } from "framer-motion";
 import MenuIcon from "@mui/icons-material/Menu";
-import WalletIcon from "@mui/icons-material/Wallet";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import NightModeIcon from "@mui/icons-material/Nightlight";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import RedeemIcon from "@mui/icons-material/Redeem";
@@ -208,10 +208,9 @@ const Navbar = ({ children }) => {
         </div>
         <menu>
           <motion.ul
-            className={`${
-              theme ? "bg-slate-950" : "bg-slate-300"
-            } nav-menu   md:w-[55vw]`}
+            className='nav-menu md:w-[45vw]'
             id={showmenu ? "mobile" : "hide"}
+            whileHover={controls.stop}
           >
             <motion.li
               whileHover={{ scale: 1.2 }}
@@ -267,8 +266,8 @@ const Navbar = ({ children }) => {
             </motion.li>
             <div className='icon flex  items-center'>
               <Link
-                onClick={getBalance}
-                href='/'
+                // onClick={getBalance}
+                href='/claim'
                 style={{ fontSize: 25, color: "#F5900C" }}
               >
                 <RedeemIcon
@@ -305,12 +304,11 @@ const Navbar = ({ children }) => {
                   />
                 )}
               </button>
-              <Link onClick={connectWallet} href={"/"}>
-                <WalletIcon
-                  color='white'
-                  style={{ fontSize: 25, color: "#F5900C" }}
-                />
-              </Link>
+
+              <AccountCircleIcon
+                color='white'
+                style={{ fontSize: 25, color: "#F5900C" }}
+              />
             </div>
           </motion.ul>
         </menu>
