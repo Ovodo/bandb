@@ -202,68 +202,69 @@ export default function Home({
 
       
       <div className={textTheme}>
-      <footer className="footer-distributed">
-  <div className="footer-left">
-    <h3>
-      <AssessmentIcon style={{ fontSize: 25, color: "#F5900C" }} />
-      BandBindex
-    </h3>
-    <br />
-    <p className="footer-company-name">
-      Powered by{" "}
-      <a href="https://lunarcrush.com/" target="_blank" rel="noopener noreferrer">
-        <b>LunarCrush</b>
-      </a>
-    </p>
+      <footer class="footer-distributed">
+
+<div class="footer-left">
+
+<h3><AssessmentIcon style={{ fontSize: 25, color: "#F5900C" }} />BandBindex</h3>
+
+<br></br>
+  <p class="footer-company-name">Powered by <a
+          href='https://lunarcrush.com/'
+          target='_blank'
+          rel='noopener noreferrer'
+        > <b>LunarCrush</b></a></p>
+</div>
+
+<div class="footer-center">
+
+  <div>
+  <i class="fa fa-envelope"></i>
+    <p><b>Quick Links</b></p>
   </div>
 
-  <div className="footer-center">
-    <div>
-      <i className="fa fa-link"></i>
-      <p>
-        <b>Quick Links</b>
-      </p>
-    </div>
 
-    <div>
-      <i className="fa fa-file-alt"></i>
-      <p>Project WhitePaper</p>
-    </div>
-
-    <div>
-      <i className="fa fa-file-alt"></i>
-      <p>Request Form</p>
-    </div>
-
-    <div>
-      <i className="fa fa-gift"></i>
-      <p>Claim Rewards</p>
-    </div>
+  <div>
+  <i class="fa fa-envelope"></i>
+  <p>Project WhitePaper</p>
   </div>
 
-  <div className="footer-right">
-    <p className="footer-company-about">
-      <span>Disclaimer</span>
-      The information provided on this website does not constitute investment advice, financial advice, trading advice, or any other sort of advice, and you should not treat any of the website's content as such.
-    </p>
+ 
 
-    <div className="footer-icons">
-      <a href="#">
-        <TwitterIcon />
-      </a>
-      <a href="#">
-        <TelegramIcon />
-      </a>
-      <a href="#">
-        <GitHubIcon />
-      </a>
-      <a href="#">
-        <FileOpenIcon />
-      </a>
-    </div>
+  <div>
+  <i class="fa fa-envelope"></i>
+    <p>Request Form</p>
   </div>
+
+  <div>
+    <i class="fa fa-envelope"></i>
+    <p>Claim Rewards</p>
+  </div>
+
+</div>
+
+<div class="footer-right">
+
+  <p class="footer-company-about">
+    <span>Disclaimer</span>
+    The information provided on this website does not constitute
+              investment advice, financial advice, trading advice, or any other
+              sort of advice and you should not treat any of the website&apos;s
+              content as such.
+  </p>
+
+  <div class="footer-icons">
+
+    <a href="#"><TwitterIcon /></a>
+    <a href="#"><TelegramIcon /></a>
+    <a href="#"><GitHubIcon /></a>
+    <a href="#"><FileOpenIcon /></a>
+
+  </div>
+
+</div>
+
 </footer>
-
       
       
       
