@@ -3,7 +3,7 @@ import { GiWallet } from "react-icons/gi";
 import { IoMdCart } from "react-icons/io";
 import { FaUserAlt } from "react-icons/fa";
 import { HiOutlineX } from "react-icons/hi";
-import { HiOutlineMenu } from "react-icons/hi";
+import { HiOutlineMenu, HiUser, HiSparkles } from "react-icons/hi";
 import { TiTick } from "react-icons/ti";
 import { useState } from "react";
 import Link from "next/link";
@@ -15,13 +15,13 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import NightModeIcon from "@mui/icons-material/Nightlight";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import RedeemIcon from "@mui/icons-material/Redeem";
+import AssessmentIcon from '@mui/icons-material/Assessment';
 import Web3 from "web3";
 
 // import { ethers } from 'ethers';
 import DrawingComponent from "../DrawingComponent";
 import Image from "next/image";
 import { setTheme } from "@/store/reducers/Theme";
-import { updateAddress } from "@/store/reducers/AppReducer";
 
 const Navbar = ({ children }) => {
   let sm = typeof window !== "undefined" && window.innerWidth < 789;
@@ -31,8 +31,6 @@ const Navbar = ({ children }) => {
   const dispatch = useDispatch();
   const controls = useAnimation();
   const { theme } = useSelector((state) => state.Theme);
-  const { User } = useSelector((state) => state.App);
-
   // const textTheme = theme ? "text-slate-950" : "text-slate-400";
   const backgroundTheme = theme ? "bg-slate-50" : "bg-slate-900";
 
@@ -52,7 +50,6 @@ const Navbar = ({ children }) => {
       console.log("metamask not detected");
     }
   };
-  console.log("UserAdd", User);
 
   let primary = "#25092c";
   // let secondary="#9be8a1"
@@ -69,11 +66,42 @@ const Navbar = ({ children }) => {
     return `${src}?w=${width}&q=${quality || 75}`;
   };
   const textTheme = !theme ? "text-slate-950" : "text-slate-300";
+
   const colorTheme = !theme ? "bg-white" : "bg-slate-950";
 
-  // You will need to get these details for the specific token you're interested in.
-  const contractABI = [
-    { inputs: [], stateMutability: "nonpayable", type: "constructor" },
+
+   // You will need to get these details for the specific token you're interested in.
+   const contractABI = [
+    {
+      inputs: [],
+      stateMutability: "nonpayable",
+      type: "constructor",
+    },
+    {
+      anonymous: false,
+      inputs: [
+        {
+          indexed: true,
+          internalType: "address",
+          name: "owner",
+          type: "address",
+        },
+        {
+          indexed: true,
+          internalType: "address",
+          name: "spender",
+          type: "address",
+        },
+        {
+          indexed: false,
+          internalType: "uint256",
+          name: "value",
+          type: "uint256",
+        },
+      ],
+      name: "Approval",
+      type: "event",
+    },
     {
       anonymous: false,
       inputs: [
@@ -83,7 +111,12 @@ const Navbar = ({ children }) => {
           name: "from",
           type: "address",
         },
-        { indexed: true, internalType: "address", name: "to", type: "address" },
+        {
+          indexed: true,
+          internalType: "address",
+          name: "to",
+          type: "address",
+        },
         {
           indexed: false,
           internalType: "uint256",
@@ -95,67 +128,241 @@ const Navbar = ({ children }) => {
       type: "event",
     },
     {
-      inputs: [{ internalType: "address", name: "", type: "address" }],
+      inputs: [
+        {
+          internalType: "address",
+          name: "owner",
+          type: "address",
+        },
+        {
+          internalType: "address",
+          name: "spender",
+          type: "address",
+        },
+      ],
+      name: "allowance",
+      outputs: [
+        {
+          internalType: "uint256",
+          name: "",
+          type: "uint256",
+        },
+      ],
+      stateMutability: "view",
+      type: "function",
+    },
+    {
+      inputs: [
+        {
+          internalType: "address",
+          name: "spender",
+          type: "address",
+        },
+        {
+          internalType: "uint256",
+          name: "amount",
+          type: "uint256",
+        },
+      ],
+      name: "approve",
+      outputs: [
+        {
+          internalType: "bool",
+          name: "",
+          type: "bool",
+        },
+      ],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [
+        {
+          internalType: "address",
+          name: "account",
+          type: "address",
+        },
+      ],
       name: "balanceOf",
-      outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+      outputs: [
+        {
+          internalType: "uint256",
+          name: "",
+          type: "uint256",
+        },
+      ],
       stateMutability: "view",
       type: "function",
     },
     {
       inputs: [],
       name: "decimals",
-      outputs: [{ internalType: "uint8", name: "", type: "uint8" }],
+      outputs: [
+        {
+          internalType: "uint8",
+          name: "",
+          type: "uint8",
+        },
+      ],
       stateMutability: "view",
+      type: "function",
+    },
+    {
+      inputs: [
+        {
+          internalType: "address",
+          name: "spender",
+          type: "address",
+        },
+        {
+          internalType: "uint256",
+          name: "subtractedValue",
+          type: "uint256",
+        },
+      ],
+      name: "decreaseAllowance",
+      outputs: [
+        {
+          internalType: "bool",
+          name: "",
+          type: "bool",
+        },
+      ],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [
+        {
+          internalType: "address",
+          name: "spender",
+          type: "address",
+        },
+        {
+          internalType: "uint256",
+          name: "addedValue",
+          type: "uint256",
+        },
+      ],
+      name: "increaseAllowance",
+      outputs: [
+        {
+          internalType: "bool",
+          name: "",
+          type: "bool",
+        },
+      ],
+      stateMutability: "nonpayable",
       type: "function",
     },
     {
       inputs: [],
       name: "name",
-      outputs: [{ internalType: "string", name: "", type: "string" }],
+      outputs: [
+        {
+          internalType: "string",
+          name: "",
+          type: "string",
+        },
+      ],
       stateMutability: "view",
       type: "function",
     },
     {
       inputs: [],
       name: "symbol",
-      outputs: [{ internalType: "string", name: "", type: "string" }],
+      outputs: [
+        {
+          internalType: "string",
+          name: "",
+          type: "string",
+        },
+      ],
       stateMutability: "view",
       type: "function",
     },
     {
       inputs: [],
       name: "totalSupply",
-      outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+      outputs: [
+        {
+          internalType: "uint256",
+          name: "",
+          type: "uint256",
+        },
+      ],
       stateMutability: "view",
       type: "function",
     },
     {
       inputs: [
-        { internalType: "address", name: "to", type: "address" },
-        { internalType: "uint256", name: "value", type: "uint256" },
+        {
+          internalType: "address",
+          name: "to",
+          type: "address",
+        },
+        {
+          internalType: "uint256",
+          name: "amount",
+          type: "uint256",
+        },
       ],
       name: "transfer",
-      outputs: [{ internalType: "bool", name: "", type: "bool" }],
+      outputs: [
+        {
+          internalType: "bool",
+          name: "",
+          type: "bool",
+        },
+      ],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [
+        {
+          internalType: "address",
+          name: "from",
+          type: "address",
+        },
+        {
+          internalType: "address",
+          name: "to",
+          type: "address",
+        },
+        {
+          internalType: "uint256",
+          name: "amount",
+          type: "uint256",
+        },
+      ],
+      name: "transferFrom",
+      outputs: [
+        {
+          internalType: "bool",
+          name: "",
+          type: "bool",
+        },
+      ],
       stateMutability: "nonpayable",
       type: "function",
     },
   ];
-  const contractAddress = "0xFaaBD9b1E4FDE7C42BF10a8165b21D9Eb19141a4"; // Replace with the actual contract address
+  const contractAddress = "0x..."; // Replace with the actual contract address
+
   // This should be the user's public Ethereum address
-  // const userAddress = "0x77112137FEeb3D29F84Cd6a0044B0FE636A5609c"; // Replace with the user's address
-  const userAddress = User; // Replace with the user's address
+  const userAddress = "0x..."; // Replace with the user's address
+
   async function getBalance() {
-    console.log("geting balance");
     // Connect to the BSC network
-    const web3 = new Web3("https://data-seed-prebsc-1-s1.binance.org:8545");
-    // const web3 = new Web3("https://data-seed-prebsc-1-s1.binance.org/");
+    const web3 = new Web3("https://bsc-dataseed.binance.org/");
 
     // Create a new contract instance
     const contract = new web3.eth.Contract(contractABI, contractAddress);
 
     // Call the balanceOf function for the user's address
     const balance = await contract.methods.balanceOf(userAddress).call();
-    console.log(balance);
+
     return balance;
   }
 
@@ -183,34 +390,30 @@ const Navbar = ({ children }) => {
               }}
               className='logos '
             >
-              <div className='lg:w-10 w-10 h-10 flex relative lg:h-10'>
-                <Image
-                  src={"/assets/images/logo.png"}
-                  fill
-                  // sizes=
-                  alt='logo'
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-              <h1 className={`${textTheme}  `}>{sm ? "฿" : `฿andbIndex`}</h1>
+        <div className='menu-icon' onClick={toggleMenu}>
+            {showmenu ? (
+              <HiOutlineX color={"#F5900C"} size={35} />
+            ) : (
+              <HiOutlineMenu color={"#F5900C"} size={35} />
+            )}
+          </div>
+
+          <Image
+    src={"/assets/images/logo.png"}
+    alt="Logo"
+    width={35}
+    height={35}
+    style={{ verticalAlign: 'middle', marginRight: '1px' }}
+  /><h4 className={`${textTheme}`}>BandBindex </h4>
             </motion.div>
           </Link>
         </div>
-        <div
-          className='menu-icon  relative right-[37vw] md:right-[42vw]'
-          onClick={toggleMenu}
-        >
-          {showmenu ? (
-            <HiOutlineX color={"#F5900C"} size={35} />
-          ) : (
-            <HiOutlineMenu color={"#F5900C"} size={35} />
-          )}
-        </div>
         <menu>
           <motion.ul
-            className='nav-menu md:w-[45vw]'
+            className={`${
+              theme ? "bg-slate-950" : "bg-slate-300"
+            } nav-menu   md:w-[55vw]`}
             id={showmenu ? "mobile" : "hide"}
-            whileHover={controls.stop}
           >
             <motion.li
               whileHover={{ scale: 1.2 }}
@@ -265,11 +468,7 @@ const Navbar = ({ children }) => {
               </a>
             </motion.li>
             <div className='icon flex  items-center'>
-              <Link
-                // onClick={getBalance}
-                href='/claim'
-                style={{ fontSize: 25, color: "#F5900C" }}
-              >
+              <Link href='/claim' style={{ fontSize: 25, color: "#F5900C" }}>
                 <RedeemIcon
                   style={{
                     fontSize: 25,
@@ -304,11 +503,12 @@ const Navbar = ({ children }) => {
                   />
                 )}
               </button>
-
-              <AccountCircleIcon
-                color='white'
-                style={{ fontSize: 25, color: "#F5900C" }}
-              />
+              <Link onClick={connectWallet} href={"/"}>
+                <AccountCircleIcon
+                  color='white'
+                  style={{ fontSize: 25, color: "#F5900C" }}
+                />
+              </Link>
             </div>
           </motion.ul>
         </menu>
@@ -319,3 +519,4 @@ const Navbar = ({ children }) => {
 };
 
 export default Navbar;
+
