@@ -431,6 +431,18 @@ ul a:hover {
   margin-bottom: 20px;
 }
 
+/* Default styles for the footer-about element */
+.footer-distributed .footer-about {
+  width: 50%; /* Set width to 50% by default for desktop */
+}
+
+/* Media query for mobile screens (max-width: 767px) */
+@media (max-width: 767px) {
+  .footer-distributed .footer-about {
+    width: 100%; /* Set width to 100% for mobile screens */
+  }
+}
+
 .footer-distributed .footer-icons{
   margin-top: 25px;
 }
@@ -490,4 +502,9 @@ ul a:hover {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
