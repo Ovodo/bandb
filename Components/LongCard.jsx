@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 export default function LongCard({ title }) {
   const { theme } = useSelector((state) => state.Theme);
-  const textTheme = theme ? "text-slate-950" : "text-slate-400";
+  const textTheme = theme ? "text-slate-950" : "text-slate-300";
   const backgroundTheme = theme ? "bg-slate-50" : "bg-slate-900";
 
   const text1 = (
@@ -150,7 +150,7 @@ export default function LongCard({ title }) {
   const text4 = (
     <div className={textTheme}>
       <br />
-      <b> No Investment Advice Here, Please take note of the following:</b>
+      <b> No investment advice here, Please take note of the following:</b>
       <br />
       <br />
       <b>1.</b> The BandBindex App is for educational purposes only. It provides
