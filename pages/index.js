@@ -191,7 +191,8 @@ export default function Home({
           {/* <MeterGauge /> */}
         </InsightsCard>
       </section>
-      <br></br><br></br>
+      <section className='flex flex-col mb-[10vh] items-center'>
+        </section>
       <section className='flex flex-col mb-[15vh] items-center'>
         <LongCard title='Why Bear & Bull Index?' />
       </section>
@@ -224,11 +225,11 @@ export default function Home({
 </div>
 
 <br></br>
-  <p class="footer-company-about">The Bear and Bull Index provides an unbiased view of the crypto market,<br></br>backed by <a
-          href='https://lunarcrush.com/'
-          target='_blank'
-          rel='noopener noreferrer'
-        > <b>LunarCrush</b></a> AI-driven social insights and metrics we help the <br></br>average crypto user to understand the market better. Technical analysis<br></br> and social analysis are now made easy.</p>
+<div class="footer-about">
+  <p class="footer-company-about">The Bear and Bull Index provides an unbiased view of the crypto
+market, we help the average crypto user to understand the market
+better. Technical analysis and social analysis are now made easy,
+in one platform.</p></div>
   <br></br>
   <p class="footer-company-name">Powered by{" "} <a
           href='https://lunarcrush.com/'
