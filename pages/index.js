@@ -26,7 +26,6 @@ import RedeemIcon from "@mui/icons-material/Redeem";
 import VerifiedIcon from '@mui/icons-material/Verified';
 import AnnouncementIcon from '@mui/icons-material/Announcement';
 import ProtonWebSDK from "@proton/web-sdk";
-import Swal from "sweetalert2"
 import LockIcon from '@mui/icons-material/Lock';
 
 
