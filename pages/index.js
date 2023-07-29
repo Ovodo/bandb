@@ -26,6 +26,9 @@ import RedeemIcon from "@mui/icons-material/Redeem";
 import VerifiedIcon from '@mui/icons-material/Verified';
 import AnnouncementIcon from '@mui/icons-material/Announcement';
 import ProtonWebSDK from "@proton/web-sdk";
+import Swal from "sweetalert2"
+import LockIcon from '@mui/icons-material/Lock';
+
 
 import { useSelector } from "react-redux";
 
@@ -52,6 +55,12 @@ export default function Home({
   const { ref, inView } = useInView({ threshold: 0.2 });
   const animation = useAnimation();
   const animation2 = useAnimation();
+
+// ... (Hold INDEX to View Data Start Here)
+
+const balance = 99; 
+
+// ... (Hold INDEX to View Data End Here)
 
   const { theme } = useSelector((state) => state.Theme);
   const textTheme = theme ? "text-slate-950" : "text-slate-300";
@@ -122,33 +131,88 @@ export default function Home({
         </div>
       </div>
       <section className='mx-[2vw] flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 mt-[4vh]'>
-        <InsightsCard text='Historical Analysis'>
-          <div className='flex w-[80vw] h-full justify-center items-center'>
-            <Charts height={mobile ? 430 : 280} chartData={chartData} />
+
+      <div>
+    {balance < 100 ? (
+      <InsightsCard text='Historical Analysis'>
+        <div className='flex flex-col justify-center items-center h-[85%]' style={{ textAlign: 'center' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%' }} className={`${textTheme}`}>
+            <LockIcon
+              style={{ fontSize: 50, color: "#F5900C" }}
+            />
+            Need 100 INDEX to Unlock
+          </div>
+        </div>
+      </InsightsCard>
+    ) : (
+      <InsightsCard text='Historical Analysis'>
+        <div className='flex w-[80vw] h-full justify-center items-center'>
+          <Charts height={mobile ? 430 : 280} chartData={chartData} />
+        </div>
+      </InsightsCard>
+    )}
+  </div>
+
+
+        <div>
+    {balance < 100 ? (
+      <InsightsCard text='Actionable Insight'>
+        <div className='flex flex-col justify-center items-center h-[85%]' style={{ textAlign: 'center' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%' }} className={`${textTheme}`}>
+            <LockIcon
+              style={{ fontSize: 50, color: "#F5900C" }}
+            />
+            Need 100 INDEX to Unlock
+          </div>
+        </div>
+      </InsightsCard>
+    ) : (
+      <InsightsCard text='Actionable Insight'>
+        <div className='flex flex-col justify-between relative bottom-[2vh] items-center self-center h-[85%]'>
+          <div className='bg-gray-700 relative top-[10vh] w-[65%] h-[12%]'>
+            <div
+              style={{ width: `${BTD}%` }}
+              className='bg-[#04bd64ff] w-[30%] h-full'
+            ></div>
+          </div>
+          <p className='self-center relative top-[5vh] text-[20px] font-[800] text-[#04bd64ff]'>
+            Buy the Dip
+          </p>
+          <div className='bg-gray-700 relative top-[5vh] w-[65%] h-[12%]'>
+            <div
+              style={{ width: `${STP}%` }}
+              className='bg-[#c0041dff] w-[30%] h-full'
+            ></div>
+          </div>
+          <p className='self-center text-[20px] font-[800] text-[#c0041dff]'>
+            Sell the Pump
+          </p>
+        </div>
+      </InsightsCard>
+    )}
+  </div>
+
+
+  
+    {balance < 100 ? (
+      <>
+        <InsightsCard text='Market Sentiment'>
+          <MarketSentiment sentiment={sentiment} />
+          {/* <p>{sentiment}</p> */}
+        </InsightsCard>
+        <InsightsCard text='Market Sentiment Analysis'>
+          <div className='flex flex-col justify-center items-center h-[85%]' style={{ textAlign: 'center' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%' }} className={`${textTheme}`}>
+              <LockIcon
+                style={{ fontSize: 50, color: "#F5900C" }}
+              />
+              Need 100 INDEX to Unlock
+            </div>
           </div>
         </InsightsCard>
-        <InsightsCard text='Actionable Insight'>
-          <div className='flex flex-col justify-between relative bottom-[2vh] items-center self-center h-[85%]'>
-            <div className='bg-gray-700 relative top-[10vh] w-[65%] h-[12%]'>
-              <div
-                style={{ width: `${BTD}%` }}
-                className='bg-[#04bd64ff] w-[30%] h-full'
-              ></div>
-            </div>
-            <p className='self-center relative top-[5vh] text-[20px] font-[800] text-[#04bd64ff]'>
-              Buy the Dip
-            </p>
-            <div className='bg-gray-700 relative top-[5vh] w-[65%] h-[12%]'>
-              <div
-                style={{ width: `${STP}%` }}
-                className='bg-[#c0041dff] w-[30%] h-full'
-              ></div>
-            </div>
-            <p className='self-center text-[20px] font-[800] text-[#c0041dff]'>
-              Sell the Pump
-            </p>
-          </div>
-        </InsightsCard>
+      </>
+    ) : (
+      <>
         <InsightsCard text='Market Sentiment'>
           <MarketSentiment sentiment={sentiment} />
           {/* <p>{sentiment}</p> */}
@@ -165,6 +229,31 @@ export default function Home({
             <SemiCircle guage={lerp(0, 100, -90, 90, today.MSA)} />
           </div>
         </InsightsCard>
+      </>
+    )}
+  
+
+
+
+  {balance < 100 ? (
+      <>
+        <InsightsCard
+        text='Social Analysis Summary'
+        >
+           <div className='flex flex-col justify-center items-center h-[85%]' style={{ textAlign: 'center' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%' }} className={`${textTheme}`}>
+              <LockIcon
+                style={{ fontSize: 50, color: "#F5900C" }}
+              />
+              Need 100 INDEX to Unlock
+            </div>
+          </div>
+
+          
+        </InsightsCard>
+      </>
+    ) : (
+      <>
         <InsightsCard
           today={today.SAS}
           yesterday={yesterday.SAS}
@@ -177,7 +266,31 @@ export default function Home({
             <SemiCircle1 guage={lerp(0, 100, -90, 90, today.SAS)} />
           </div>
         </InsightsCard>
+      </>
+    )}
+
+
+
+{balance < 100 ? (
+      <>
         <InsightsCard
+        text='Relative Strength Index'
+        >
+           <div className='flex flex-col justify-center items-center h-[85%]' style={{ textAlign: 'center' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%' }} className={`${textTheme}`}>
+              <LockIcon
+                style={{ fontSize: 50, color: "#F5900C" }}
+              />
+              Need 100 INDEX to Unlock
+            </div>
+          </div>
+
+          
+        </InsightsCard>
+      </>
+    ) : (
+      <>
+<InsightsCard
           today={today.RSI}
           yesterday={yesterday.RSI}
           lastweek={lastweek.RSI}
@@ -190,6 +303,10 @@ export default function Home({
           </div>
           {/* <MeterGauge /> */}
         </InsightsCard>
+      </>
+    )}
+        
+        
       </section>
       <section className='flex flex-col mb-[10vh] items-center'>
         </section>
