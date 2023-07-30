@@ -358,7 +358,7 @@ ul a:hover {
 }
 
 .footer-distributed .footer-center i{
-  background-color:  #33383b;
+  background-color:  #111111;
   color: #ffffff;
   font-size: 25px;
   width: 38px;
@@ -452,7 +452,7 @@ ul a:hover {
   width: 35px;
   height: 35px;
   cursor: pointer;
-  background-color:  #33383b;
+  background-color:  #111111;
   border-radius: 2px;
 
   font-size: 20px;
