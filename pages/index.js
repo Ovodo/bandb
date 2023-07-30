@@ -14,12 +14,12 @@ import MarketSentiment from "@/Components/MarketSentiment";
 import CountdownTimer from "@/Components/CountdownTimer";
 import LongCard from "@/Components/LongCard";
 import BackToTopButton from "@/Components/BackToTopButton";
-import WhatshotIcon from '@mui/icons-material/Whatshot';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import TelegramIcon from '@mui/icons-material/Telegram';
-import FileOpenIcon from '@mui/icons-material/FileOpen';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import AssessmentIcon from '@mui/icons-material/Assessment';
+import WhatshotIcon from "@mui/icons-material/Whatshot";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import TelegramIcon from "@mui/icons-material/Telegram";
+import FileOpenIcon from "@mui/icons-material/FileOpen";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import AssessmentIcon from "@mui/icons-material/Assessment";
 import ProtonWebSDK from "@proton/web-sdk";
 
 import { useSelector } from "react-redux";
@@ -85,22 +85,24 @@ export default function Home({
       <div className='flex w-full justify-between h-[11vh] md:h-[14vh] lg:h-[18vh]'>
         <div className='flex relative bottom-[1vh] lg:bottom-0 h-[70%] my-auto self-start items-center'>
           <div className='absolute flex top-[2vh] md:top-[1vh] ml-[6vh] md:ml-[9.5vw] lg:ml-[8vw] min-w-max self-center'>
-
-<h4 className={`${textTheme}`}>
-    {mobile ? "" : (
-      <>
-        <WhatshotIcon
-          color='white'
-          style={{ fontSize: 25, color: "#F5900C" }}
-        /><b>{"What's Hot: "}</b>$
-        {coin.symbol}
-      </>
-    )}
-  </h4>
+            <h4 className={`${textTheme}`}>
+              {mobile ? (
+                ""
+              ) : (
+                <>
+                  <WhatshotIcon
+                    color='white'
+                    style={{ fontSize: 25, color: "#F5900C" }}
+                  />
+                  <b>{"What's Hot: "}</b>${coin.symbol}
+                </>
+              )}
+            </h4>
           </div>
-
         </div>
-        <h4 className={` ${textTheme} self-end mx-auto`}><b>Market Overview</b></h4>
+        <h4 className={` ${textTheme} self-end mx-auto`}>
+          <b>Market Overview</b>
+        </h4>
         <div className='w-[20vw] self-center absolute items-center right-[2vw] flex flex-col justify-center'>
           <h4 className={` ${textTheme} hidden font-[800] lg:flex`}>
             {todaysDate}
@@ -199,75 +201,77 @@ export default function Home({
         <LongCard title='Disclaimer' />
       </section>
 
-
-      
       <div className={textTheme}>
-      <footer class="footer-distributed">
+        <footer class='footer-distributed'>
+          <div class='footer-left'>
+            <h3>
+              <AssessmentIcon style={{ fontSize: 25, color: "#F5900C" }} />
+              BandBindex
+            </h3>
 
-<div class="footer-left">
+            <br></br>
+            <p class='footer-company-name'>
+              Powered by{" "}
+              <a
+                href='https://lunarcrush.com/'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                {" "}
+                <b>LunarCrush</b>
+              </a>
+            </p>
+          </div>
 
-<h3><AssessmentIcon style={{ fontSize: 25, color: "#F5900C" }} />BandBindex</h3>
+          <div class='footer-center'>
+            <div>
+              <i class='fa fa-envelope'></i>
+              <p>
+                <b>Quick Links</b>
+              </p>
+            </div>
 
-<br></br>
-  <p class="footer-company-name">Powered by <a
-          href='https://lunarcrush.com/'
-          target='_blank'
-          rel='noopener noreferrer'
-        > <b>LunarCrush</b></a></p>
-</div>
+            <div>
+              <i class='fa fa-envelope'></i>
+              <p>Project WhitePaper</p>
+            </div>
 
-<div class="footer-center">
+            <div>
+              <i class='fa fa-envelope'></i>
+              <p>Request Form</p>
+            </div>
 
-  <div>
-  <i class="fa fa-envelope"></i>
-    <p><b>Quick Links</b></p>
-  </div>
+            <div>
+              <i class='fa fa-envelope'></i>
+              <p>Claim Rewards</p>
+            </div>
+          </div>
 
-
-  <div>
-  <i class="fa fa-envelope"></i>
-  <p>Project WhitePaper</p>
-  </div>
-
- 
-
-  <div>
-  <i class="fa fa-envelope"></i>
-    <p>Request Form</p>
-  </div>
-
-  <div>
-    <i class="fa fa-envelope"></i>
-    <p>Claim Rewards</p>
-  </div>
-
-</div>
-
-<div class="footer-right">
-
-  <p class="footer-company-about">
-    <span>Disclaimer</span>
-    The information provided on this website does not constitute
+          <div class='footer-right'>
+            <p class='footer-company-about'>
+              <span>Disclaimer</span>
+              The information provided on this website does not constitute
               investment advice, financial advice, trading advice, or any other
               sort of advice and you should not treat any of the website&apos;s
               content as such.
-  </p>
+            </p>
 
-  <div class="footer-icons">
-
-    <a href="#"><TwitterIcon /></a>
-    <a href="#"><TelegramIcon /></a>
-    <a href="#"><GitHubIcon /></a>
-    <a href="#"><FileOpenIcon /></a>
-
-  </div>
-
-</div>
-
-</footer>
-      
-      
-      
+            <div class='footer-icons'>
+              <a href='#'>
+                <TwitterIcon />
+              </a>
+              <a href='#'>
+                <TelegramIcon />
+              </a>
+              <a href='#'>
+                <GitHubIcon />
+              </a>
+              <a href='#'>
+                <FileOpenIcon />
+              </a>
+            </div>
+          </div>
+        </footer>
       </div>
     </main>
   );
@@ -318,9 +322,8 @@ export async function getServerSideProps({}) {
   const dipData = await dipDataRes.json();
   const lunrData = await lunrRes.json();
 
-
-   // You will need to get these details for the specific token you're interested in.
-   const contractABI = [
+  // You will need to get these details for the specific token you're interested in.
+  const contractABI = [
     {
       inputs: [],
       stateMutability: "nonpayable",
