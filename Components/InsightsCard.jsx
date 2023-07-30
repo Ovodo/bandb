@@ -194,70 +194,134 @@ const InsightsCard = ({
             <p className={`font-extrabold ${textTheme2}  text-xl`}>
               <b>{todayTitle}</b>
             </p>
-            <p
-              style={{
-                color:
-                  today < 40 ? "Red" : today < 60 ? "rgb(202 138 4)" : "Green",
-              }}
-              className='text-[25px] font-[800]'
-            >
-              {today}
-            </p>
+            {text === "Social Analysis Summary" ? (
+    <p
+      style={{
+        color: today < 40 ? "Red" : today < 60 ? "rgb(202, 138, 4)" : "Green",
+      }}
+      className='text-[25px] font-[800]'
+    >
+      {today}
+    </p>
+  ) : text === "Market Sentiment Analysis" ? (
+    <p
+      style={{
+        color: today < 40 ? "Red" : today < 60 ? "rgb(202, 138, 4)" : "Green",
+      }}
+      className='text-[25px] font-[800]'
+    >
+      {today}
+    </p>
+  ) : text === "Relative Strength Index" ? (
+    <p
+      style={{
+        color: today < 31 ? "Green" : today < 70 ? "rgb(202, 138, 4)" : "Red",
+      }}
+      className='text-[25px] font-[800]'
+    >
+      {today}
+    </p>
+  ) : null}
           </div>
           <div className='absolute bottom-2 flex justify-around w-full'>
             <div className=' flex flex-col justifiy-center items-center'>
               <p className={` ${textTheme2} text-[12px]`}>Yesterday</p>
-              <p
-                style={{
-                  color:
-                    yesterday < 40
-                      ? "Red"
-                      : yesterday < 60
-                      ? "rgb(202 138 4)"
-                      : "Green",
-                }}
-                className='text-[25px] text-[#c0041dff] font-[800]'
-              >
-                {yesterday}
-              </p>
+              {text === "Social Analysis Summary" ? (
+    <p
+      style={{
+        color: yesterday < 40 ? "Red" : yesterday < 60 ? "rgb(202, 138, 4)" : "Green",
+      }}
+      className='text-[25px] font-[800]'
+    >
+      {yesterday}
+    </p>
+  ) : text === "Market Sentiment Analysis" ? (
+    <p
+      style={{
+        color: yesterday < 40 ? "Red" : yesterday < 60 ? "rgb(202, 138, 4)" : "Green",
+      }}
+      className='text-[25px] font-[800]'
+    >
+      {yesterday}
+    </p>
+  ) : text === "Relative Strength Index" ? (
+    <p
+      style={{
+        color: yesterday < 31 ? "Green" : yesterday < 70 ? "rgb(202, 138, 4)" : "Red",
+      }}
+      className='text-[25px] font-[800]'
+    >
+      {yesterday}
+    </p>
+  ) : null}
               <p className={` ${textTheme2} text-[15px] font-[600]`}>
                 {yesterdayTitle}
               </p>
             </div>
             <div className=' flex flex-col justifiy-center items-center'>
               <p className={` ${textTheme2} text-[12px]`}>Last Week</p>
-              <p
-                style={{
-                  color:
-                    lastweek < 40
-                      ? "Red"
-                      : lastweek < 60
-                      ? "rgb(202 138 4)"
-                      : "Green",
-                }}
-                className='text-[25px] text-[#04bd64ff] font-[800]'
-              >
-                {lastweek}
-              </p>
+              {text === "Social Analysis Summary" ? (
+    <p
+      style={{
+        color: lastweek < 40 ? "Red" : lastweek < 60 ? "rgb(202, 138, 4)" : "Green",
+      }}
+      className='text-[25px] font-[800]'
+    >
+      {lastweek}
+    </p>
+  ) : text === "Market Sentiment Analysis" ? (
+    <p
+      style={{
+        color: lastweek < 40 ? "Red" : lastweek < 60 ? "rgb(202, 138, 4)" : "Green",
+      }}
+      className='text-[25px] font-[800]'
+    >
+      {lastweek}
+    </p>
+  ) : text === "Relative Strength Index" ? (
+    <p
+      style={{
+        color: lastweek < 31 ? "Green" : lastweek < 70 ? "rgb(202, 138, 4)" : "Red",
+      }}
+      className='text-[25px] font-[800]'
+    >
+      {lastweek}
+    </p>
+  ) : null}
               <p className={` ${textTheme2} text-[15px] font-[600]`}>
                 {lastWeekTitle}
               </p>
             </div>
             <div className=' flex flex-col justifiy-center items-center'>
               <p className={` ${textTheme2} text-[12px]`}>Last Month</p>
-              <p
-                style={{
-                  color:
-                    lastMonth < 40
-                      ? "Red"
-                      : lastMonth < 60
-                      ? "rgb(202 138 4)"
-                      : "Green",
-                }}
-                className='text-[25px] text-[#f19719ff] font-[800]'
-              >
-                {lastMonth}
-              </p>
+              {text === "Social Analysis Summary" ? (
+    <p
+      style={{
+        color: lastMonth < 40 ? "Red" : lastMonth < 60 ? "rgb(202, 138, 4)" : "Green",
+      }}
+      className='text-[25px] font-[800]'
+    >
+      {lastMonth}
+    </p>
+  ) : text === "Market Sentiment Analysis" ? (
+    <p
+      style={{
+        color: lastMonth < 40 ? "Red" : lastMonth < 60 ? "rgb(202, 138, 4)" : "Green",
+      }}
+      className='text-[25px] font-[800]'
+    >
+      {lastMonth}
+    </p>
+  ) : text === "Relative Strength Index" ? (
+    <p
+      style={{
+        color: lastMonth < 31 ? "Green" : lastMonth < 70 ? "rgb(202, 138, 4)" : "Red",
+      }}
+      className='text-[25px] font-[800]'
+    >
+      {lastMonth}
+    </p>
+  ) : null}
               <p className={` ${textTheme2} text-[15px] font-[600]`}>
                 {lastMonthTitle}
               </p>

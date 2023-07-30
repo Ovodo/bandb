@@ -358,7 +358,7 @@ ul a:hover {
 }
 
 .footer-distributed .footer-center i{
-  background-color:  #33383b;
+  background-color:  #111111;
   color: #ffffff;
   font-size: 25px;
   width: 38px;
@@ -431,6 +431,18 @@ ul a:hover {
   margin-bottom: 20px;
 }
 
+/* Default styles for the footer-about element */
+.footer-distributed .footer-about {
+  width: 50%; /* Set width to 50% by default for desktop */
+}
+
+/* Media query for mobile screens (max-width: 767px) */
+@media (max-width: 767px) {
+  .footer-distributed .footer-about {
+    width: 100%; /* Set width to 100% for mobile screens */
+  }
+}
+
 .footer-distributed .footer-icons{
   margin-top: 25px;
 }
@@ -440,7 +452,7 @@ ul a:hover {
   width: 35px;
   height: 35px;
   cursor: pointer;
-  background-color:  #33383b;
+  background-color:  #111111;
   border-radius: 2px;
 
   font-size: 20px;
@@ -466,7 +478,7 @@ ul a:hover {
     display: block;
     width: 100%;
     margin-bottom: 40px;
-    text-align: center;
+    text-align: left;
   }
 
   .footer-distributed .footer-center i{
@@ -490,4 +502,9 @@ ul a:hover {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
