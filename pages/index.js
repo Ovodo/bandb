@@ -432,10 +432,10 @@ in one platform.</p></div>
 
   <div class="footer-icons">
 
-    <a href="#"><TwitterIcon /></a>
-    <a href="#"><TelegramIcon /></a>
-    <a href="#"><GitHubIcon /></a>
-    <a href="#"><FileOpenIcon /></a>
+    <a href="#" style={{background:  "#33383b"}}><TwitterIcon /></a>
+    <a href="#" style={{background:  "#33383b"}}><TelegramIcon /></a>
+    <a href="#" style={{background:  "#33383b"}}><GitHubIcon /></a>
+    <a href="#" style={{background:  "#33383b"}}><FileOpenIcon /></a>
 
   </div>
 
