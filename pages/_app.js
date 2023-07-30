@@ -9,6 +9,14 @@ import { wrapper, persistor } from "../store/store";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { Provider } from "react-redux";
 import Navbar from "@/Components/navbar_components/Navbar";
+import {
+  EthereumClient,
+  w3mConnectors,
+  w3mProvider,
+} from "@web3modal/ethereum";
+import { Web3Modal } from "@web3modal/react";
+import { configureChains, createConfig, WagmiConfig } from "wagmi";
+import { bsc, bscTestnet } from "wagmi/chains";
 
 // Redux Persist
 import { PersistGate } from "redux-persist/integration/react";
@@ -29,29 +37,50 @@ function App({ Component, ...rest }) {
       return <Component {...pageProps} />;
     }
   };
+  const chains = [bsc, bscTestnet];
+  const projectId = "dd87a11ce89ece1fe6a6e70fdd10a0da";
+
+  const { publicClient } = configureChains(chains, [
+    w3mProvider({ projectId }),
+  ]);
+  const wagmiConfig = createConfig({
+    autoConnect: true,
+    connectors: w3mConnectors({ projectId, chains }),
+    publicClient,
+  });
+  const ethereumClient = new EthereumClient(wagmiConfig, chains);
 
   return (
-    <GoogleOAuthProvider clientId='704139097438-0r081l07jdsiru0ktse80r813pm6mlm3.apps.googleusercontent.com'>
-      <Provider store={store}>
-        <PersistGate persistor={persistor} loading={<div>Loading</div>}>
-          <CacheProvider value={emotionCache}>
-            <Head>
-              <meta
-                name='viewport'
-                content='initial-scale=1, width=device-width'
-              />
-            </Head>
-            <ThemeProvider theme={theme}>
-              {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-              <CssBaseline />
-              <Navbar>
-                <Layout Component={Component} pageProps={pageProps} />
-              </Navbar>
-            </ThemeProvider>
-          </CacheProvider>
-        </PersistGate>
-      </Provider>
-    </GoogleOAuthProvider>
+    <>
+      <WagmiConfig config={wagmiConfig}>
+        <GoogleOAuthProvider clientId='704139097438-0r081l07jdsiru0ktse80r813pm6mlm3.apps.googleusercontent.com'>
+          <Provider store={store}>
+            <PersistGate persistor={persistor} loading={<div>Loading</div>}>
+              <CacheProvider value={emotionCache}>
+                <Head>
+                  <meta
+                    name='viewport'
+                    content='initial-scale=1, width=device-width'
+                  />
+                </Head>
+                <ThemeProvider theme={theme}>
+                  {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+                  <CssBaseline />
+                  <Navbar>
+                    <Layout Component={Component} pageProps={pageProps} />
+                  </Navbar>
+                </ThemeProvider>
+              </CacheProvider>
+            </PersistGate>
+          </Provider>
+        </GoogleOAuthProvider>
+      </WagmiConfig>
+      <Web3Modal
+        tokenContracts={{ 97: "0xFaaBD9b1E4FDE7C42BF10a8165b21D9Eb19141a4" }}
+        projectId={projectId}
+        ethereumClient={ethereumClient}
+      />
+    </>
   );
 }
 

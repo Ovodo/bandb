@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { GiWallet } from "react-icons/gi";
 import { IoMdCart } from "react-icons/io";
 import { FaUserAlt } from "react-icons/fa";
@@ -15,13 +15,16 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import NightModeIcon from "@mui/icons-material/Nightlight";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import RedeemIcon from "@mui/icons-material/Redeem";
-import AssessmentIcon from '@mui/icons-material/Assessment';
+import AssessmentIcon from "@mui/icons-material/Assessment";
 import Web3 from "web3";
 
 // import { ethers } from 'ethers';
 import DrawingComponent from "../DrawingComponent";
 import Image from "next/image";
 import { setTheme } from "@/store/reducers/Theme";
+import { Web3Button } from "@web3modal/react";
+import { useAccount } from "wagmi";
+import { updateAddress, setToken } from "@/store/reducers/AppReducer";
 
 const Navbar = ({ children }) => {
   let sm = typeof window !== "undefined" && window.innerWidth < 789;
@@ -69,9 +72,8 @@ const Navbar = ({ children }) => {
 
   const colorTheme = !theme ? "bg-white" : "bg-slate-950";
 
-
-   // You will need to get these details for the specific token you're interested in.
-   const contractABI = [
+  // You will need to get these details for the specific token you're interested in.
+  const contractABI = [
     {
       inputs: [],
       stateMutability: "nonpayable",
@@ -348,14 +350,16 @@ const Navbar = ({ children }) => {
       type: "function",
     },
   ];
-  const contractAddress = "0x..."; // Replace with the actual contract address
+  const { address, isConnecting, isDisconnected } = useAccount();
+
+  const contractAddress = "0xFaaBD9b1E4FDE7C42BF10a8165b21D9Eb19141a4"; // Replace with the actual contract address
 
   // This should be the user's public Ethereum address
-  const userAddress = "0x..."; // Replace with the user's address
+  const userAddress = address; // Replace with the user's address
 
   async function getBalance() {
     // Connect to the BSC network
-    const web3 = new Web3("https://bsc-dataseed.binance.org/");
+    const web3 = new Web3("https://data-seed-prebsc-1-s1.binance.org:8545/");
 
     // Create a new contract instance
     const contract = new web3.eth.Contract(contractABI, contractAddress);
@@ -365,6 +369,12 @@ const Navbar = ({ children }) => {
 
     return balance;
   }
+
+  useEffect(() => {
+    dispatch(updateAddress(address));
+    dispatch(setToken(contractAddress));
+    return () => {};
+  }, []);
 
   return (
     <div className={backgroundTheme}>
@@ -390,21 +400,22 @@ const Navbar = ({ children }) => {
               }}
               className='logos '
             >
-        <div className='menu-icon' onClick={toggleMenu}>
-            {showmenu ? (
-              <HiOutlineX color={"#F5900C"} size={35} />
-            ) : (
-              <HiOutlineMenu color={"#F5900C"} size={35} />
-            )}
-          </div>
+              <div className='menu-icon' onClick={toggleMenu}>
+                {showmenu ? (
+                  <HiOutlineX color={"#F5900C"} size={35} />
+                ) : (
+                  <HiOutlineMenu color={"#F5900C"} size={35} />
+                )}
+              </div>
 
-          <Image
-    src={"/assets/images/logo.png"}
-    alt="Logo"
-    width={35}
-    height={35}
-    style={{ verticalAlign: 'middle', marginRight: '1px' }}
-  /><h4 className={`${textTheme}`}>BandBindex </h4>
+              <Image
+                src={"/assets/images/logo.png"}
+                alt='Logo'
+                width={35}
+                height={35}
+                style={{ verticalAlign: "middle", marginRight: "1px" }}
+              />
+              <h4 className={`${textTheme}`}>BandBindex </h4>
             </motion.div>
           </Link>
         </div>
@@ -509,6 +520,10 @@ const Navbar = ({ children }) => {
                   style={{ fontSize: 25, color: "#F5900C" }}
                 />
               </Link>
+              <Web3Button
+                balance='hide'
+                // label={"INDEX"}
+              />
             </div>
           </motion.ul>
         </menu>
@@ -519,4 +534,3 @@ const Navbar = ({ children }) => {
 };
 
 export default Navbar;
-

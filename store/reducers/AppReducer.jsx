@@ -9,6 +9,7 @@ export const initialState = {
   dailyClaim: 10,
   pointArray: [10, 20, 30, 40, 50, 60, 100],
   lastClaim: new Date(),
+  token: "",
 };
 
 const AppSlice = createSlice({
@@ -43,6 +44,9 @@ const AppSlice = createSlice({
     updateAddress(state, action) {
       state.User = action.payload;
     },
+    setToken(state, action) {
+      state.token = action.payload;
+    },
   },
 });
 
@@ -53,6 +57,7 @@ export const {
   setDailyClaim,
   clearState,
   updateAddress,
+  setToken,
 } = AppSlice.actions;
 export default AppSlice.reducer;
 

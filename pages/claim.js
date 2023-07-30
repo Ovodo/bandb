@@ -46,10 +46,6 @@ const Claim = (props) => {
   }, [lastClaim]);
 
   useEffect(() => {
-    let now = new Date();
-    now > lastClaim ? dispatch(setClaimed(false)) : null;
-  }, [lastClaim]);
-  useEffect(() => {
     // Get the current date and set the time to 00:00:00.000
     let now = new Date();
     now.setHours(0, 0, 0, 0);
@@ -57,7 +53,10 @@ const Claim = (props) => {
     // Assuming lastClaim is a Date object, set the time to 00:00:00.000
     let lastClaimDate = new Date(lastClaim);
     lastClaimDate.setHours(0, 0, 0, 0);
-
+    console.log(now.getTime() > lastClaimDate.getTime());
+    now.getTime() > lastClaimDate.getTime()
+      ? dispatch(setClaimed(false))
+      : null;
     // Add one day to the last claim date
     lastClaimDate.setDate(lastClaimDate.getDate() + 1);
 
