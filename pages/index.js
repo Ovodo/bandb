@@ -27,12 +27,13 @@ import VerifiedIcon from '@mui/icons-material/Verified';
 import AnnouncementIcon from '@mui/icons-material/Announcement';
 import ProtonWebSDK from "@proton/web-sdk";
 import LockIcon from '@mui/icons-material/Lock';
+import ToggleOffIcon from '@mui/icons-material/ToggleOff';
+import ToggleOnIcon from '@mui/icons-material/ToggleOn';
+import { setTheme } from "@/store/reducers/Theme";
 
-
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const inter = Inter({ subsets: ["latin"] });
-
 const date = new Date();
 const day = date.getDate();
 const month = date.toLocaleString("default", { month: "short" }).toUpperCase();
@@ -57,10 +58,13 @@ export default function Home({
 
 // ... (Hold INDEX to View Data Start Here)
 
-const balance = 99; 
+//Link Get Balance Function Here
+
+const balance = 100; 
 
 // ... (Hold INDEX to View Data End Here)
 
+  const dispatch = useDispatch();
   const { theme } = useSelector((state) => state.Theme);
   const textTheme = theme ? "text-slate-950" : "text-slate-300";
 
@@ -383,6 +387,35 @@ in one platform.</p></div>
                   style={{ fontSize: 25, color: "#F5900C" }} /></i>
     <p>Claim Rewards</p>
   </div>
+
+  <div>
+    <i class="fa fa-envelope"><button
+                onClick={() => {
+                  dispatch(setTheme(!theme));
+                }}
+              >
+                {theme ? (
+                  <ToggleOffIcon
+                    color='white'
+                    style={{
+                      fontSize: 25,
+                      color: "#F5900C",
+                      cursor: "pointer",
+                    }}
+                  />
+                ) : (
+                  <ToggleOnIcon
+                    color='white'
+                    style={{
+                      fontSize: 25,
+                      color: "#F5900C",
+                      cursor: "pointer",
+                    }}
+                  />
+                )}
+              </button></i>
+    <p>Switch Theme</p>
+  </div>  
 
 </div>
 
