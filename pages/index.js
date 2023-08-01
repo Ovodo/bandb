@@ -66,7 +66,7 @@ export default function Home({
     address: User,
     token: token,
   });
-  const balance = data?.formatted ?? 0;
+  const balance = data?.formatted ?? 120;
 
   // ... (Hold INDEX to View Data End Here)
 
