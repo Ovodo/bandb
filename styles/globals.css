@@ -508,11 +508,3 @@ ul a:hover {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-
-.SweetAlertButton {
-  background-color: #f5900c;
-  color:  #ffffff;
-}
-.SweetAlertButton:hover {
-  opacity: 0.8;
-}
