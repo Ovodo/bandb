@@ -422,7 +422,7 @@ export default function Home({
   <p>      <a
         href='https://bandbindex.gitbook.io/bandbindex-2.0-whitepaper/project-details/disclaimer'
         target='_blank'
-        rel='noopener noreferrer' style={{ color: "#FFFFFF" }}
+        rel='noopener noreferrer' style={{ fontSize: 15, color: "#FFFFFF" }}
       >
         Project WhitePaper
       </a></p>
@@ -436,7 +436,7 @@ export default function Home({
   <p>      <a
         href='https://t.me/bandbindex_official'
         target='_blank'
-        rel='noopener noreferrer' style={{ color: "#FFFFFF" }}>
+        rel='noopener noreferrer' style={{ fontSize: 15, color: "#FFFFFF" }}>
         Request collaboration
       </a></p>
   </div>
@@ -447,7 +447,7 @@ export default function Home({
     <p><a
         href='/claim'
         target='_blank'
-        rel='noopener noreferrer' style={{ color: "#FFFFFF" }}
+        rel='noopener noreferrer' style={{ fontSize: 15, color: "#FFFFFF" }}
       >
         Claim Rewards
       </a></p>
@@ -477,7 +477,7 @@ export default function Home({
                       cursor: "pointer",
                     }}
                   />
-                )}&nbsp;&nbsp;&nbsp;<p>Switch Theme</p>
+                )}&nbsp;&nbsp;&nbsp;<p style={{ fontSize: 15, color: "#FFFFFF" }}>Switch Theme</p>
               </button> </i>
   </div>  
 
