@@ -17,7 +17,7 @@ import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import RedeemIcon from "@mui/icons-material/Redeem";
 import AssessmentIcon from "@mui/icons-material/Assessment";
 import Web3 from "web3";
-import Swal from 'sweetalert';
+import Swal from "sweetalert";
 
 // import { ethers } from 'ethers';
 import DrawingComponent from "../DrawingComponent";
