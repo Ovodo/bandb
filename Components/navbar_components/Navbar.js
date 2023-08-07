@@ -17,6 +17,7 @@ import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import RedeemIcon from "@mui/icons-material/Redeem";
 import AssessmentIcon from "@mui/icons-material/Assessment";
 import Web3 from "web3";
+import Swal from 'sweetalert';
 
 // import { ethers } from 'ethers';
 import DrawingComponent from "../DrawingComponent";
@@ -350,6 +351,24 @@ const Navbar = ({ children }) => {
       type: "function",
     },
   ];
+
+// Define the SweetAlert configuration
+const comingSoonAlertConfig = {
+  title: 'Coming Soon',
+  text: 'Stay tuned for exciting updates!',
+  icon: 'info',
+  button: {
+    text: 'Got it',
+    className: 'SweetAlertButton' // Add your custom class name here
+  },
+  closeOnClickOutside: false // Prevent closing on clicking outside the dialog
+};
+
+const handleClick = () => {
+  Swal(comingSoonAlertConfig);
+};
+
+
   const { address, isConnecting, isDisconnected } = useAccount();
 
   const contractAddress = "0xFaaBD9b1E4FDE7C42BF10a8165b21D9Eb19141a4"; // Replace with the actual contract address
@@ -457,7 +476,7 @@ const Navbar = ({ children }) => {
               }}
             >
               <a>
-                <Link href='/'>{"Cryptocurrencies"}</Link>
+                <Link href='#soon' onClick={handleClick}>{"Cryptocurrencies"}</Link>
               </a>
             </motion.li>
             <motion.li
@@ -475,7 +494,7 @@ const Navbar = ({ children }) => {
               }}
             >
               <a>
-                <Link href=''>{"Insights"}</Link>
+                <Link href='#soon' onClick={handleClick}>{"Insights"}</Link>
               </a>
             </motion.li>
             <div className='icon flex  items-center'>
