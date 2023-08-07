@@ -14,21 +14,16 @@ import MarketSentiment from "@/Components/MarketSentiment";
 import CountdownTimer from "@/Components/CountdownTimer";
 import LongCard from "@/Components/LongCard";
 import BackToTopButton from "@/Components/BackToTopButton";
-import WhatshotIcon from '@mui/icons-material/Whatshot';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import TelegramIcon from '@mui/icons-material/Telegram';
-import FileOpenIcon from '@mui/icons-material/FileOpen';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkIcon from '@mui/icons-material/Link';
-import ArticleIcon from '@mui/icons-material/Article';
-import HandshakeIcon from '@mui/icons-material/Handshake';
-import RedeemIcon from "@mui/icons-material/Redeem";
-import AnnouncementIcon from '@mui/icons-material/Announcement';
+import WhatshotIcon from "@mui/icons-material/Whatshot";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import TelegramIcon from "@mui/icons-material/Telegram";
+import FileOpenIcon from "@mui/icons-material/FileOpen";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import AssessmentIcon from "@mui/icons-material/Assessment";
 import ProtonWebSDK from "@proton/web-sdk";
-import LockIcon from '@mui/icons-material/Lock';
-import ToggleOffIcon from '@mui/icons-material/ToggleOff';
-import ToggleOnIcon from '@mui/icons-material/ToggleOn';
+import LockIcon from "@mui/icons-material/Lock";
+import ToggleOffIcon from "@mui/icons-material/ToggleOff";
+import ToggleOnIcon from "@mui/icons-material/ToggleOn";
 import { setTheme } from "@/store/reducers/Theme";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -72,7 +67,6 @@ export default function Home({
     token: token,
   });
   const balance = data?.formatted ?? 0;
-
 
   // ... (Hold INDEX to View Data End Here)
 
@@ -129,11 +123,7 @@ export default function Home({
                       color='white'
                       style={{ fontSize: 25, color: "#F5900C" }}
                     />
-                    <b>{"What's Hot: "}</b><a
-          href='https://lunarcrush.com/trending'
-          target='_blank'
-          rel='noopener noreferrer'
-        >${coin.symbol}</a>
+                    <b>{"What's Hot: "}</b>${coin.symbol}
                   </>
                 )}
               </h4>
@@ -381,128 +371,76 @@ export default function Home({
         </section>
 
         <div className={textTheme}>
-        <footer class="footer-distributed">
+          <footer class='footer-distributed'>
+            <div class='footer-left'>
+              <h3>
+                <AssessmentIcon style={{ fontSize: 25, color: "#F5900C" }} />
+                BandBindex
+              </h3>
 
-<div class="footer-left">
+              <br></br>
+              <p class='footer-company-name'>
+                Powered by{" "}
+                <a
+                  href='https://lunarcrush.com/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  {" "}
+                  <b>LunarCrush</b>
+                </a>
+              </p>
+            </div>
 
-<div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-  <Image
-    src={"/assets/images/logo.png"}
-    alt="Logo"
-    width={35}
-    height={35}
-    style={{ verticalAlign: 'middle', marginRight: '1px' }}
-  />
-  <h3>BandBindex</h3>
-</div>
+            <div class='footer-center'>
+              <div>
+                <i class='fa fa-envelope'></i>
+                <p>
+                  <b>Quick Links</b>
+                </p>
+              </div>
 
-<br></br>
-<div class="footer-about">
-  <p class="footer-company-about">Combining tech and social analysis, the Bear and Bull Index gives a holistic market view. Useful for less-experienced investors seeking informed choices in cryptocurrency trading.</p></div>
-  <br></br>
-  <p class="footer-company-name"><font style={{ color: "#F5900C" }}>Ⓒ</font> 2023 {" "} <a
-          href='http://niti.com.ng/'
-          target='_blank'
-          rel='noopener noreferrer'
-        > Neroitech Inventions</a> Ltd.</p>
-</div>
+              <div>
+                <i class='fa fa-envelope'></i>
+                <p>Project WhitePaper</p>
+              </div>
 
-<div class="footer-center">
+              <div>
+                <i class='fa fa-envelope'></i>
+                <p>Request Form</p>
+              </div>
 
-  <div>
-  <i class="fa fa-envelope"><LinkIcon
-                  style={{ fontSize: 25, color: "#F5900C" }} /></i>
-    <p><b>QUICK LINKS</b></p>
-  </div>
+              <div>
+                <i class='fa fa-envelope'></i>
+                <p>Claim Rewards</p>
+              </div>
+            </div>
 
+            <div class='footer-right'>
+              <p class='footer-company-about'>
+                <span>Disclaimer</span>
+                The information provided on this website does not constitute
+                investment advice, financial advice, trading advice, or any
+                other sort of advice and you should not treat any of the
+                website&apos;s content as such.
+              </p>
 
-  <div>
-  <i class="fa fa-envelope"><ArticleIcon
-                  style={{ fontSize: 25, color: "#F5900C" }} /></i>
-  <p>      <a
-        href='https://bandbindex.gitbook.io/bandbindex-2.0-whitepaper/project-details/disclaimer'
-        target='_blank'
-        rel='noopener noreferrer' style={{ color: "#FFFFFF" }}
-      >
-        Project WhitePaper
-      </a></p>
-  </div>
-
- 
-
-  <div>
-  <i class="fa fa-envelope"><HandshakeIcon
-                  style={{ fontSize: 25, color: "#F5900C" }} /></i>
-  <p>      <a
-        href='https://t.me/bandbindex_official'
-        target='_blank'
-        rel='noopener noreferrer' style={{ color: "#FFFFFF" }}>
-        Request collaboration
-      </a></p>
-  </div>
-
-  <div>
-    <i class="fa fa-envelope"><RedeemIcon
-                  style={{ fontSize: 25, color: "#F5900C" }} /></i>
-    <p><a
-        href='/claim'
-        target='_blank'
-        rel='noopener noreferrer' style={{ color: "#FFFFFF" }}
-      >
-        Claim Rewards
-      </a></p>
-  </div>
-
-  <div>
-    <i class="fa fa-envelope"><button
-                onClick={() => {
-                  dispatch(setTheme(!theme));
-                }}
-              >
-                {theme ? (
-                  <ToggleOffIcon
-                    color='white'
-                    style={{
-                      fontSize: 25,
-                      color: "#F5900C",
-                      cursor: "pointer",
-                    }}
-                  />
-                ) : (
-                  <ToggleOnIcon
-                    color='white'
-                    style={{
-                      fontSize: 25,
-                      color: "#F5900C",
-                      cursor: "pointer",
-                    }}
-                  />
-                )}&nbsp;&nbsp;&nbsp;<p>Switch Theme</p>
-              </button> </i>
-  </div>  
-
-</div>
-
-<div class="footer-right">
-
-  <p class="footer-company-about">
-    <span><AnnouncementIcon
-                  style={{ fontSize: 25, color: "#F5900C" }} /> DISCLAIMER</span>
-The website's information isn't investment, financial, or trading advice. Don't interpret its content as such. Do your research and seek professional advice for financial decisions.
-  </p>
-
-  <div class="footer-icons">
-
-    <a href="https://twitter.com/BandBindex" style={{background:  "#33383b"}}><TwitterIcon /></a>
-    <a href="https://t.me/bandbindex_official" style={{background:  "#33383b"}}><TelegramIcon /></a>
-    <a href="https://github.com/LiquidityApe/BandBindex" style={{background:  "#33383b"}}><GitHubIcon /></a>
-    <a href="https://bandbindex.gitbook.io/bandbindex-2.0-whitepaper/project-details/disclaimer" style={{background:  "#33383b"}}><FileOpenIcon /></a>
-
-  </div>
-
-</div>
-
-</footer>
+              <div class='footer-icons'>
+                <a href='#'>
+                  <TwitterIcon />
+                </a>
+                <a href='#'>
+                  <TelegramIcon />
+                </a>
+                <a href='#'>
+                  <GitHubIcon />
+                </a>
+                <a href='#'>
+                  <FileOpenIcon />
+                </a>
+              </div>
+            </div>
+          </footer>
         </div>
       </main>
     </>
