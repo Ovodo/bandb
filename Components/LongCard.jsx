@@ -9,21 +9,21 @@ export default function LongCard({ title }) {
   const text1 = (
     <div className={textTheme}>
       <br />
-      The Bear and Bull Index provides a comprehensive solution to the challenges faced in the cryptocurrency market. Through {" "}
+      The Bear and Bull Index provides a comprehensive solution to the challenges faced in the cryptocurrency market. Through {' '}
       <a
         href='https://lunarcrush.com/'
         target='_blank'
-        rel='noopener noreferrer' style={{ color: "#F5900C" }}
+        rel='noopener noreferrer' style={{ color: '#F5900C' }}
       >
         LunarCrush’s
-      </a>{" "} AI-driven social insights, simplified analysis, and community engagement, it empowers investors to make informed decisions, navigate market volatility, and stay ahead in the ever-evolving world of cryptocurrencies.
+      </a>{' '} AI-driven social insights, simplified analysis, and community engagement, it empowers investors to make informed decisions, navigate market volatility, and stay ahead in the ever-evolving world of cryptocurrencies.
       <br />
       <br />
-      <b>Learn More:</b> Check out the{" "}
+      <b>Learn More:</b> Check out the{' '}
       <a
         href='https://bandbindex.gitbook.io/bandbindex-2.0-whitepaper/'
         target='_blank'
-        rel='noopener noreferrer' style={{ color: "#F5900C" }}
+        rel='noopener noreferrer' style={{ color: '#F5900C' }}
       >
       whitepaper v2.0
       </a>
@@ -39,7 +39,7 @@ export default function LongCard({ title }) {
       <b>1. LunarCrush:</b> The primary data source and partner for the Bear and Bull Index,       <a
         href='https://lunarcrush.com/'
         target='_blank'
-        rel='noopener noreferrer' style={{ color: "#F5900C" }}
+        rel='noopener noreferrer' style={{ color: '#F5900C' }}
       >
         LunarCrush’s
       </a> provides AI-driven social insights and metrics. It analyzes millions of social media conversations and market activities for thousands of cryptocurrencies, distilling them into actionable intelligence.
@@ -59,7 +59,7 @@ export default function LongCard({ title }) {
       <b>2. CoinGecko:</b> A popular cryptocurrency data aggregator,       <a
         href='https://www.coingecko.com/'
         target='_blank'
-        rel='noopener noreferrer' style={{ color: "#F5900C" }}
+        rel='noopener noreferrer' style={{ color: '#F5900C' }}
       >
         CoinGecko
       </a> provides information on market trends, trading volumes, and prices for various digital assets. The Bear and Bull Index uses CoinGecko's 24-hour trading volume data for additional insights.
@@ -87,9 +87,9 @@ export default function LongCard({ title }) {
       <br />
       <br />
       <ol>
-        <li>• Values of 60 or above indicate the crypto market is <font style={{ color: "green" }}>Bullish</font>.</li>
-        <li>• Values between the range of 40 to 59 indicate the crypto market is <font style={{ color: "orange" }}>Neutral</font>.</li>
-        <li>• Values between the range of 0 to 39 indicate the crypto market is <font style={{ color: "red" }}>Bearish</font>.</li>
+        <li>• Values of 60 or above indicate the crypto market is <font style={{ color: 'green' }}>Bullish</font>.</li>
+        <li>• Values between the range of 40 to 59 indicate the crypto market is <font style={{ color: 'orange' }}>Neutral</font>.</li>
+        <li>• Values between the range of 0 to 39 indicate the crypto market is <font style={{ color: 'red' }}>Bearish</font>.</li>
       </ol>
       <br />
       <br />
@@ -101,13 +101,13 @@ export default function LongCard({ title }) {
       <br />
       <ol>
         <li>
-          • Values of 60 or above indicate <font style={{ color: "green" }}>Dollar Cost</font> or <font style={{ color: "green" }}>Dollar cost average</font>.
+          • Values of 60 or above indicate <font style={{ color: 'green' }}>Dollar Cost</font> or <font style={{ color: 'green' }}>Dollar cost average</font>.
         </li>
         <li>
-          • Values between the range of 40 to 59 indicate <font style={{ color: "orange" }}>Neutral</font> or <font style={{ color: "orange" }}>No opinion</font>.
+          • Values between the range of 40 to 59 indicate <font style={{ color: 'orange' }}>Neutral</font> or <font style={{ color: 'orange' }}>No opinion</font>.
         </li>
         <li>
-          • Values between the range of 0 to 39 indicate <font style={{ color: "red" }}>Stop Loss</font> or <font style={{ color: "red" }}>Use stop loss</font>.
+          • Values between the range of 0 to 39 indicate <font style={{ color: 'red' }}>Stop Loss</font> or <font style={{ color: 'red' }}>Use stop loss</font>.
         </li>
       </ol>
       <br />
@@ -120,10 +120,10 @@ export default function LongCard({ title }) {
       <br />
       <ol>
         <li>
-          • Values of 70 or above: An RSI reading of 70 or higher suggests that an asset is reaching <font style={{ color: "red" }}>overbought</font> levels. This could indicate that the asset's price has risen significantly and might be due to a trend reversal or corrective move.
+          • Values of 70 or above: An RSI reading of 70 or higher suggests that an asset is reaching <font style={{ color: 'red' }}>overbought</font> levels. This could indicate that the asset's price has risen significantly and might be due to a trend reversal or corrective move.
         </li>
         <li>
-          • RSI reading of 30 or below: An RSI reading of 30 or lower indicates an <font style={{ color: "green" }}>oversold</font> or undervalued condition. This might signal a potential buying opportunity, as the asset's price could have dropped excessively and might be poised for a rebound.
+          • RSI reading of 30 or below: An RSI reading of 30 or lower indicates an <font style={{ color: 'green' }}>oversold</font> or undervalued condition. This might signal a potential buying opportunity, as the asset's price could have dropped excessively and might be poised for a rebound.
         </li>
       </ol>
       <br />
@@ -131,7 +131,7 @@ export default function LongCard({ title }) {
       <b>4. BTD and STP Indicator</b>
       <br />
       <br />
-      The <font style={{ color: "green" }}>Buy the Dip (BTD)</font> and <font style={{ color: "red" }}>Sell the Pump (STP)</font> indicators are time-sensitive metrics that reflect market sentiment changes. They assist users in spotting potential buying or selling opportunities based on shifts in market sentiment.
+      The <font style={{ color: 'green' }}>Buy the Dip (BTD)</font> and <font style={{ color: 'red' }}>Sell the Pump (STP)</font> indicators are time-sensitive metrics that reflect market sentiment changes. They assist users in spotting potential buying or selling opportunities based on shifts in market sentiment.
       <br />
       <br />
       <b>5. Crypto Market Sentiment Indicator</b>
@@ -150,11 +150,11 @@ export default function LongCard({ title }) {
       The information provided in this website is for informational purposes only and does not constitute financial, investment, legal, or tax advice. The Bear and Bull Index aims to provide insights into the crypto market. However, readers are advised to conduct their own research and seek professional advice before making any financial decisions or investments related to the $INDEX token or any other cryptocurrency.
       <br />
       <br />
-      <b>Learn More:</b> Check out the{" "}
+      <b>Learn More:</b> Check out the{' '}
       <a
         href='https://bandbindex.gitbook.io/bandbindex-2.0-whitepaper/project-details/disclaimer'
         target='_blank'
-        rel='noopener noreferrer' style={{ color: "#F5900C" }}
+        rel='noopener noreferrer' style={{ color: '#F5900C' }}
       >
         Disclaimer
       </a>
