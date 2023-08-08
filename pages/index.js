@@ -437,7 +437,7 @@ export default function Home({
         href='https://t.me/bandbindex_official'
         target='_blank'
         rel='noopener noreferrer' style={{ color: "#FFFFFF" }}>
-        Request collaboration
+        Request Collaboration
       </a></p>
   </div>
 
