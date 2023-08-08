@@ -398,7 +398,7 @@ export default function Home({
 
 <br></br>
 <div class="footer-about">
-  <p class="footer-company-about">Combining tech and social analysis, the Bear and Bull Index gives a holistic market view. Useful for less-experienced investors seeking informed choices in cryptocurrency trading.</p></div>
+  <p class="footer-company-about">Combining technical and social analysis, the Bear and Bull Index gives a holistic market view. Useful for less-experienced investors seeking informed choices in cryptoverse.</p></div>
   <br></br>
   <p class="footer-company-name"><font style={{ color: "#F5900C" }}>Ⓒ</font> 2023 {" "} <a
           href='http://niti.com.ng/'
@@ -422,7 +422,7 @@ export default function Home({
   <p>      <a
         href='https://bandbindex.gitbook.io/bandbindex-2.0-whitepaper/project-details/disclaimer'
         target='_blank'
-        rel='noopener noreferrer' style={{ fontSize: 15, color: "#FFFFFF" }}
+        rel='noopener noreferrer' style={{ color: "#FFFFFF" }}
       >
         Project WhitePaper
       </a></p>
@@ -436,7 +436,7 @@ export default function Home({
   <p>      <a
         href='https://t.me/bandbindex_official'
         target='_blank'
-        rel='noopener noreferrer' style={{ fontSize: 15, color: "#FFFFFF" }}>
+        rel='noopener noreferrer' style={{ color: "#FFFFFF" }}>
         Request collaboration
       </a></p>
   </div>
@@ -447,25 +447,20 @@ export default function Home({
     <p><a
         href='/claim'
         target='_blank'
-        rel='noopener noreferrer' style={{ fontSize: 15, color: "#FFFFFF" }}
+        rel='noopener noreferrer' style={{ color: "#FFFFFF" }}
       >
         Claim Rewards
       </a></p>
   </div>
 
   <div>
-    <i class="fa fa-envelope"><button
-                onClick={() => {
-                  dispatch(setTheme(!theme));
-                }}
-              >
+    <i class="fa fa-envelope">
                 {theme ? (
                   <ToggleOffIcon
                     color='white'
                     style={{
                       fontSize: 25,
                       color: "#F5900C",
-                      cursor: "pointer",
                     }}
                   />
                 ) : (
@@ -474,11 +469,17 @@ export default function Home({
                     style={{
                       fontSize: 25,
                       color: "#F5900C",
-                      cursor: "pointer",
                     }}
                   />
-                )}&nbsp;&nbsp;&nbsp;<p style={{ fontSize: 15, color: "#FFFFFF" }}>Switch Theme</p>
-              </button> </i>
+                )}
+              </i>
+
+              <p><a
+        href='#switchtheme' style={{ color: "#FFFFFF" }} onClick={() => {
+          dispatch(setTheme(!theme));
+        }}>
+        Switch Theme
+      </a></p>              
   </div>  
 
 </div>
