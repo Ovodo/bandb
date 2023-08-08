@@ -17,6 +17,7 @@ import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import RedeemIcon from "@mui/icons-material/Redeem";
 import AssessmentIcon from "@mui/icons-material/Assessment";
 import Web3 from "web3";
+import Swal from "sweetalert";
 
 // import { ethers } from 'ethers';
 import DrawingComponent from "../DrawingComponent";
@@ -328,6 +329,24 @@ const Navbar = ({ children }) => {
       type: "function",
     },
   ];
+
+// Define the SweetAlert configuration
+const comingSoonAlertConfig = {
+  title: 'Coming Soon',
+  text: 'Stay tuned for exciting updates!',
+  icon: 'info',
+  button: {
+    text: 'Got it',
+    className: 'SweetAlertButton' // Add your custom class name here
+  },
+  closeOnClickOutside: false // Prevent closing on clicking outside the dialog
+};
+
+const handleClick = () => {
+  Swal(comingSoonAlertConfig);
+};
+
+
   const { address, isConnecting, isDisconnected } = useAccount();
 
   const contractAddress = "0xFaaBD9b1E4FDE7C42BF10a8165b21D9Eb19141a4"; // Replace with the actual contract address
@@ -382,6 +401,13 @@ const Navbar = ({ children }) => {
         } px-[1vw] sticky top-0  `}
       >
         <div className='logo-menu'>
+        <div className='menu-icon' onClick={toggleMenu}>
+                {showmenu ? (
+                  <HiOutlineX color={"#F5900C"} size={35} />
+                ) : (
+                  <HiOutlineMenu color={"#F5900C"} size={35} />
+                )}
+              </div>
           <Link href='/'>
             <motion.div
               initial={{}}
@@ -397,13 +423,6 @@ const Navbar = ({ children }) => {
               }}
               className='logos '
             >
-              <div className='menu-icon' onClick={toggleMenu}>
-                {showmenu ? (
-                  <HiOutlineX color={"#F5900C"} size={35} />
-                ) : (
-                  <HiOutlineMenu color={"#F5900C"} size={35} />
-                )}
-              </div>
 
               <Image
                 src={"/assets/images/logo.png"}
@@ -454,7 +473,7 @@ const Navbar = ({ children }) => {
               }}
             >
               <a>
-                <Link href='/'>{"Cryptocurrencies"}</Link>
+                <Link href='#soon' onClick={handleClick}>{"Cryptocurrencies"}</Link>
               </a>
             </motion.li>
             <motion.li
@@ -472,7 +491,7 @@ const Navbar = ({ children }) => {
               }}
             >
               <a>
-                <Link href=''>{"Insights"}</Link>
+                <Link href='#soon' onClick={handleClick}>{"Insights"}</Link>
               </a>
             </motion.li>
             <div className='icon flex  items-center'>
