@@ -1,28 +1,36 @@
-export default function handler(req, res) {
+import clientPromise from "@/lib/mongodb";
+
+export default async function (req, res) {
+  const { address, points } = req.body;
+
   try {
-    let timeString;
-    const intervalId = setInterval(() => {
-      const now = new Date();
-      const hours = 23 - now.getHours();
-      const minutes = 59 - now.getMinutes();
+    const client = await clientPromise;
+    const db = client.db("Bandb");
 
-      const seconds = 59 - now.getSeconds();
-      timeString = `${hours.toString().padStart(2, "0")}:${minutes
-        .toString()
-        .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
-      //   setTimeLeft(timeString.split("-").join(""));
-    }, 1000);
-
-    intervalId();
-    return res.status(200).send(
-      JSON.stringify({
-        error: false,
-        data: timeString.split("-").join(""),
-      })
+    const result = await db.collection("Index").findOneAndUpdate(
+      { address: address }, // find a document with this filter
+      { $inc: { points: points } }, // increment points field by the provided value
+      { returnOriginal: false } // return updated document
     );
+
+    if (!result.value) {
+      res.status(404).json({ error: "Address not found" });
+    } else {
+      res.status(200).json({
+        msg: "Points updated successfully",
+        updatedDocument: result.value,
+      });
+    }
   } catch (e) {
-    return res
-      .status(400)
-      .send(JSON.stringify({ error: true, message: e.message }));
+    console.error("Update Error:", e);
+    res
+      .status(500)
+      .json({ error: "An error occurred while updating the points" });
   }
 }
+
+export const config = {
+  api: {
+    externalResolver: true,
+  },
+};

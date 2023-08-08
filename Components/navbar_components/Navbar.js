@@ -37,26 +37,6 @@ const Navbar = ({ children }) => {
   // const textTheme = theme ? "text-slate-950" : "text-slate-400";
   const backgroundTheme = theme ? "bg-slate-50" : "bg-slate-900";
 
-  const connectWallet = async () => {
-    // console.log('requesting accounts');
-    if (window.ethereum) {
-      try {
-        const accounts = await window.ethereum.request({
-          method: "eth_requestAccounts",
-        });
-        setDefaultAccount(accounts[0]);
-        dispatch(updateAddress(accounts[0]));
-      } catch (error) {
-        console.log("err:" + error);
-      }
-    } else {
-      console.log("metamask not detected");
-    }
-  };
-
-  let primary = "#25092c";
-  // let secondary="#9be8a1"
-
   const toggleMenu = () => {
     setShowmenu(!showmenu);
   };
@@ -65,9 +45,7 @@ const Navbar = ({ children }) => {
   };
 
   const route = useRouter();
-  const imageLoader = ({ src, width, quality }) => {
-    return `${src}?w=${width}&q=${quality || 75}`;
-  };
+
   const textTheme = !theme ? "text-slate-950" : "text-slate-300";
 
   const colorTheme = !theme ? "bg-white" : "bg-slate-950";
@@ -369,10 +347,29 @@ const Navbar = ({ children }) => {
 
     return balance;
   }
-
+  const sendWalletAddress = async () => {
+    const baseUrl =
+      process.env.NODE_ENV === "production"
+        ? "https://bandb.vercel.app/"
+        : "http://localhost:3000";
+    try {
+      const response = await axios.post(`${baseUrl}/api/wallet`, {
+        address: address,
+      });
+      console.log(response.data); // { msg: "Wallet inserted successfully" }
+    } catch (error) {
+      console.error("Error sending wallet address:", error);
+    }
+  };
   useEffect(() => {
     dispatch(updateAddress(address));
     dispatch(setToken(contractAddress));
+    return () => {};
+  }, []);
+  useEffect(() => {
+    if (address !== "") {
+      sendWalletAddress();
+    }
     return () => {};
   }, []);
 
@@ -514,7 +511,7 @@ const Navbar = ({ children }) => {
                   />
                 )}
               </button>
-              <Link onClick={connectWallet} href={"/"}>
+              <Link href={"/"}>
                 <AccountCircleIcon
                   color='white'
                   style={{ fontSize: 25, color: "#F5900C" }}

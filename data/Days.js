@@ -5,7 +5,7 @@ export const boxDays = [
   { points: 40, day: 4 },
   { points: 50, day: 5 },
   { points: 60, day: 6 },
-  { points: 70, day: 7 },
+  { points: 100, day: 7 },
 ];
 
-export const pointArray = [10,20,30,40,50,60,100]
+export const pointArray = [10, 20, 30, 40, 50, 60, 100];

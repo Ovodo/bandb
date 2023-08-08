@@ -12,18 +12,22 @@ import {
   setClaimed,
   setDailyClaim,
 } from "../store/reducers/AppReducer";
-// import moment from "moment";
 import { motion } from "framer-motion";
+import axios from "axios";
 
 const Claim = (props) => {
   const dispatch = useDispatch();
-  const { Claimed, dailyClaim, Points, lastClaim } = useSelector(
+  const { Claimed, dailyClaim, Points, lastClaim, User } = useSelector(
     (state) => state.App
   );
   const [timeLeft, setTimeLeft] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const { theme } = useSelector((state) => state.Theme);
   const textTheme = theme ? "text-slate-950" : "text-slate-400";
+  const baseUrl =
+    process.env.NODE_ENV === "production"
+      ? "https://bandb.vercel.app/"
+      : "http://localhost:3000";
 
   // UseEffect
   useEffect(() => {
@@ -65,12 +69,24 @@ const Claim = (props) => {
   }, [lastClaim]);
 
   // FUNCTIONS;
+  const sendPoints = async (address, points) => {
+    try {
+      const result = await axios.post(`${baseUrl}/api/claim`, {
+        address: address,
+        points: points,
+      });
+      console.log(result.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const onClaim = () => {
     dispatch(claimPoints());
     dispatch(progressClaim());
     dispatch(setClaimed(true));
     setIsOpen(true);
+    sendPoints(User, dailyClaim);
   };
 
   return (
@@ -140,10 +156,10 @@ const Claim = (props) => {
 export default Claim;
 
 // export async function getServerSideProps({}) {
-//   const baseUrl =
-//     process.env.NODE_ENV === "production"
-//       ? "https://bandb.vercel.app/"
-//       : "http://localhost:3000";
+// const baseUrl =
+//   process.env.NODE_ENV === "production"
+//     ? "https://bandb.vercel.app/"
+//     : "http://localhost:3000";
 
 //   const claimDataReq = fetch(`${baseUrl}/api/claim`);
 
