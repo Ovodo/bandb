@@ -404,6 +404,13 @@ const handleClick = () => {
         } px-[1vw] sticky top-0  `}
       >
         <div className='logo-menu'>
+        <div className='menu-icon' onClick={toggleMenu}>
+                {showmenu ? (
+                  <HiOutlineX color={"#F5900C"} size={35} />
+                ) : (
+                  <HiOutlineMenu color={"#F5900C"} size={35} />
+                )}
+              </div>
           <Link href='/'>
             <motion.div
               initial={{}}
@@ -419,13 +426,6 @@ const handleClick = () => {
               }}
               className='logos '
             >
-              <div className='menu-icon' onClick={toggleMenu}>
-                {showmenu ? (
-                  <HiOutlineX color={"#F5900C"} size={35} />
-                ) : (
-                  <HiOutlineMenu color={"#F5900C"} size={35} />
-                )}
-              </div>
 
               <Image
                 src={"/assets/images/logo.png"}
