@@ -36,9 +36,7 @@ function SlideIn({ isOpen, onClose, children }) {
           </button>
           {children}
         </div>
-        <button className='bg-teal-200 p-20 rounded-md text-2xl font-bold italic'>
-        Successfully Claimed! 🎊
-        </button>
+        <button className='bg-teal-200 p-20 rounded-md text-2xl font-bold italic'>Claimed! 🎊</button>
       </motion.div>
     </AnimatePresence>
   );
