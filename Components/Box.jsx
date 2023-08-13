@@ -7,6 +7,7 @@ const bg =
 
 const Box = ({ sticks, day }) => {
   const dailyClaim = useSelector((state) => state.App.dailyClaim);
+  // console.log(dailyClaim);
 
   const bg1 = dailyClaim <= sticks ? null : "bg-gray-950";
 

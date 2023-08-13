@@ -14,24 +14,31 @@ import {
 } from "../store/reducers/AppReducer";
 import { motion } from "framer-motion";
 import axios from "axios";
+import { MoonLoader } from "react-spinners";
 
 const Claim = (props) => {
   const dispatch = useDispatch();
-  const { Claimed, dailyClaim, Points, lastClaim, User } = useSelector(
-    (state) => state.App
-  );
+  const { Claimed, User } = useSelector((state) => state.App);
   const [timeLeft, setTimeLeft] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const [points, setPoints] = useState(null);
+  const [lastClaimed, setLastClaimed] = useState(null);
+  const [dailyClaimed, setDailyClaimed] = useState(null);
   const { theme } = useSelector((state) => state.Theme);
   const textTheme = theme ? "text-slate-950" : "text-slate-400";
   const baseUrl =
     process.env.NODE_ENV === "production"
       ? "https://bandb.vercel.app/"
       : "http://localhost:3000";
+  const override = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "red",
+  };
 
   // UseEffect
   useEffect(() => {
-    if (lastClaim !== null) {
+    if (lastClaimed !== null) {
       const intervalId = setInterval(() => {
         const now = new Date();
         const hours = 23 - now.getHours();
@@ -47,7 +54,7 @@ const Claim = (props) => {
       // Clean up the interval on unmount
       return () => clearInterval(intervalId);
     }
-  }, [lastClaim]);
+  }, [lastClaimed]);
 
   useEffect(() => {
     // Get the current date and set the time to 00:00:00.000
@@ -55,18 +62,44 @@ const Claim = (props) => {
     now.setHours(0, 0, 0, 0);
 
     // Assuming lastClaim is a Date object, set the time to 00:00:00.000
-    let lastClaimDate = new Date(lastClaim);
+    let lastClaimDate = new Date(lastClaimed);
     lastClaimDate.setHours(0, 0, 0, 0);
-    console.log(now.getTime() > lastClaimDate.getTime());
+    // console.log(now.getTime() > lastClaimDate.getTime());
     now.getTime() > lastClaimDate.getTime()
       ? dispatch(setClaimed(false))
       : null;
-    // Add one day to the last claim date
-    lastClaimDate.setDate(lastClaimDate.getDate() + 1);
+  }, [lastClaimed]);
 
-    // Now, if 'now' is greater than 'lastClaimDate + 1 day', it means that at least two days have passed since the last claim.
-    now.getTime() > lastClaimDate.getTime() ? dispatch(setDailyClaim()) : null;
-  }, [lastClaim]);
+  const updatePoints = () => {
+    const address = User;
+
+    // Define the baseUrl
+    const baseUrl =
+      process.env.NODE_ENV === "production"
+        ? "https://bandb.vercel.app/"
+        : "http://localhost:3000";
+
+    // Make a POST request to /api/points with the address in the body
+    axios
+      .post(`${baseUrl}/api/points`, { address })
+      .then((res) => {
+        const claimData = res.data;
+        // Update the state variable with the returned points
+        console.log(claimData);
+        setPoints(claimData.points);
+        setLastClaimed(claimData.lastClaim);
+        setDailyClaimed(claimData.dailyClaim);
+        dispatch(setDailyClaim(claimData.dailyClaim));
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
+  useEffect(() => {
+    console.log("after isopen");
+    updatePoints();
+  }, []);
 
   // FUNCTIONS;
   const sendPoints = async (address, points) => {
@@ -74,6 +107,7 @@ const Claim = (props) => {
       const result = await axios.post(`${baseUrl}/api/claim`, {
         address: address,
         points: points,
+        lastClaim: new Date(),
       });
       console.log(result.data);
     } catch (error) {
@@ -82,94 +116,87 @@ const Claim = (props) => {
   };
 
   const onClaim = () => {
-    dispatch(claimPoints());
-    dispatch(progressClaim());
     dispatch(setClaimed(true));
     setIsOpen(true);
-    sendPoints(User, dailyClaim);
+    sendPoints(User, dailyClaimed);
   };
 
   return (
     <div className={textTheme}>
       <div className='min-h-[100vh] px-5 flex items-center'>
-        <div className='max-w-max mx-auto flex flex-col items-center'>
-          <motion.h1
-            initial={{ scale: [0], rotate: [0] }}
-            animate={{
-              scale: [0, 0.2, 0.4, 1, 0.8, 1],
-              rotate: [],
-            }}
-            className='mb-5 text-xl font-bold'
-          >
-            <center>
-              <RedeemIcon
-                color='white'
-                style={{ fontSize: 80, color: "#F5900C" }}
-              />
-            </center>
-            <div className={textTheme}> Balance: You have {Points} Index</div>
-          </motion.h1>
-          <div className=' flex flex-col items-start text-[13px] mb-5 rectangular-component'>
-            <h2 className='mb-5'>{props.title}</h2>
-            <div className='flex flex-wrap md:flex-nowrap'>
-              {boxDays.map((box) => {
-                return <Box key={box.day} day={box.day} sticks={box.points} />;
-              })}
-            </div>
-            <p className='mt-4'>
-              Nice! You can pick up{" "}
-              <span className='text-teal-600 font-bold'>{dailyClaim}</span>{" "}
-              $INDEX 📈 next time you log into BandBindex.
-            </p>
-
-            <p className='mb-2'>
-              Get more $INDEX on Zealy <a href='#'>Join Daily Competition.</a>
-            </p>
-
-            <button
-              onClick={onClaim}
-              disabled={Claimed}
-              className='w-full py-2 flex justify-center items-center rounded bg-gray-800 disabled:bg-gray-500 text-teal-100'
-            >
-              {Claimed ? (
-                <>
-                  Come back in <TiTime /> {timeLeft}
-                </>
-              ) : (
-                <> Collect {dailyClaim} Sticks</>
-              )}{" "}
-            </button>
-
-            <SlideIn
-              isOpen={isOpen}
-              onClose={() => {
-                setIsOpen(false);
+        {points === null ? (
+          <MoonLoader
+            color={"red"}
+            loading={points === null ? true : false}
+            cssOverride={override}
+            size={150}
+            aria-label='Loading Spinner'
+            data-testid='loader'
+          />
+        ) : (
+          <div className='max-w-max mx-auto flex flex-col items-center'>
+            <motion.h1
+              initial={{ scale: [0], rotate: [0] }}
+              animate={{
+                scale: [0, 0.2, 0.4, 1, 0.8, 1],
+                rotate: [],
               }}
-            />
+              className='mb-5 text-xl font-bold'
+            >
+              <center>
+                <RedeemIcon
+                  color='white'
+                  style={{ fontSize: 80, color: "#F5900C" }}
+                />
+              </center>
+              <div className={textTheme}> Balance: You have {points} Index</div>
+            </motion.h1>
+            <div className=' flex flex-col items-start text-[13px] mb-5 rectangular-component'>
+              <h2 className='mb-5'>{props.title}</h2>
+              <div className='flex flex-wrap md:flex-nowrap'>
+                {boxDays.map((box) => {
+                  return (
+                    <Box key={box.day} day={box.day} sticks={box.points} />
+                  );
+                })}
+              </div>
+              <p className='mt-4'>
+                Nice! You can pick up{" "}
+                <span className='text-teal-600 font-bold'>{dailyClaimed}</span>{" "}
+                $INDEX 📈 next time you log into BandBindex.
+              </p>
+
+              <p className='mb-2'>
+                Get more $INDEX on Zealy <a href='#'>Join Daily Competition.</a>
+              </p>
+
+              <button
+                onClick={onClaim}
+                disabled={Claimed}
+                className='w-full py-2 flex justify-center items-center rounded bg-gray-800 disabled:bg-gray-500 text-teal-100'
+              >
+                {Claimed ? (
+                  <>
+                    Come back in <TiTime /> {timeLeft}
+                  </>
+                ) : (
+                  <> Collect {dailyClaimed} Sticks</>
+                )}{" "}
+              </button>
+
+              <SlideIn
+                isOpen={isOpen}
+                onClose={() => {
+                  setIsOpen(false);
+                  updatePoints();
+                }}
+              />
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
 };
 
 export default Claim;
-
-// export async function getServerSideProps({}) {
-// const baseUrl =
-//   process.env.NODE_ENV === "production"
-//     ? "https://bandb.vercel.app/"
-//     : "http://localhost:3000";
-
-//   const claimDataReq = fetch(`${baseUrl}/api/claim`);
-
-//   const [claimDataRes] = await Promise.all([claimDataReq]);
-
-//   const claimData = await claimDataRes.json();
-
-//   return {
-//     props: {
-//       time: claimData.data,
-//     },
-//   };
-// }

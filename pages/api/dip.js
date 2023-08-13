@@ -42,7 +42,6 @@ export default function handler(req, res) {
       const rows = responses[0].data.values;
       const BTD = responses[1].data.values;
       const STP = responses[2].data.values;
-      console.log(STP);
 
       // Transform the data into an array of objects
 

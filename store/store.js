@@ -11,6 +11,7 @@ import Theme from "./reducers/Theme";
 const persistConfig = {
   key: "root",
   storage: storage,
+  blacklist: ["App"],
 };
 
 const allReducers = combineReducers({
@@ -18,15 +19,15 @@ const allReducers = combineReducers({
   Theme: Theme,
 });
 
-const persistedReducer = persistReducer(persistConfig, allReducers);
+// const persistedReducer = persistReducer(persistConfig, allReducers);
 
 const store = configureStore({
-  // reducer: allReducers,
-  reducer: persistedReducer,
+  reducer: allReducers,
+  // reducer: persistedReducer,
   middleware: [thunk],
   // devTools: process.env.NODE_ENV !== "production",
 });
-export const persistor = persistStore(store);
+// export const persistor = persistStore(store);
 
 const makeStore = () => store;
 

@@ -55,23 +55,23 @@ function App({ Component, ...rest }) {
       <WagmiConfig config={wagmiConfig}>
         <GoogleOAuthProvider clientId='704139097438-0r081l07jdsiru0ktse80r813pm6mlm3.apps.googleusercontent.com'>
           <Provider store={store}>
-            <PersistGate persistor={persistor} loading={<div>Loading</div>}>
-              <CacheProvider value={emotionCache}>
-                <Head>
-                  <meta
-                    name='viewport'
-                    content='initial-scale=1, width=device-width'
-                  />
-                </Head>
-                <ThemeProvider theme={theme}>
-                  {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-                  <CssBaseline />
-                  <Navbar>
-                    <Layout Component={Component} pageProps={pageProps} />
-                  </Navbar>
-                </ThemeProvider>
-              </CacheProvider>
-            </PersistGate>
+            {/* <PersistGate persistor={persistor} loading={<div>Loading</div>}> */}
+            <CacheProvider value={emotionCache}>
+              <Head>
+                <meta
+                  name='viewport'
+                  content='initial-scale=1, width=device-width'
+                />
+              </Head>
+              <ThemeProvider theme={theme}>
+                {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+                <CssBaseline />
+                <Navbar>
+                  <Layout Component={Component} pageProps={pageProps} />
+                </Navbar>
+              </ThemeProvider>
+            </CacheProvider>
+            {/* </PersistGate> */}
           </Provider>
         </GoogleOAuthProvider>
       </WagmiConfig>
@@ -79,6 +79,11 @@ function App({ Component, ...rest }) {
         tokenContracts={{ 97: "0xFaaBD9b1E4FDE7C42BF10a8165b21D9Eb19141a4" }}
         projectId={projectId}
         ethereumClient={ethereumClient}
+        themeMode='dark'
+        themeVariables={{
+          "--w3m-font-family": "Roboto, sans-serif",
+          "--w3m-accent-color": "#297373",
+        }}
       />
     </>
   );

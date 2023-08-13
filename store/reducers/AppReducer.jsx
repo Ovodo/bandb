@@ -1,15 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { pointArray } from "../../data/Days";
-// import { persistor } from "../Store";
 
 export const initialState = {
   User: "",
-  Points: 0,
+  balance: 0,
   Claimed: false,
+  token: "0xFaaBD9b1E4FDE7C42BF10a8165b21D9Eb19141a4",
   dailyClaim: 10,
-  pointArray: [10, 20, 30, 40, 50, 60, 100],
-  lastClaim: new Date(),
-  token: "",
 };
 
 const AppSlice = createSlice({
@@ -23,8 +19,8 @@ const AppSlice = createSlice({
       state.Points = state.Points + state.dailyClaim;
       state.dailyClaim >= 100 ? (state.dailyClaim = 10) : null;
     },
-    setDailyClaim(state) {
-      state.dailyClaim = 10;
+    setDailyClaim(state, action) {
+      state.dailyClaim = action.payload ? action.payload : 10;
     },
     progressClaim(state) {
       state.dailyClaim =
@@ -47,6 +43,9 @@ const AppSlice = createSlice({
     setToken(state, action) {
       state.token = action.payload;
     },
+    setBalance(state, action) {
+      state.balance = action.payload;
+    },
   },
 });
 
@@ -58,6 +57,7 @@ export const {
   clearState,
   updateAddress,
   setToken,
+  setBalance,
 } = AppSlice.actions;
 export default AppSlice.reducer;
 
