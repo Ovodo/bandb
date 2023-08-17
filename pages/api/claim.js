@@ -1,6 +1,10 @@
 import clientPromise from "@/lib/mongodb";
+import { useCors } from "@/hooks/useCors";
 
 export default async function (req, res) {
+  // Use the cors middleware and pass the origin you want to accept
+  await useCors("https://bandb-ovodo.vercel.app")(req, res);
+
   const { address, points } = req.body;
 
   let point = Number(points);

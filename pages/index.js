@@ -37,17 +37,7 @@ const month = date.toLocaleString("default", { month: "short" }).toUpperCase();
 const year = date.getFullYear();
 const todaysDate = `${day} ${month} ${year}`;
 
-export default function Home({
-  chartData,
-  yesterday,
-  lastweek,
-  lastMonth,
-  sentiment,
-  BTD,
-  STP,
-  today,
-  coin,
-}) {
+export default function Home({ chartData, sentiment, BTD, STP, coin }) {
   function lerp(inputStart, inputEnd, outputStart, outputEnd, input) {
     return (
       outputStart +
@@ -62,10 +52,32 @@ export default function Home({
 
   const dispatch = useDispatch();
   const { theme } = useSelector((state) => state.Theme);
+  const [sheetData, setSheetData] = useState(null);
+
   const textTheme = theme ? "text-slate-950" : "text-slate-300";
 
   const colorTheme = theme ? "bg-[#EDF1E4]" : "bg-slate-950";
   const mobile = useScreenWidth() < 788;
+
+  useEffect(() => {
+    const fetchSheetData = async () => {
+      const baseUrl =
+        process.env.NODE_ENV === "production"
+          ? "https://bandb.vercel.app"
+          : "http://localhost:3000";
+
+      try {
+        const response = await fetch(`${baseUrl}/api/sheet`);
+        const data = await response.json();
+
+        setSheetData(data.data);
+      } catch (error) {
+        console.error("Failed fetching sheetData", error);
+      }
+    };
+
+    fetchSheetData();
+  }, []);
 
   return (
     <div className='flex items-center justify-center h-full flex-1'>
@@ -240,15 +252,17 @@ export default function Home({
                   {/* <p>{sentiment}</p> */}
                 </InsightsCard>
                 <InsightsCard
-                  today={today.MSA}
-                  yesterday={yesterday.MSA}
-                  lastweek={lastweek.MSA}
-                  lastMonth={lastMonth.MSA}
+                  today={sheetData?.today?.MSA}
+                  yesterday={sheetData?.yesterday?.MSA}
+                  lastweek={sheetData?.lastweek?.MSA}
+                  lastMonth={sheetData?.lastMonth?.MSA}
                   insights
                   text='Market Sentiment Analysis'
                 >
                   <div className='relative bottom-7'>
-                    <SemiCircle guage={lerp(0, 100, -90, 90, today.MSA)} />
+                    <SemiCircle
+                      guage={lerp(0, 100, -90, 90, sheetData?.today?.MSA)}
+                    />
                   </div>
                 </InsightsCard>
               </>
@@ -280,15 +294,17 @@ export default function Home({
             ) : (
               <>
                 <InsightsCard
-                  today={today.SAS}
-                  yesterday={yesterday.SAS}
-                  lastweek={lastweek.SAS}
-                  lastMonth={lastMonth.SAS}
+                  today={sheetData?.today?.SAS}
+                  yesterday={sheetData?.yesterday?.SAS}
+                  lastweek={sheetData?.lastweek?.SAS}
+                  lastMonth={sheetData?.lastMonth?.SAS}
                   insights
                   text='Social Analysis Summary'
                 >
                   <div className='relative bottom-7'>
-                    <SemiCircle1 guage={lerp(0, 100, -90, 90, today.SAS)} />
+                    <SemiCircle1
+                      guage={lerp(0, 100, -90, 90, sheetData?.today?.SAS)}
+                    />
                   </div>
                 </InsightsCard>
               </>
@@ -320,15 +336,17 @@ export default function Home({
             ) : (
               <>
                 <InsightsCard
-                  today={today.RSI}
-                  yesterday={yesterday.RSI}
-                  lastweek={lastweek.RSI}
-                  lastMonth={lastMonth.RSI}
+                  today={sheetData?.today?.RSI}
+                  yesterday={sheetData?.yesterday?.RSI}
+                  lastweek={sheetData?.lastweek?.RSI}
+                  lastMonth={sheetData?.lastMonth?.RSI}
                   insights
                   text='Relative Strength Index'
                 >
                   <div className='relative bottom-7'>
-                    <SemiCircle2 guage={lerp(0, 100, -90, 90, today.RSI)} />
+                    <SemiCircle2
+                      guage={lerp(0, 100, -90, 90, sheetData?.today?.RSI)}
+                    />
                   </div>
                   {/* <MeterGauge /> */}
                 </InsightsCard>
@@ -545,22 +563,19 @@ export async function getServerSideProps({}) {
   const APIkey = " h569uy3tkd6hfydgfzz8q74fd6lkbkpvjv0m4r85e";
 
   const chartDataReq = fetch(`${baseUrl}/api/chart`);
-  const sheetDataReq = fetch(`${baseUrl}/api/sheet`);
   const dipDataReq = fetch(`${baseUrl}/api/dip`);
   const lunrReq = fetch("https://lunarcrush.com/api3/coinoftheday", {
     headers: {
       Authorization: `Bearer${APIkey}`,
     },
   });
-  const [chartDataRes, sheetDataRes, dipDataRes, lunrRes] = await Promise.all([
+  const [chartDataRes, dipDataRes, lunrRes] = await Promise.all([
     chartDataReq,
-    sheetDataReq,
     dipDataReq,
     lunrReq,
   ]);
 
   const chartData = await chartDataRes.json();
-  const sheetData = await sheetDataRes.json();
   const dipData = await dipDataRes.json();
   const lunrData = await lunrRes.json();
 
@@ -571,10 +586,6 @@ export async function getServerSideProps({}) {
       STP: dipData.data.STP,
       BTD: dipData.data.BTD,
       chartData: chartData.data,
-      yesterday: sheetData.data.yesterday,
-      today: sheetData.data.today,
-      lastweek: sheetData.data.lastweek,
-      lastMonth: sheetData.data.lastMonth,
     },
   };
 }
