@@ -94,7 +94,7 @@ const Navbar = ({ children }) => {
   const sendWalletAddress = async () => {
     const baseUrl =
       process.env.NODE_ENV === "production"
-        ? "https://bandb.vercel.app/"
+        ? "https://bandb.vercel.app"
         : "http://localhost:3000";
     try {
       const response = await axios.post(`${baseUrl}/api/wallet`, {
