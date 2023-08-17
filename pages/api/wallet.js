@@ -5,6 +5,11 @@ export default async function (req, res) {
   // Use the cors middleware and pass the origin you want to accept
   await useCors("https://bandb-ovodo.vercel.app")(req, res);
 
+  // Handle OPTIONS request
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
   const { address } = req.body;
 
   try {

@@ -5,6 +5,11 @@ import { google } from "googleapis";
 export default async function (req, res) {
   await useCors("https://bandb-ovodo.vercel.app")(req, res);
 
+  // Handle OPTIONS request
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
   try {
     const client = new google.auth.JWT(
       process.env.CLIENT_EMAIL,

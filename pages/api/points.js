@@ -4,6 +4,11 @@ import clientPromise from "@/lib/mongodb";
 export default async function (req, res) {
   await useCors("https://bandb-ovodo.vercel.app")(req, res);
 
+  // Handle OPTIONS request
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
   const { address } = req.body;
 
   try {
