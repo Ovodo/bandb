@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { GiWallet } from "react-icons/gi";
 import { IoMdCart } from "react-icons/io";
 import { FaUserAlt } from "react-icons/fa";
@@ -16,6 +16,7 @@ import NightModeIcon from "@mui/icons-material/Nightlight";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import RedeemIcon from "@mui/icons-material/Redeem";
 import AssessmentIcon from "@mui/icons-material/Assessment";
+import OutsideClickHandler from "react-outside-click-handler";
 import Web3 from "web3";
 import Swal from "sweetalert";
 import { useWeb3Modal } from "@web3modal/react";
@@ -42,6 +43,7 @@ const Navbar = ({ children }) => {
   const { User, token } = useSelector((state) => state.App);
   // const textTheme = theme ? "text-slate-950" : "text-slate-400";
   const backgroundTheme = theme ? "bg-slate-50" : "bg-slate-900";
+  const navbarRef = useRef(null);
 
   const toggleMenu = () => {
     setShowmenu(!showmenu);
@@ -121,168 +123,174 @@ const Navbar = ({ children }) => {
   }, [address]);
 
   return (
-    <div className={backgroundTheme}>
-      <nav
-        // style={{ backgroundColor: theme ? "black" : "white" }}
-        className={`navbar ${
-          theme ? "bg-slate-950" : "bg-slate-300"
-        } px-[1vw] sticky top-0  `}
-      >
-        <div className='logo-menu'>
-          <div className='menu-icon' onClick={toggleMenu}>
-            {showmenu ? (
-              <HiOutlineX color={"#F5900C"} size={35} />
-            ) : (
-              <HiOutlineMenu color={"#F5900C"} size={35} />
-            )}
-          </div>
-          <Link href='/'>
-            <motion.div className='logos'>
-              <motion.div
-                animate={{ rotate: isHovered ? 720 : 0 }} // rotates the Image by 360 degrees on hover
-                transition={{ duration: 0.3, delay: 0.1 }} // you can adjust this for desired rotation speed
-              >
-                <Image
-                  src={"/assets/images/logo.png"}
-                  alt='Logo'
-                  width={35}
-                  height={35}
-                  style={{ verticalAlign: "middle", marginRight: "1px" }}
-                />
-              </motion.div>
-              <motion.h4
-                whileHover={{ x: 50 }}
-                onHoverStart={() => setIsHovered(true)} // sets the state to true when hovering starts
-                onHoverEnd={() => setIsHovered(false)} // sets the state to false when hovering ends
-                className={`${textTheme}`}
-              >
-                BandBindex
-              </motion.h4>
-            </motion.div>
-          </Link>
-        </div>
-        <menu>
-          <motion.ul
-            className={`${
-              theme ? "bg-slate-950" : "bg-slate-300"
-            } nav-menu md:w-[65vw]`}
-            id={showmenu ? "mobile" : "hide"}
-          >
-            <div className='md:flex md:justify-between w-[60%]'>
-              <motion.li
-                whileHover={{ scale: 1.2 }}
-                className={`${textTheme} relative left-2 border-b-[1px] border-Gold border-opacity-`}
-                transition={{
-                  type: "spring",
-                  stiffness: 350,
-                  duration: 0.1,
-                }}
-                onClick={() => {
-                  hideMenu();
-                }}
-              >
-                <Link legacyBehavior href='/'>
-                  <a>{"Home"}</a>
-                </Link>
-              </motion.li>
-              <motion.li
-                whileHover={{ scale: 1.2 }}
-                className={`${textTheme} relative left-2 border-b-[1px] border-Gold border-opacity-`}
-                transition={{
-                  type: "spring",
-                  stiffness: 350,
-                  duration: 0.1,
-                }}
-                onClick={() => {
-                  hideMenu();
-                  handleClick();
-                }}
-              >
-                <Link legacyBehavior href='#soon'>
-                  <a>{"Cryptocurrencies"}</a>
-                </Link>
-              </motion.li>
-              <motion.li
-                whileHover={{ scale: 1.2 }}
-                className={`${textTheme} relative left-2 border-b-[1px] border-Gold border-opacity-`}
-                // style={{ borderBottom: "none" }}
-                transition={{
-                  type: "spring",
-                  stiffness: 350,
-                  duration: 0.1,
-                }}
-                onClick={() => {
-                  hideMenu();
-                  handleClick();
-                }}
-              >
-                <Link legacyBehavior href='#soon'>
-                  <a>{"Insights"}</a>
-                </Link>
-              </motion.li>
+    <OutsideClickHandler
+      onOutsideClick={() => {
+        hideMenu();
+      }}
+    >
+      <div ref={navbarRef} className={backgroundTheme}>
+        <nav
+          // style={{ backgroundColor: theme ? "black" : "white" }}
+          className={`navbar ${
+            theme ? "bg-slate-950" : "bg-slate-300"
+          } px-[1vw] sticky top-0  `}
+        >
+          <div className='logo-menu'>
+            <div className='menu-icon' onClick={toggleMenu}>
+              {showmenu ? (
+                <HiOutlineX color={"#F5900C"} size={35} />
+              ) : (
+                <HiOutlineMenu color={"#F5900C"} size={35} />
+              )}
             </div>
-            <div className='icon flex w-[40%] justify-between items-center'>
-              <div className='flex justify-around relative left-[4vw] w-[40%] items-center'>
-                <Link
-                  onClick={() => {
-                    User == "" ? handleClaim() : null;
-                  }}
-                  href={User == "" ? "#soon" : "/claim"}
-                  style={{ fontSize: 25, color: "#FF8D5C" }}
+            <Link href='/'>
+              <motion.div className='logos'>
+                <motion.div
+                  animate={{ rotate: isHovered ? 720 : 0 }} // rotates the Image by 360 degrees on hover
+                  transition={{ duration: 0.3, delay: 0.1 }} // you can adjust this for desired rotation speed
                 >
-                  <RedeemIcon
-                    style={{
-                      fontSize: 25,
-                      color: "#FF8D5C",
-                      cursor: "pointer",
-                    }}
+                  <Image
+                    src={"/assets/images/logo.png"}
+                    alt='Logo'
+                    width={35}
+                    height={35}
+                    style={{ verticalAlign: "middle", marginRight: "1px" }}
                   />
-                </Link>
-
-                <i
+                </motion.div>
+                <motion.h4
+                  whileHover={{ x: 50 }}
+                  onHoverStart={() => setIsHovered(true)} // sets the state to true when hovering starts
+                  onHoverEnd={() => setIsHovered(false)} // sets the state to false when hovering ends
+                  className={`${textTheme}`}
+                >
+                  BandBindex
+                </motion.h4>
+              </motion.div>
+            </Link>
+          </div>
+          <menu>
+            <motion.ul
+              className={`${
+                theme ? "bg-slate-950" : "bg-slate-300"
+              } nav-menu md:w-[65vw]`}
+              id={showmenu ? "mobile" : "hide"}
+            >
+              <div className='md:flex md:justify-between w-[60%]'>
+                <motion.li
+                  whileHover={{ scale: 1.2 }}
+                  className={`${textTheme} relative left-2 border-b-[1px] border-Gold border-opacity-`}
+                  transition={{
+                    type: "spring",
+                    stiffness: 350,
+                    duration: 0.1,
+                  }}
                   onClick={() => {
-                    dispatch(setTheme(!theme));
+                    hideMenu();
                   }}
                 >
-                  {theme ? (
-                    <NightModeIcon
-                      color='white'
-                      style={{
-                        fontSize: 25,
-                        color: "#FF8D5C",
-                        cursor: "pointer",
-                      }}
-                    />
-                  ) : (
-                    <WbSunnyIcon
-                      color='white'
-                      style={{
-                        fontSize: 25,
-                        color: "#FF8D5C",
-                        cursor: "pointer",
-                      }}
-                    />
-                  )}
-                </i>
+                  <Link legacyBehavior href='/'>
+                    <a>{"Home"}</a>
+                  </Link>
+                </motion.li>
+                <motion.li
+                  whileHover={{ scale: 1.2 }}
+                  className={`${textTheme} relative left-2 border-b-[1px] border-Gold border-opacity-`}
+                  transition={{
+                    type: "spring",
+                    stiffness: 350,
+                    duration: 0.1,
+                  }}
+                  onClick={() => {
+                    hideMenu();
+                    handleClick();
+                  }}
+                >
+                  <Link legacyBehavior href='#soon'>
+                    <a>{"Cryptocurrencies"}</a>
+                  </Link>
+                </motion.li>
+                <motion.li
+                  whileHover={{ scale: 1.2 }}
+                  className={`${textTheme} relative left-2 border-b-[1px] border-Gold border-opacity-`}
+                  // style={{ borderBottom: "none" }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 350,
+                    duration: 0.1,
+                  }}
+                  onClick={() => {
+                    hideMenu();
+                    handleClick();
+                  }}
+                >
+                  <Link legacyBehavior href='#soon'>
+                    <a>{"Insights"}</a>
+                  </Link>
+                </motion.li>
               </div>
-              {/* <Link href={"/"}>
+              <div className='icon flex w-[40%] justify-between items-center'>
+                <div className='flex justify-around relative left-[4vw] w-[40%] items-center'>
+                  <Link
+                    onClick={() => {
+                      User == "" ? handleClaim() : null;
+                    }}
+                    href={User == "" ? "#soon" : "/claim"}
+                    style={{ fontSize: 25, color: "#FF8D5C" }}
+                  >
+                    <RedeemIcon
+                      style={{
+                        fontSize: 25,
+                        color: "#FF8D5C",
+                        cursor: "pointer",
+                      }}
+                    />
+                  </Link>
+
+                  <i
+                    onClick={() => {
+                      dispatch(setTheme(!theme));
+                    }}
+                  >
+                    {theme ? (
+                      <NightModeIcon
+                        color='white'
+                        style={{
+                          fontSize: 25,
+                          color: "#FF8D5C",
+                          cursor: "pointer",
+                        }}
+                      />
+                    ) : (
+                      <WbSunnyIcon
+                        color='white'
+                        style={{
+                          fontSize: 25,
+                          color: "#FF8D5C",
+                          cursor: "pointer",
+                        }}
+                      />
+                    )}
+                  </i>
+                </div>
+                {/* <Link href={"/"}>
                 <AccountCircleIcon
                   color='white'
                   style={{ fontSize: 25, color: "#F5900C" }}
                 />
               </Link> */}
-              <Web3Button
-                // className='bg-white'
-                // style={{ backgroundColor: "white" }}
-                balance='hide'
-                // label={"INDEX"}
-              />
-            </div>
-          </motion.ul>
-        </menu>
-      </nav>
-      {children}
-    </div>
+                <Web3Button
+                  // className='bg-white'
+                  // style={{ backgroundColor: "white" }}
+                  balance='hide'
+                  // label={"INDEX"}
+                />
+              </div>
+            </motion.ul>
+          </menu>
+        </nav>
+        {children}
+      </div>
+    </OutsideClickHandler>
   );
 };
 

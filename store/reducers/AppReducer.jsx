@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+export const fetchData = createAsyncThunk();
 
 export const initialState = {
   User: "",

@@ -6,12 +6,7 @@ import RedeemIcon from "@mui/icons-material/Redeem";
 import { TiTime } from "react-icons/ti";
 import SlideIn from "../Components/SlideIn";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  progressClaim,
-  claimPoints,
-  setClaimed,
-  setDailyClaim,
-} from "../store/reducers/AppReducer";
+import { setClaimed, setDailyClaim } from "../store/reducers/AppReducer";
 import { motion } from "framer-motion";
 import axios from "axios";
 import { MoonLoader } from "react-spinners";
@@ -61,13 +56,18 @@ const Claim = (props) => {
     let now = new Date();
     now.setHours(0, 0, 0, 0);
 
+    if (!lastClaimed) {
+      dispatch(setClaimed(false));
+      return;
+    }
+
     // Assuming lastClaim is a Date object, set the time to 00:00:00.000
     let lastClaimDate = new Date(lastClaimed);
     lastClaimDate.setHours(0, 0, 0, 0);
     // console.log(now.getTime() > lastClaimDate.getTime());
     now.getTime() > lastClaimDate.getTime()
       ? dispatch(setClaimed(false))
-      : null;
+      : dispatch(setClaimed(true));
   }, [lastClaimed]);
 
   const updatePoints = () => {
@@ -97,9 +97,10 @@ const Claim = (props) => {
   };
 
   useEffect(() => {
-    console.log("after isopen");
-    updatePoints();
-  }, []);
+    if (!points) {
+      updatePoints();
+    }
+  });
 
   // FUNCTIONS;
   const sendPoints = async (address, points) => {
@@ -129,7 +130,7 @@ const Claim = (props) => {
             color={"red"}
             loading={points === null ? true : false}
             cssOverride={override}
-            size={150}
+            size={100}
             aria-label='Loading Spinner'
             data-testid='loader'
           />

@@ -183,7 +183,7 @@ const InsightsCard = ({
     <div
       className={` ${backgroundTheme} flex   ${
         theme ? "shadow-[#757780]" : "shadow-slate-800"
-      } flex-col items-center justify-between w-[80vw] relative md:w-[40vw] lg:w-[28vw] mx-auto my-[5vh] lg:my-[7vh]  h-[45vh] md:h-[35vh] lg:h-[45vh]  shadow-md rounded-sm`}
+      } flex-col items-center justify-between w-[90vw] relative md:w-[40vw] lg:w-[28vw] mx-auto my-[5vh] lg:my-[7vh]  h-[45vh] md:h-[35vh] lg:h-[45vh]  shadow-md rounded-sm`}
     >
       <div className={`${backgroundTheme2} ${textTheme} py-2 w-full`}>
         <p
@@ -199,7 +199,7 @@ const InsightsCard = ({
           <span className='mr-2' role='img' aria-label='information'>
             <i>į</i>
           </span>{" "}
-          {/* This is the information icon */}
+          {/* This is the information icon for the tooltip, pass in the tooltip prop to change info for various components */}
           <div
             className={`absolute w-[15vw] h-[10vw] ${
               !showTooltip ? "opacity-0 hidden" : "opacity-100 flex"

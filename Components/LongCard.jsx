@@ -252,10 +252,12 @@ export default function LongCard({ title }) {
     <div
       className={`${backgroundTheme} shadow-md ${
         theme ? "shadow-[#757780]" : "shadow-slate-800"
-      } p-5 w-[80vw] md:w-[87vw] lg:w-[92%] shadow-md rounded-sm`}
+      } p-5 w-[90vw] md:w-[87vw] lg:w-[92%] shadow-md rounded-sm`}
     >
-      <h1 className={`${textTheme} text-2xl font-bold mb-4`}>{title}</h1>
-      <p className={`text-lg`}>
+      <h1 className={`${textTheme} text-2xl underline font-bold mb-4`}>
+        {title}
+      </h1>
+      <div className={`text-lg`}>
         {title === "Why Bear & Bull Index?"
           ? text1
           : title === "Data Sources"
@@ -263,7 +265,7 @@ export default function LongCard({ title }) {
           : title === "Bear and Bull Index indicators"
           ? text3
           : text4}
-      </p>
+      </div>
     </div>
   );
 }

@@ -22,6 +22,7 @@ import { bsc, bscTestnet } from "wagmi/chains";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
 import { useStore } from "react-redux";
+import { useState } from "react";
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
@@ -66,9 +67,8 @@ function App({ Component, ...rest }) {
               <ThemeProvider theme={theme}>
                 {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
                 <CssBaseline />
-                <Navbar>
-                  <Layout Component={Component} pageProps={pageProps} />
-                </Navbar>
+                <Navbar />
+                <Layout Component={Component} pageProps={pageProps} />
               </ThemeProvider>
             </CacheProvider>
             {/* </PersistGate> */}
