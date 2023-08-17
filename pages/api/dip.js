@@ -1,7 +1,10 @@
+import { useCors } from "@/hooks/useCors";
 import { google } from "googleapis";
 // import keys from "../../key";
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
+  await useCors("https://bandb-ovodo.vercel.app")(req, res);
+
   try {
     const client = new google.auth.JWT(
       process.env.CLIENT_EMAIL,

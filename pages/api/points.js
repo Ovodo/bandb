@@ -1,6 +1,9 @@
+import { useCors } from "@/hooks/useCors";
 import clientPromise from "@/lib/mongodb";
 
 export default async function (req, res) {
+  await useCors("https://bandb-ovodo.vercel.app")(req, res);
+
   const { address } = req.body;
 
   try {
