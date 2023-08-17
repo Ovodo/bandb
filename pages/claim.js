@@ -81,7 +81,15 @@ const Claim = (props) => {
 
     // Make a POST request to /api/points with the address in the body
     axios
-      .post(`${baseUrl}/api/points`, { address })
+      .post(
+        `${baseUrl}/api/points`,
+        { address },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
       .then((res) => {
         const claimData = res.data;
         // Update the state variable with the returned points

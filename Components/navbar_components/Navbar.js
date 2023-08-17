@@ -97,9 +97,17 @@ const Navbar = ({ children }) => {
         ? "https://bandb.vercel.app"
         : "http://localhost:3000";
     try {
-      const response = await axios.post(`${baseUrl}/api/wallet`, {
-        address: address,
-      });
+      const response = await axios.post(
+        `${baseUrl}/api/wallet`,
+        {
+          address: address,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       console.log(response.data); // { msg: "Wallet inserted successfully" }
     } catch (error) {
       console.error("Error sending wallet address:", error);
