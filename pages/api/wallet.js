@@ -7,7 +7,14 @@ export default async function (req, res) {
 
   // Handle OPTIONS request
   if (req.method === "OPTIONS") {
-    return res.status(200).end();
+    res.setHeader(
+      "Access-Control-Allow-Origin",
+      "https://bandb-ovodo.vercel.app"
+    );
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "application/json");
+    res.status(200).end();
+    return;
   }
 
   const { address } = req.body;
