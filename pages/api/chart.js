@@ -1,7 +1,7 @@
 import { useCors } from "@/hooks/useCors";
 import { google } from "googleapis";
 
-export default async function handler(req, res) {
+export default async function (req, res) {
   await useCors("https://bandb-ovodo.vercel.app")(req, res);
 
   try {
