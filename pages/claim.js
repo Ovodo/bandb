@@ -76,7 +76,7 @@ const Claim = (props) => {
     // Define the baseUrl
     const baseUrl =
       process.env.NODE_ENV === "production"
-        ? "https://bandb.vercel.app"
+        ? "https://bandb-ovodo.vercel.app"
         : "http://localhost:3000";
 
     // Make a POST request to /api/points with the address in the body
