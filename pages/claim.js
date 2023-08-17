@@ -83,12 +83,12 @@ const Claim = (props) => {
     axios
       .post(
         `${baseUrl}/api/points`,
-        { address },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
+        { address }
+        // {
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        // }
       )
       .then((res) => {
         const claimData = res.data;

@@ -101,12 +101,12 @@ const Navbar = ({ children }) => {
         `${baseUrl}/api/wallet`,
         {
           address: address,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
         }
+        // {
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        // }
       );
       console.log(response.data); // { msg: "Wallet inserted successfully" }
     } catch (error) {
