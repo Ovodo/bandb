@@ -23,7 +23,7 @@ const Claim = (props) => {
   const textTheme = theme ? "text-slate-950" : "text-slate-400";
   const baseUrl =
     process.env.NODE_ENV === "production"
-      ? "https://bandb.vercel.app/"
+      ? "https://bandb.vercel.app"
       : "http://localhost:3000";
   const override = {
     display: "block",
