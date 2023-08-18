@@ -6,16 +6,7 @@ export default async function (req, res) {
   await useCors("https://bandb-ovodo.vercel.app")(req, res);
 
   // Handle OPTIONS request
-  // if (req.method === "OPTIONS") {
-  //   res.setHeader(
-  //     "Access-Control-Allow-Origin",
-  //     "https://bandb-ovodo.vercel.app"
-  //   );
-  //   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  //   res.setHeader("Access-Control-Allow-Headers", "application/json");
-  //   res.status(200).end();
-  //   return;
-  // }
+
   try {
     const client = new google.auth.JWT(
       process.env.CLIENT_EMAIL,
@@ -34,6 +25,10 @@ export default async function (req, res) {
       const gsapi = google.sheets({ version: "v4", auth: client });
 
       //CUSTOMIZATION FROM HERE
+      const opt = {
+        spreadsheetId: "1rNt-prhPIjxg7QWyGfLcljYEURjvH0S-rgNqu3kjpDY",
+        range: "Beta!A31",
+      };
       const BTDdata = {
         spreadsheetId: "1rNt-prhPIjxg7QWyGfLcljYEURjvH0S-rgNqu3kjpDY",
         range: "Beta!A15",
@@ -44,19 +39,21 @@ export default async function (req, res) {
       };
 
       const responses = await Promise.all([
+        gsapi.spreadsheets.values.get(opt),
         gsapi.spreadsheets.values.get(BTDdata),
         gsapi.spreadsheets.values.get(STPdata),
       ]);
 
-      const BTD = responses[0].data.values;
-      const STP = responses[1].data.values;
+      const rows = responses[0].data.values;
+      const BTD = responses[1].data.values;
+      const STP = responses[2].data.values;
 
       // Transform the data into an array of objects
 
       return res.status(200).send(
         JSON.stringify({
           error: false,
-          data: { BTD: BTD, STP: STP },
+          data: { sentiment: rows, BTD: BTD, STP: STP },
         })
       );
     });

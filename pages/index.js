@@ -50,6 +50,7 @@ export default function Home({}) {
   const textTheme = theme ? "text-slate-950" : "text-slate-300";
   const colorTheme = theme ? "bg-[#EDF1E4]" : "bg-slate-950";
   const isFocused = router.pathname === "/index";
+  console.log("sentiment", data.sentiment);
 
   //function to interpolate data for the semi-circle guage
   function lerp(inputStart, inputEnd, outputStart, outputEnd, input) {
@@ -70,21 +71,23 @@ export default function Home({}) {
       <div className='flex flex-row items-center h-[90vh] border-2 justify-center'>
         <div className='max-w-max'>
           <SyncLoader
-            color={"red"}
+            color={"#FF8D5C"}
             loading={loading ? true : false}
             cssOverride={override}
-            size={100}
+            size={10}
             aria-label='Loading Spinner'
             data-testid='loader'
           />
         </div>
       </div>
     );
+
   if (error)
     return (
       <div className='flex flex-row items-center h-[90vh] border-2 justify-center'>
         <div className='max-w-max'>
-          <p>Error: {error.message}</p>;
+          <p>Network Error 🌐: Kindly Reload </p>
+          <p className='text-center'>{error.message}</p>
         </div>
       </div>
     );
@@ -227,12 +230,14 @@ export default function Home({}) {
             )}
           </div>
 
-          {!balance || balance < 100 ? (
-            <>
-              <InsightsCard text='Market Sentiment'>
-                <MarketSentiment sentiment={data.sentiment} />
-                {/* <p>{data.sentiment}</p> */}
-              </InsightsCard>
+          <div>
+            <InsightsCard text='Market Sentiment'>
+              <MarketSentiment sentiment={data.sentiment} />
+            </InsightsCard>
+          </div>
+
+          <div>
+            {!balance || balance < 100 ? (
               <InsightsCard text='Market Sentiment Analysis'>
                 <div
                   className='flex flex-col justify-center items-center h-[85%]'
@@ -253,13 +258,7 @@ export default function Home({}) {
                   </div>
                 </div>
               </InsightsCard>
-            </>
-          ) : (
-            <>
-              <InsightsCard text='Market Sentiment'>
-                <MarketSentiment sentiment={data.sentiment} />
-                {/* <p>{data.sentiment}</p> */}
-              </InsightsCard>
+            ) : (
               <InsightsCard
                 today={data?.today?.MSA}
                 yesterday={data?.yesterday?.MSA}
@@ -272,8 +271,8 @@ export default function Home({}) {
                   <SemiCircle guage={lerp(0, 100, -90, 90, data?.today?.MSA)} />
                 </div>
               </InsightsCard>
-            </>
-          )}
+            )}
+          </div>
 
           {!balance || balance < 100 ? (
             <>
