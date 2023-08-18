@@ -17,7 +17,7 @@ import AnnouncementIcon from "@mui/icons-material/Announcement";
 import LockIcon from "@mui/icons-material/Lock";
 import ToggleOffIcon from "@mui/icons-material/ToggleOff";
 import ToggleOnIcon from "@mui/icons-material/ToggleOn";
-import { MoonLoader } from "react-spinners";
+import { SyncLoader } from "react-spinners";
 
 import useScreenWidth from "@/hooks/useScreenWidth";
 import InsightsCard from "@/Components/InsightsCard";
@@ -69,7 +69,7 @@ export default function Home({}) {
     return (
       <div className='flex flex-row items-center h-[90vh] border-2 justify-center'>
         <div className='max-w-max'>
-          <MoonLoader
+          <SyncLoader
             color={"red"}
             loading={loading ? true : false}
             cssOverride={override}
