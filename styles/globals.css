@@ -527,10 +527,16 @@ ul a:hover {
 }
 
 @keyframes rotateAnimation {
-  0% {
-    transform: rotateX(0) rotateY(0) rotateZ(0);
+  0%, 100% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
   }
-  100% {
-    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  25% {
+    transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg);
+  }
+  50% {
+    transform: rotateX(90deg) rotateY(90deg) rotateZ(0deg);
+  }
+  75% {
+    transform: rotateX(90deg) rotateY(90deg) rotateZ(90deg);
   }
 }
