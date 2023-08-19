@@ -262,7 +262,7 @@ export default function LongCard({ title }) {
           ? text1
           : title === "Data Sources"
           ? text2
-          : title === "Bear and Bull Index indicators"
+          : title === "Bear and Bull Index Indicators"
           ? text3
           : text4}
       </div>
