@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import InfoIcon from '@mui/icons-material/Info';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 const InsightsCard = ({
   text,
@@ -198,7 +198,7 @@ const InsightsCard = ({
           onMouseLeave={() => setShowTooltip(false)}
         >
           <span className='mr-2' role='img' aria-label='information'>
-          <InfoIcon
+          <InfoOutlinedIcon
                       style={{ fontSize: 25}}
                     />
           </span>{" "}
