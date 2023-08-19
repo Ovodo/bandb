@@ -74,7 +74,7 @@ export default function Home({}) {
             color={"#F5900C"}
             loading={loading ? true : false}
             cssOverride={override}
-            size={25}
+            size={28}
             aria-label='Loading Spinner'
             data-testid='loader'
           />
