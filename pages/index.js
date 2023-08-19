@@ -68,6 +68,7 @@ export default function Home({}) {
   };
   if (loading)
     return (
+      <div className={` ${colorTheme} relative flex flex-col`}>  
       <div className='flex flex-row items-center h-[90vh] border-2 justify-center'>
         <div className='max-w-max'>
           <PacmanLoader
@@ -80,15 +81,18 @@ export default function Home({}) {
           />
         </div>
       </div>
+      </div>
     );
 
   if (error)
     return (
+      <div className={` ${colorTheme} relative flex flex-col`}>
       <div className='flex flex-row items-center h-[90vh] border-2 justify-center'>
         <div className='max-w-max'>
           <p>Network Error 🌐: Kindly Reload </p>
           <p className='text-center'>{error.message}</p>
         </div>
+      </div>
       </div>
     );
   return (
