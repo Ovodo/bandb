@@ -144,7 +144,7 @@ export default function Home({}) {
           <div>
             {!balance || balance < 100 ? (
               <InsightsCard
-                tooltip={"This is the historicl Analysis "}
+                tooltip='Historical Analysis refers to a concise overview of the BandBindex data spanning a 7-day period. It offers insights into trends, patterns, and changes that have occurred within this timeframe.'
                 text='Historical Analysis'
               >
                 <div
@@ -167,7 +167,10 @@ export default function Home({}) {
                 </div>
               </InsightsCard>
             ) : (
-              <InsightsCard text='Historical Analysis'>
+              <InsightsCard
+              tooltip='Historical Analysis refers to a concise overview of the BandBindex data spanning a 7-day period. It offers insights into trends, patterns, and changes that have occurred within this timeframe.'
+              text='Historical Analysis'
+              >
                 <div className='flex w-[80vw] h-full justify-center items-center'>
                   <Charts
                     height={mobile ? 400 : 280}
@@ -180,7 +183,9 @@ export default function Home({}) {
 
           <div>
             {!balance || balance < 100 ? (
-              <InsightsCard text='Actionable Insight'>
+              <InsightsCard
+              tooltip='Actionable Insights refer to the presentation of both Buy the Dip (BTD) and Sell the Pump (STP) signals. These insights assist users in identifying potential opportunities for buying or selling based on shifts in market sentiment.'
+              text='Actionable Insight'>
                 <div
                   className='flex flex-col justify-center items-center h-[85%]'
                   style={{ textAlign: "center" }}
@@ -201,7 +206,10 @@ export default function Home({}) {
                 </div>
               </InsightsCard>
             ) : (
-              <InsightsCard text='Actionable Insight'>
+              <InsightsCard
+              tooltip='Actionable Insights refer to the presentation of both Buy the Dip (BTD) and Sell the Pump (STP) signals. These insights assist users in identifying potential opportunities for buying or selling based on shifts in market sentiment.'
+              text='Actionable Insight'
+              >
                 <div className='flex flex-col justify-between relative bottom-[2vh] items-center self-center h-[85%]'>
                   <div className='bg-gray-700 relative top-[10vh] w-[65%] h-[12%]'>
                     <div
@@ -227,14 +235,18 @@ export default function Home({}) {
           </div>
 
           <div>
-            <InsightsCard text='Market Sentiment'>
+            <InsightsCard
+            tooltip='Market Sentiment provides an insight into the prevailing emotions and attitudes within the crypto market. This sentiment is often influenced by discussions and interactions on social media platforms. It reflects moments of fear, optimism, skepticism, or enthusiasm that traders and investors express online.'
+            text='Market Sentiment'>
               <MarketSentiment sentiment={data.sentiment} />
             </InsightsCard>
           </div>
 
           <div>
             {!balance || balance < 100 ? (
-              <InsightsCard text='Market Sentiment Analysis'>
+              <InsightsCard
+              tooltip='The Market Sentiment Analysis tool within BandBindex provides users with a comprehensive overview of the prevailing sentiment within the crypto market. This sentiment is categorized into three main states: Bearish, Neutral, and Bullish'
+              text='Market Sentiment Analysis'>
                 <div
                   className='flex flex-col justify-center items-center h-[85%]'
                   style={{ textAlign: "center" }}
@@ -261,6 +273,7 @@ export default function Home({}) {
                 lastweek={data?.lastweek?.MSA}
                 lastMonth={data?.lastMonth?.MSA}
                 insights
+                tooltip='The Market Sentiment Analysis tool within BandBindex provides users with a comprehensive overview of the prevailing sentiment within the crypto market. This sentiment is categorized into three main states: Bearish, Neutral, and Bullish'
                 text='Market Sentiment Analysis'
               >
                 <div className='relative bottom-7'>
@@ -272,7 +285,9 @@ export default function Home({}) {
 
           {!balance || balance < 100 ? (
             <>
-              <InsightsCard text='Social Analysis Summary'>
+              <InsightsCard
+              tooltip='The Social Analysis Summary feature of BandBindex involves a comprehensive analysis of the ongoing social conversations related to various cryptocurrencies. This tool assesses the sentiment expressed in these conversations and classifies it into three main categories: Dollar Cost Average, Neutral, or Stop Loss.'
+              text='Social Analysis Summary'>
                 <div
                   className='flex flex-col justify-center items-center h-[85%]'
                   style={{ textAlign: "center" }}
@@ -301,6 +316,7 @@ export default function Home({}) {
                 lastweek={data?.lastweek?.SAS}
                 lastMonth={data?.lastMonth?.SAS}
                 insights
+                tooltip='The Social Analysis Summary feature of BandBindex involves a comprehensive analysis of the ongoing social conversations related to various cryptocurrencies. This tool assesses the sentiment expressed in these conversations and classifies it into three main categories: Dollar Cost Average, Neutral, or Stop Loss.'
                 text='Social Analysis Summary'
               >
                 <div className='relative bottom-7'>
@@ -314,7 +330,9 @@ export default function Home({}) {
 
           {!balance || balance < 100 ? (
             <>
-              <InsightsCard text='Relative Strength Index'>
+              <InsightsCard
+              tooltip='The Relative Strength Index (RSI) is a widely used technical indicator that assists in evaluating potential overbought or oversold conditions in the price of cryptocurrencies within the crypto market.'
+              text='Relative Strength Index'>
                 <div
                   className='flex flex-col justify-center items-center h-[85%]'
                   style={{ textAlign: "center" }}
@@ -343,6 +361,7 @@ export default function Home({}) {
                 lastweek={data?.lastweek?.RSI}
                 lastMonth={data?.lastMonth?.RSI}
                 insights
+                tooltip='The Relative Strength Index (RSI) is a widely used technical indicator that assists in evaluating potential overbought or oversold conditions in the price of cryptocurrencies within the crypto market.'
                 text='Relative Strength Index'
               >
                 <div className='relative bottom-7'>
