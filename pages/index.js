@@ -17,7 +17,7 @@ import AnnouncementIcon from "@mui/icons-material/Announcement";
 import LockIcon from "@mui/icons-material/Lock";
 import ToggleOffIcon from "@mui/icons-material/ToggleOff";
 import ToggleOnIcon from "@mui/icons-material/ToggleOn";
-import { SyncLoader } from "react-spinners";
+import { PacmanLoader } from "react-spinners";
 
 import useScreenWidth from "@/hooks/useScreenWidth";
 import InsightsCard from "@/Components/InsightsCard";
@@ -70,11 +70,11 @@ export default function Home({}) {
     return (
       <div className='flex flex-row items-center h-[90vh] border-2 justify-center'>
         <div className='max-w-max'>
-          <SyncLoader
-            color={"#FF8D5C"}
+          <PacmanLoader
+            color={"#F5900C"}
             loading={loading ? true : false}
             cssOverride={override}
-            size={10}
+            size={30}
             aria-label='Loading Spinner'
             data-testid='loader'
           />
@@ -97,22 +97,17 @@ export default function Home({}) {
         <div className='flex w-full justify-between  h-[11vh] md:h-[14vh] lg:h-[18vh]'>
           <div className='flex relative bottom-[1vh] lg:bottom-0 h-[70%] my-auto self-start items-center'>
             <div className='absolute flex top-[2vh] md:top-[1vh] ml-[6vh] md:ml-[9.5vw] lg:ml-[8vw] min-w-max self-center'>
-              <h4 className={`${textTheme}`}>
-                <motion.div
-                  initial={{ x: mobile ? -40 : 0 }}
-                  animate={{ x: mobile ? -40 : [0, -200, 400, 0] }}
-                  transition={{
-                    duration: 40,
-                    repeatType: "reverse",
-                    repeat: 2,
-                    repeatDelay: 1,
-                  }}
-                >
-                  <WhatshotIcon style={{ fontSize: 16, color: "#F5900C" }} />
-                  <b className='text-lg font-bold cursor-auto'>
-                    {"What's Hot: "}
-                  </b>
-                  <a
+            <h4 className={`${textTheme}`}>
+                {mobile ? (
+                  ""
+                ) : (
+                  <>
+                    <WhatshotIcon
+                      color='white'
+                      style={{ fontSize: 25, color: "#F5900C" }}
+                    />
+                    <b>{"What's Hot: "}</b>
+                    <a
                     href='https://lunarcrush.com/trending'
                     target='_blank'
                     rel='noopener noreferrer'
@@ -120,7 +115,8 @@ export default function Home({}) {
                   >
                     ${data.coin.symbol}
                   </a>
-                </motion.div>
+                  </>
+                )}
               </h4>
             </div>
           </div>
@@ -134,7 +130,7 @@ export default function Home({}) {
               {todaysDate}
             </h4>
             <div
-              style={{ lineHeight: 1, color: "#FF8D5C" }}
+              style={{ lineHeight: 1, color: "#F5900C" }}
               className='font-[900] text-center hidden md:flex  text-lg'
             >
               {<CountdownTimer />}
