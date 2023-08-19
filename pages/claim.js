@@ -159,7 +159,7 @@ const Claim = (props) => {
                   style={{ fontSize: 80, color: "#F5900C" }}
                 />
               </center>
-              <div className={textTheme}> My BandB Index: You have {points} $Index</div>
+              <div className={textTheme}> My Rewards: You have {points} Index</div>
             </motion.h1>
             <div className=' flex flex-col items-start text-[13px] mb-5 rectangular-component'>
               <h2 className='mb-5'>{props.title}</h2>
@@ -177,7 +177,7 @@ const Claim = (props) => {
               </p>
 
               <p className='mb-2'>
-                Get more $INDEX on Zealy <a href='#'>Join Daily Competition.</a>
+                Log in 7 days in a row, your rewards will grow.
               </p>
 
               <button
