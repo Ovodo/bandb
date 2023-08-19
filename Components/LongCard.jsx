@@ -254,7 +254,7 @@ export default function LongCard({ title }) {
         theme ? "shadow-[#757780]" : "shadow-slate-800"
       } p-5 w-[90vw] md:w-[87vw] lg:w-[92%] shadow-md rounded-sm`}
     >
-      <h1 className={`${textTheme} text-2xl underline font-bold mb-4`}>
+      <h1 className={`${textTheme} text-2xl font-bold mb-4`}>
         {title}
       </h1>
       <div className={`text-lg`}>
