@@ -66,28 +66,16 @@ export default function Home({}) {
     margin: "0 auto",
     borderColor: "red",
   };
-
-  useEffect(() => {
-    if (error) {
-      const reloadTimeout = setTimeout(() => {
-        window.location.reload();
-      }, 5000);
-    
-      return () => {
-        clearTimeout(reloadTimeout);
-      };
-    }
-  }, [error]);
-
+  
   if (loading) {
     return (
       <div className={textTheme}>
-        <div className={` ${colorTheme} relative flex flex-col`}>  
+        <div className={` ${colorTheme} relative flex flex-col`}>
           <div className='flex flex-row items-center h-[100vh] justify-center'>
             <div className='max-w-max'>
               <PacmanLoader
                 color={"#F5900C"}
-                loading={true}
+                loading={loading ? true : false}
                 cssOverride={override}
                 size={28}
                 aria-label='Loading Spinner'
@@ -101,6 +89,15 @@ export default function Home({}) {
   }
 
   if (error) {
+    const reloadTimeout = setTimeout(() => {
+      window.location.reload();
+    }, 5000);
+
+    // Clear the reload timeout before unmounting
+    useEffect(() => {
+      return () => clearTimeout(reloadTimeout);
+    }, []);
+
     return (
       <div className={textTheme}>
         <div className={` ${colorTheme} relative flex flex-col`}>
@@ -117,8 +114,7 @@ export default function Home({}) {
       </div>
     );
   }
-
-  // Your normal component rendering goes here
+  
   return (
     <div className='flex items-center justify-center h-full flex-1'>
       <main className={` ${colorTheme} relative flex flex-col`}>
