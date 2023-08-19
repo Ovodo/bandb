@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import TelegramIcon from "@mui/icons-material/Telegram";
-import FileOpenIcon from "@mui/icons-material/FileOpen";
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkIcon from "@mui/icons-material/Link";
 import ArticleIcon from "@mui/icons-material/Article";
@@ -555,16 +555,16 @@ export default function Home({}) {
                   <TelegramIcon />
                 </a>
                 <a
+                  href='https://www.linkedin.com/company/bandbindex/'
+                  style={{ background: "#33383b" }}
+                >
+                  <LinkedInIcon />
+                </a>                
+                <a
                   href='https://github.com/LiquidityApe/BandBindex'
                   style={{ background: "#33383b" }}
                 >
                   <GitHubIcon />
-                </a>
-                <a
-                  href='https://bandbindex.gitbook.io/bandbindex-2.0-whitepaper/project-details/disclaimer'
-                  style={{ background: "#33383b" }}
-                >
-                  <FileOpenIcon />
                 </a>
               </div>
             </div>
