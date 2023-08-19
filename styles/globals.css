@@ -518,3 +518,19 @@ ul a:hover {
   background-color: #f5900c;
   color: #ffffff;
 }
+
+.rotating-image {
+  width: 100px;
+  height: 100px;
+  animation: rotateAnimation 4s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes rotateAnimation {
+  0% {
+    transform: rotateX(0) rotateY(0) rotateZ(0);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
