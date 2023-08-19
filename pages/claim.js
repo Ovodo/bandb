@@ -155,10 +155,11 @@ const Claim = (props) => {
               className='mb-5 text-xl font-bold'
             >
               <center>
-                <RedeemIcon
-                  color='white'
-                  style={{ fontSize: 80, color: "#F5900C" }}
-                />
+              <Image
+                  src={"/assets/images/token.png"}
+                  alt='Index Token'
+                  width={100}
+                  height={100} />
               </center>
               <div className={textTheme}> My Rewards: You have {points} Index</div>
             </motion.h1>
