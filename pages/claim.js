@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setClaimed, setDailyClaim } from "../store/reducers/AppReducer";
 import { motion } from "framer-motion";
 import axios from "axios";
-import { SyncLoader } from "react-spinners";
+import { PacmanLoader } from "react-spinners";
 
 const Claim = (props) => {
   const dispatch = useDispatch();
@@ -135,11 +135,11 @@ const Claim = (props) => {
     <div className={`${textTheme} ${backgroundColorClass}`}>
       <div className='min-h-[100vh] px-5 flex items-center'>
         {points === null ? (
-          <SyncLoader
+          <PacmanLoader
             color={"#FF8D5C"}
             loading={points === null ? true : false}
             cssOverride={override}
-            size={10}
+            size={28}
             aria-label='Loading Spinner'
             data-testid='loader'
           />
