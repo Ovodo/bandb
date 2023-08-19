@@ -202,7 +202,7 @@ const InsightsCard = ({
                       style={{ fontSize: 25}}
                     />
           </span>{" "}
-          {/* This is the information icon for the tooltip, pass in the tooltip prop to change info for various components */}
+          {"Check out Bear and Bull Index Indicators for more information"}
           <div
             className={`absolute w-[15vw] h-[10vw] ${
               !showTooltip ? "opacity-0 hidden" : "opacity-100 flex"
