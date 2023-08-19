@@ -45,10 +45,10 @@ const CountdownTimer = () => {
 
   return (
     <div>
-      <p className={textTheme}>
+      <font className={textTheme}>
         <b>Next Update:</b>
-      </p>
-      <p className='mt-2'> {formatTime(countdown)}</p>
+      </font>{" "}
+      {formatTime(countdown)}
     </div>
   );
 };
