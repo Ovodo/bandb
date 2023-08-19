@@ -519,22 +519,34 @@ ul a:hover {
   color: #ffffff;
 }
 
+.globe-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust the height as needed */
+  perspective: 1000px;
+}
+
+.globe-image {
+  width: 100px;
+  height: 100px;
+  margin: 0 10px;
+}
+
 .rotating-group {
-  animation: rotateAnimation 4s linear infinite;
+  animation: rotateGlobe 15s linear infinite;
   transform-origin: center;
 }
 
-@keyframes rotateAnimation {
+@keyframes rotateGlobe {
   0%, 100% {
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    transform: rotateY(0deg);
   }
-  25% {
-    transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg);
+  33% {
+    transform: rotateY(120deg);
   }
-  50% {
-    transform: rotateX(90deg) rotateY(90deg) rotateZ(0deg);
-  }
-  75% {
-    transform: rotateX(90deg) rotateY(90deg) rotateZ(90deg);
+  66% {
+    transform: rotateY(240deg);
   }
 }
+
