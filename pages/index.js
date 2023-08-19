@@ -111,7 +111,7 @@ export default function Home({}) {
                     href='https://lunarcrush.com/trending'
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='hover:text-lg hover:text-midorange transition-all duration-200'
+                    className='hover:text-midorange transition-all duration-200'
                   >
                     ${data.coin.symbol}
                   </a>
