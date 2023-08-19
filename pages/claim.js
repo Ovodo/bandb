@@ -147,24 +147,24 @@ const Claim = (props) => {
         ) : (
           <div className='max-w-max mx-auto flex flex-col items-center'>
             <motion.h1
-              initial={{ scale: [0], rotate: [0] }}
-              animate={{
-                scale: [0, 0.2, 0.4, 1, 0.8, 1],
-                rotate: [],
-              }}
-              className='mb-5 text-xl font-bold'
-            >
-              <center>
-              <Image
-                  src={"/assets/images/token.png"}
-                  alt='Logo'
-                  width={300}
-                  height={300}
-                  style={{ verticalAlign: "middle", marginRight: "1px" }}
-                />
-              </center>
-              <div className={textTheme}> My Rewards: You have {points} Index</div>
-            </motion.h1>
+  initial={{ scale: [0], rotate: [0] }}
+  animate={{
+    scale: [0, 0.2, 0.4, 1, 0.8, 1],
+    rotate: [],
+  }}
+  className='mb-5 text-xl font-bold'
+>
+  <center>
+    <Image
+      src={"/assets/images/token.png"}
+      alt='Logo'
+      width={100}
+      height={100}
+      className='rotating-image' // Apply the CSS class here
+    />
+  </center>
+  <div className={textTheme}> My Rewards: You have {points} Index</div>
+</motion.h1>
             <div className=' flex flex-col items-start text-[13px] mb-5 rectangular-component'>
               <h2 className='mb-5'>{props.title}</h2>
               <div className='flex flex-wrap md:flex-nowrap'>
