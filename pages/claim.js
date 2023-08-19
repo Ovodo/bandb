@@ -20,7 +20,8 @@ const Claim = (props) => {
   const [lastClaimed, setLastClaimed] = useState(null);
   const [dailyClaimed, setDailyClaimed] = useState(null);
   const { theme } = useSelector((state) => state.Theme);
-  const textTheme = theme ? "text-slate-950" : "text-slate-400";
+  const textTheme = theme ? "text-slate-950" : "text-slate-300";
+  const colorTheme = theme ? "bg-[#EDF1E4]" : "bg-slate-950";
   const baseUrl =
     process.env.NODE_ENV === "production"
       ? "https://bandb.vercel.app"
