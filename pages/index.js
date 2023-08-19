@@ -130,9 +130,9 @@ export default function Home({}) {
               {todaysDate}
             </h4>
             <div
-              style={{ lineHeight: 1, color: "#F5900C" }}
-              className='font-[900] text-center hidden md:flex  text-lg'
-            >
+  style={{ lineHeight: 1, color: "#F5900C" }}
+  className='font-light text-center hidden md:flex text-lg'
+>
               {<CountdownTimer />}
             </div>
             <b>
