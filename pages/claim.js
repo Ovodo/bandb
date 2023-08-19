@@ -159,7 +159,7 @@ const Claim = (props) => {
                   style={{ fontSize: 80, color: "#F5900C" }}
                 />
               </center>
-              <div className={textTheme}> Balance: You have {points} Index</div>
+              <div className={textTheme}> My Index: {points}</div>
             </motion.h1>
             <div className=' flex flex-col items-start text-[13px] mb-5 rectangular-component'>
               <h2 className='mb-5'>{props.title}</h2>
