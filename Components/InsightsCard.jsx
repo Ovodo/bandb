@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import InfoIcon from '@mui/icons-material/Info';
 
 const InsightsCard = ({
   text,
@@ -21,13 +22,13 @@ const InsightsCard = ({
   const todayRSI = !today
     ? "..."
     : today <= 30
-    ? "Sold"
+    ? "Oversold"
     : today == 50
     ? "No Trend"
     : today < 70
     ? "Neutral"
     : today >= 70
-    ? "Bought"
+    ? "Overbought"
     : null;
 
   const todaySAS = !today
@@ -52,13 +53,13 @@ const InsightsCard = ({
   const yesterdayRSI = !yesterday
     ? "..."
     : yesterday <= 30
-    ? "Sold"
+    ? "OS"
     : yesterday == 50
     ? "No Trend"
     : yesterday < 70
     ? "Neutral"
     : yesterday >= 70
-    ? "Bought"
+    ? "OB"
     : null;
 
   const yesterdaySAS = !yesterday
@@ -84,13 +85,13 @@ const InsightsCard = ({
   const lastweekRSI = !lastweek
     ? "..."
     : lastweek <= 30
-    ? "Sold"
+    ? "OS"
     : lastweek == 50
     ? "No Trend"
     : lastweek < 70
     ? "Neutral"
     : lastweek >= 70
-    ? "Bought"
+    ? "OB"
     : null;
 
   const lastweekSAS = !lastweek
@@ -116,13 +117,13 @@ const InsightsCard = ({
   const lastMonthRSI = !lastMonth
     ? "..."
     : lastMonth <= 30
-    ? "Sold"
+    ? "OS"
     : lastMonth == 50
     ? "No Trend"
     : lastMonth < 70
     ? "Neutral"
     : lastMonth >= 70
-    ? "Bought"
+    ? "OB"
     : null;
 
   const lastMonthSAS = !lastMonth
@@ -197,7 +198,9 @@ const InsightsCard = ({
           onMouseLeave={() => setShowTooltip(false)}
         >
           <span className='mr-2' role='img' aria-label='information'>
-            <i>į</i>
+          <InfoIcon
+                      style={{ fontSize: 25}}
+                    />
           </span>{" "}
           {/* This is the information icon for the tooltip, pass in the tooltip prop to change info for various components */}
           <div
