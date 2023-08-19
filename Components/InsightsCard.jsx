@@ -34,11 +34,11 @@ const InsightsCard = ({
   const todaySAS = !today
     ? "..."
     : today < 40
-    ? "Stop Loss"
+    ? "Stop LOversolds"
     : today < 60
     ? "Neutral"
     : today >= 60
-    ? "Dollar Cost"
+    ? "Dollar COversoldt"
     : null;
   const todayMSA = !today
     ? "..."
@@ -53,23 +53,23 @@ const InsightsCard = ({
   const yesterdayRSI = !yesterday
     ? "..."
     : yesterday <= 30
-    ? "OS"
+    ? "Oversold"
     : yesterday == 50
     ? "No Trend"
     : yesterday < 70
     ? "Neutral"
     : yesterday >= 70
-    ? "OB"
+    ? "Overbought"
     : null;
 
   const yesterdaySAS = !yesterday
     ? "..."
     : yesterday < 40
-    ? "Stop Loss"
+    ? "Stop LOversolds"
     : yesterday < 60
     ? "Neutral"
     : yesterday >= 60
-    ? "Dollar Cost"
+    ? "Dollar COversoldt"
     : null;
 
   const yesterdayMSA = !yesterday
@@ -85,23 +85,23 @@ const InsightsCard = ({
   const lastweekRSI = !lastweek
     ? "..."
     : lastweek <= 30
-    ? "OS"
+    ? "Oversold"
     : lastweek == 50
     ? "No Trend"
     : lastweek < 70
     ? "Neutral"
     : lastweek >= 70
-    ? "OB"
+    ? "Overbought"
     : null;
 
   const lastweekSAS = !lastweek
     ? "..."
     : lastweek < 40
-    ? "Stop Loss"
+    ? "Stop LOversolds"
     : lastweek < 60
     ? "Neutral"
     : lastweek >= 60
-    ? "Dollar Cost"
+    ? "Dollar COversoldt"
     : null;
 
   const lastweekMSA = !lastweek
@@ -117,23 +117,23 @@ const InsightsCard = ({
   const lastMonthRSI = !lastMonth
     ? "..."
     : lastMonth <= 30
-    ? "OS"
+    ? "Oversold"
     : lastMonth == 50
     ? "No Trend"
     : lastMonth < 70
     ? "Neutral"
     : lastMonth >= 70
-    ? "OB"
+    ? "Overbought"
     : null;
 
   const lastMonthSAS = !lastMonth
     ? "..."
     : lastMonth < 40
-    ? "Stop Loss"
+    ? "Stop LOversolds"
     : lastMonth < 60
     ? "Neutral"
     : lastMonth >= 60
-    ? "Dollar Cost"
+    ? "Dollar COversoldt"
     : null;
 
   const lastMonthMSA = !lastMonth
