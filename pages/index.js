@@ -68,6 +68,7 @@ export default function Home({}) {
   };
   if (loading)
     return (
+      <div className={textTheme}>
       <div className={` ${colorTheme} relative flex flex-col`}>  
       <div className='flex flex-row items-center h-[100vh] justify-center'>
         <div className='max-w-max'>
@@ -82,6 +83,7 @@ export default function Home({}) {
         </div>
       </div>
       </div>
+      </div>
     );
 
   if (error)
@@ -89,8 +91,9 @@ export default function Home({}) {
       <div className={` ${colorTheme} relative flex flex-col`}>
       <div className='flex flex-row items-center h-[100vh] justify-center'>
         <div className='max-w-max'>
+          <center>
           <p>Network Error 🌐: Kindly Reload </p>
-          <p className='text-center'>{error.message}</p>
+          <p className={textTheme}>{error.message}</p></center>
         </div>
       </div>
       </div>
