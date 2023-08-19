@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { boxDays } from "../data/Days";
 import Box from "../Components/Box";
