@@ -132,7 +132,7 @@ const Claim = (props) => {
 
   return (
     <div className={textTheme}>
-        <main className={` ${colorTheme} relative flex flex-col`}>
+        <div className={` ${colorTheme} relative flex flex-col`}>
       <div className='min-h-[100vh] px-5 flex items-center'>
         {points === null ? (
           <PacmanLoader
@@ -205,7 +205,7 @@ const Claim = (props) => {
           </div>
         )}
       </div>
-    </main>
+    </div>
     </div>
   );
 };
