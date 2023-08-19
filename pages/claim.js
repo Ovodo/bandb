@@ -155,15 +155,15 @@ const Claim = (props) => {
   className='mb-5 text-xl font-bold'
 >
   <center>
-    <Image
-      src={"/assets/images/token.png"}
-      alt='Logo'
-      width={80}
-      height={80}
-      className='rotating-image' // Apply the CSS class here
-    />
+<Image
+  src={"/assets/images/token.png"}
+  alt='Logo'
+  width={100}
+  height={100}
+  className='rotating-image'
+/>
   </center>
-  <div className={textTheme}> My Rewards: You have {points} Index</div>
+  <div className={textTheme}>Rewards: You have {points} Index</div>
 </motion.h1>
             <div className=' flex flex-col items-start text-[13px] mb-5 rectangular-component'>
               <h2 className='mb-5'>{props.title}</h2>
