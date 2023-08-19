@@ -158,8 +158,8 @@ const Claim = (props) => {
     <Image
       src={"/assets/images/token.png"}
       alt='Logo'
-      width={50}
-      height={50}
+      width={80}
+      height={80}
       className='rotating-image' // Apply the CSS class here
     />
   </center>
