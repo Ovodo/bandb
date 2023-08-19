@@ -155,15 +155,34 @@ const Claim = (props) => {
   className='mb-5 text-xl font-bold'
 >
   <center>
+  <div className="globe-container">
   <Image
-  src={"/assets/images/token.png"}
-  alt='Logo'
-  width={150}
-  height={150}
-  className='rotating-group' // Apply the same CSS class here
-/>
+    src={"/assets/images/token.png"}
+    alt='Logo'
+    width={100}
+    height={100}
+    className='rotating-group globe-image'
+  />
+
+  <Image
+    src={"/assets/images/token.png"}
+    alt='Logo'
+    width={100}
+    height={100}
+    className='rotating-group globe-image'
+  />
+
+  <Image
+    src={"/assets/images/token.png"}
+    alt='Logo'
+    width={100}
+    height={100}
+    className='rotating-group globe-image'
+  />
+</div>
+
   </center>
-  <div className={textTheme}> My Rewards: You have {points} Index</div>
+  <div className={textTheme}>Rewards: You have {points} Index</div>
 </motion.h1>
             <div className=' flex flex-col items-start text-[13px] mb-5 rectangular-component'>
               <h2 className='mb-5'>{props.title}</h2>
