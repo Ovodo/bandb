@@ -129,9 +129,9 @@ export default function Home({}) {
             <h4 className={` ${textTheme} hidden font-[800] lg:flex`}>
               {todaysDate}
             </h4>
-            <div
+<div
   style={{ lineHeight: 1, color: "#F5900C" }}
-  className='font-light text-center hidden md:flex text-lg'
+  className='font-medium-light text-center hidden md:flex text-lg'
 >
               {<CountdownTimer />}
             </div>
