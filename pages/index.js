@@ -100,7 +100,7 @@ export default function Home({}) {
                 <center>
                   <p className={textTheme}>Oops! Something went wrong. We're working to fix it.</p>
                   <p className={textTheme}>The page will automatically reload in 5 seconds.</p>
-                  {/*<p className={textTheme}>{error.message}</p>*/}
+                  <p className={textTheme}>{error.message}</p>
                 </center>
               </div>
             </div>
@@ -108,6 +108,7 @@ export default function Home({}) {
         </div>
       );
     }
+    
   return (
     <div className='flex items-center justify-center h-full flex-1'>
       <main className={` ${colorTheme} relative flex flex-col`}>
