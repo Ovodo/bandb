@@ -11,7 +11,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkIcon from "@mui/icons-material/Link";
 import ArticleIcon from "@mui/icons-material/Article";
-import HandshakeIcon from "@mui/icons-material/Handshake";
+import ForumIcon from '@mui/icons-material/Forum';
 import RedeemIcon from "@mui/icons-material/Redeem";
 import AnnouncementIcon from "@mui/icons-material/Announcement";
 import LockIcon from "@mui/icons-material/Lock";
@@ -461,7 +461,7 @@ export default function Home({}) {
 
               <div>
                 <i className='fa fa-envelope'>
-                  <HandshakeIcon style={{ fontSize: 25, color: "#F5900C" }} />
+                  <ForumIcon style={{ fontSize: 25, color: "#F5900C" }} />
                 </i>
                 <p>
                   {" "}
@@ -471,7 +471,7 @@ export default function Home({}) {
                     rel='noopener noreferrer'
                     style={{ color: "#FFFFFF" }}
                   >
-                    Request Collaboration
+                    Join Community
                   </a>
                 </p>
               </div>
