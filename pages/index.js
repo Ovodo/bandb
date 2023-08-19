@@ -74,7 +74,7 @@ export default function Home({}) {
             color={"#F5900C"}
             loading={loading ? true : false}
             cssOverride={override}
-            size={30}
+            size={25}
             aria-label='Loading Spinner'
             data-testid='loader'
           />
@@ -363,7 +363,7 @@ export default function Home({}) {
           <LongCard title='Data Sources' />
         </section>
         <section className='flex flex-col mb-[15vh] items-center'>
-          <LongCard title='Bear and Bull Index indicators' />
+          <LongCard title='Bear and Bull Index Indicators' />
         </section>
         <section className='flex flex-col mb-[15vh] items-center'>
           <LongCard title='Disclaimer' />
