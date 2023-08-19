@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { boxDays } from "../data/Days";
 import Box from "../Components/Box";
-import RedeemIcon from "@mui/icons-material/Redeem";
 import { TiTime } from "react-icons/ti";
 import SlideIn from "../Components/SlideIn";
 import { useSelector, useDispatch } from "react-redux";
@@ -155,9 +154,12 @@ const Claim = (props) => {
               className='mb-5 text-xl font-bold'
             >
               <center>
-                <RedeemIcon
-                  color='white'
-                  style={{ fontSize: 80, color: "#F5900C" }}
+              <Image
+                  src={"/assets/images/token.png"}
+                  alt='Logo'
+                  width={300}
+                  height={300}
+                  style={{ verticalAlign: "middle", marginRight: "1px" }}
                 />
               </center>
               <div className={textTheme}> My Rewards: You have {points} Index</div>
