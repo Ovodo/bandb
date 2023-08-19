@@ -243,12 +243,12 @@ const Navbar = ({ children }) => {
                       User == "" ? handleClaim() : null;
                     }}
                     href={User == "" ? "#soon" : "/claim"}
-                    style={{ fontSize: 25, color: "#FF8D5C" }}
+                    style={{ fontSize: 25, color: "#F5900C" }}
                   >
                     <RedeemIcon
                       style={{
                         fontSize: 25,
-                        color: "#FF8D5C",
+                        color: "#F5900C",
                         cursor: "pointer",
                       }}
                     />
@@ -264,7 +264,7 @@ const Navbar = ({ children }) => {
                         color='white'
                         style={{
                           fontSize: 25,
-                          color: "#FF8D5C",
+                          color: "#F5900C",
                           cursor: "pointer",
                         }}
                       />
@@ -273,7 +273,7 @@ const Navbar = ({ children }) => {
                         color='white'
                         style={{
                           fontSize: 25,
-                          color: "#FF8D5C",
+                          color: "#F5900C",
                           cursor: "pointer",
                         }}
                       />
