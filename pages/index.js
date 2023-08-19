@@ -66,49 +66,59 @@ export default function Home({}) {
     margin: "0 auto",
     borderColor: "red",
   };
-  if (loading)
-    return (
-      <div className={textTheme}>
-      <div className={` ${colorTheme} relative flex flex-col`}>  
-      <div className='flex flex-row items-center h-[100vh] justify-center'>
-        <div className='max-w-max'>
-          <PacmanLoader
-            color={"#F5900C"}
-            loading={loading ? true : false}
-            cssOverride={override}
-            size={28}
-            aria-label='Loading Spinner'
-            data-testid='loader'
-          />
-        </div>
-      </div>
-      </div>
-      </div>
-    );
 
+  useEffect(() => {
     if (error) {
-      // Automatically reload the page after 5 seconds
-      setTimeout(() => {
+      const reloadTimeout = setTimeout(() => {
         window.location.reload();
       }, 5000);
     
-      return (
-        <div className={textTheme}>
-          <div className={` ${colorTheme} relative flex flex-col`}>
-            <div className='flex flex-row items-center h-[100vh] justify-center'>
-              <div className='max-w-max'>
-                <center>
-                  <p className={textTheme}>Oops! Something went wrong. We're working to fix it.</p>
-                  <p className={textTheme}>The page will automatically reload in 5 seconds.</p>
-                  <p className={textTheme}>{error.message}</p>
-                </center>
-              </div>
+      return () => {
+        clearTimeout(reloadTimeout);
+      };
+    }
+  }, [error]);
+
+  if (loading) {
+    return (
+      <div className={textTheme}>
+        <div className={` ${colorTheme} relative flex flex-col`}>  
+          <div className='flex flex-row items-center h-[100vh] justify-center'>
+            <div className='max-w-max'>
+              <PacmanLoader
+                color={"#F5900C"}
+                loading={true}
+                cssOverride={override}
+                size={28}
+                aria-label='Loading Spinner'
+                data-testid='loader'
+              />
             </div>
           </div>
         </div>
-      );
-    }
-    
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className={textTheme}>
+        <div className={` ${colorTheme} relative flex flex-col`}>
+          <div className='flex flex-row items-center h-[100vh] justify-center'>
+            <div className='max-w-max'>
+              <center>
+                <p className={textTheme}>Oops! Something went wrong. We're working to fix it.</p>
+                <p className={textTheme}>The page will automatically reload in 5 seconds.</p>
+                <p className={textTheme}>{error.message}</p>
+              </center>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Your normal component rendering goes here
   return (
     <div className='flex items-center justify-center h-full flex-1'>
       <main className={` ${colorTheme} relative flex flex-col`}>
