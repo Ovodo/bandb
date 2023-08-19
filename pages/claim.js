@@ -157,7 +157,7 @@ const Claim = (props) => {
               <center>
               <Image
                   src={"/assets/images/token.png"}
-                  alt='Index Token'
+                  alt='Index'
                   width={100}
                   height={100} />
               </center>
