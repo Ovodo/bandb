@@ -20,7 +20,6 @@ const Claim = (props) => {
   const [lastClaimed, setLastClaimed] = useState(null);
   const [dailyClaimed, setDailyClaimed] = useState(null);
   const { theme } = useSelector((state) => state.Theme);
-  const backgroundColorClass = theme ? "bg-light-background" : "bg-dark-background";
   const textTheme = theme ? "text-slate-950" : "text-slate-400";
   const baseUrl =
     process.env.NODE_ENV === "production"
@@ -132,7 +131,8 @@ const Claim = (props) => {
   };
 
   return (
-    <div className={`${textTheme} ${backgroundColorClass}`}>
+    <div className={textTheme}>
+        <main className={` ${colorTheme} relative flex flex-col`}>
       <div className='min-h-[100vh] px-5 flex items-center'>
         {points === null ? (
           <PacmanLoader
@@ -205,6 +205,7 @@ const Claim = (props) => {
           </div>
         )}
       </div>
+    </main>
     </div>
   );
 };
